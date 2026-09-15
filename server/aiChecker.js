@@ -1,0 +1,109 @@
+/**
+ * aiChecker.js
+ * Uses Google Gemini API to evaluate whether a student's answer is
+ * approximately correct (ignoring minor spelling/case/punctuation differences).
+ */
+
+const https = require('https');
+
+const API_URL_BASE =
+  'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent';
+
+/**
+ * Check if studentAnswer is approximately correct for the given question.
+ * Falls back to exact (normalized) match if AI is unavailable or key is missing.
+ *
+ * @param {string} questionText   The question text shown to the player
+ * @param {string} studentAnswer  What the player typed
+ * @param {string} correctAnswer  The expected correct answer
+ * @returns {Promise<{correct: boolean, reason: string}>}
+ */
+async function check(questionText, studentAnswer, correctAnswer) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  // Fallback: normalized string match when no API key is set
+  if (!apiKey) {
+    const correct = normalize(studentAnswer) === normalize(correctAnswer);
+    return { correct, reason: correct ? 'Chính xác (khớp chuỗi)' : 'Sai' };
+  }
+
+  const prompt = `You are a judge for a Vietnamese academic quiz show.
+
+Question: "${questionText}"
+Original/Official Answer: "${correctAnswer}"
+Contestant's Answer: "${studentAnswer}"
+
+Your task is to evaluate whether the contestant's answer is CORRECT in terms of content and meaning.
+
+CASES YOU MUST ACCEPT AS CORRECT:
+1. Numbers written as words or vice versa (e.g., "seven" = "7", "fifteen" = "15").
+2. Omission of grammatical categories or filler words (e.g., answering "sunflower" for the answer "common sunflower", "cow" for "dairy cow", "Hanoi" for "City of Hanoi").
+3. Missing units of measurement (e.g., "7" instead of "7 days", "3" instead of "3 atoms").
+4. Synonymous, equivalent expressions, or other recognized alternative names.
+
+CASES THAT ARE INCORRECT:
+- Factual errors, incorrect essence, incorrect data, incorrect proper nouns.
+- Confusion with a completely different concept.
+- Vague and unclear answers (e.g., answering "Màu xanh" is not accepted, "Xanh lá" for green or "Xanh dương" for blue).
+
+Respond ONLY with a valid JSON result (containing no other text outside the JSON):
+{"correct": true}
+or
+{"correct": false}`;
+
+  try {
+    const result = await callGemini(apiKey, prompt);
+    // Parse the JSON from Gemini response
+    const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const cleaned = text.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(cleaned);
+    return { correct: !!parsed.correct, reason: parsed.reason || '' };
+  } catch (err) {
+    console.error('[aiChecker] Gemini error, falling back to string match:', err.message);
+    const correct = normalize(studentAnswer) === normalize(correctAnswer);
+    return { correct, reason: correct ? 'Chính xác (fallback)' : 'Sai (fallback)' };
+  }
+}
+
+function normalize(str) {
+  return String(str || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/đ/g, 'd')
+    .replace(/[^a-z0-9]/g, '')
+    .trim();
+}
+
+function callGemini(apiKey, prompt) {
+  return new Promise((resolve, reject) => {
+    const body = JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { temperature: 0, maxOutputTokens: 250 }
+    });
+
+    const url = `${API_URL_BASE}?key=${apiKey}`;
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
+    };
+
+    const req = https.request(url, options, (res) => {
+      let data = '';
+      res.on('data', (chunk) => (data += chunk));
+      res.on('end', () => {
+        try {
+          resolve(JSON.parse(data));
+        } catch {
+          reject(new Error('Invalid JSON from Gemini: ' + data.slice(0, 250)));
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.setTimeout(8000, () => { req.destroy(); reject(new Error('Gemini request timed out')); });
+    req.write(body);
+    req.end();
+  });
+}
+
+module.exports = { check };

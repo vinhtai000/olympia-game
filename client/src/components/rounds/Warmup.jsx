@@ -7,9 +7,10 @@ export default function Warmup({ roomId }) {
   const [question, setQuestion] = useState(null);
   const [progress, setProgress] = useState({ index: 0, total: 0 });
   const [answer, setAnswer] = useState('');
-  const [feedback, setFeedback] = useState(null); // {correct, correctAnswer, scoreDelta}
-  const [reveal, setReveal] = useState(null);     // {correctAnswer} shown for 5s
+  const [feedback, setFeedback] = useState(null);
+  const [reveal, setReveal] = useState(null);
   const [revealCountdown, setRevealCountdown] = useState(5);
+  const [checking, setChecking] = useState(false); // AI is evaluating
   const [ended, setEnded] = useState(false);
   const [timeLeft, setTimeLeft] = useState(10);
   const timerRef = useRef(null);
@@ -22,22 +23,26 @@ export default function Warmup({ roomId }) {
       setAnswer('');
       setFeedback(null);
       setReveal(null);
-      setTimeLeft(q.timeLimitSeconds || 20);
+      setChecking(false);
+      setTimeLeft(q.timeLimitSeconds || 10);
       clearInterval(timerRef.current);
       clearInterval(revealTimerRef.current);
       timerRef.current = setInterval(() => {
         setTimeLeft((t) => (t > 0 ? t - 1 : 0));
       }, 1000);
     }
+    function onChecking() {
+      setChecking(true);
+    }
     function onResult(r) {
+      setChecking(false);
       if (r.playerId === selfId) setFeedback(r);
     }
     function onReveal(r) {
-      // Time's up or someone got it right — show the correct answer for 5s
+      setChecking(false);
       setReveal(r);
       setRevealCountdown(5);
       clearInterval(timerRef.current);
-      // Countdown the 5-second reveal window
       clearInterval(revealTimerRef.current);
       revealTimerRef.current = setInterval(() => {
         setRevealCountdown((c) => (c > 0 ? c - 1 : 0));
@@ -54,6 +59,7 @@ export default function Warmup({ roomId }) {
       }
     }
     socket.on('warmup:question', onQuestion);
+    socket.on('warmup:checking', onChecking);
     socket.on('warmup:result', onResult);
     socket.on('warmup:reveal', onReveal);
     socket.on('warmup:ended', onEnded);
@@ -61,6 +67,7 @@ export default function Warmup({ roomId }) {
     socket.emit('room:sync', { roomId });
     return () => {
       socket.off('warmup:question', onQuestion);
+      socket.off('warmup:checking', onChecking);
       socket.off('warmup:result', onResult);
       socket.off('warmup:reveal', onReveal);
       socket.off('warmup:ended', onEnded);
@@ -72,7 +79,7 @@ export default function Warmup({ roomId }) {
 
   function submit(e) {
     e.preventDefault();
-    if (!question || feedback || reveal) return;
+    if (!question || feedback || reveal || checking) return;
     socket.emit('warmup:answer', { roomId, questionId: question.id, answer });
   }
 
@@ -98,7 +105,7 @@ export default function Warmup({ roomId }) {
           <span className="font-semibold text-olympia-blue">Câu tiếp theo: {revealCountdown}s</span>
         </div>
         <h2 className="text-xl font-semibold text-olympia-navy mb-4">{question.text}</h2>
-        <div className="rounded-xl border-2 border-olympia-gold bg-olympia-gold/10 p-5 text-center animate-pulse">
+        <div className="rounded-xl border-2 border-olympia-gold bg-olympia-gold/10 p-5 text-center">
           <p className="text-sm text-slate-500 mb-1">Đáp án đúng</p>
           <p className="text-2xl font-bold text-olympia-navy">{reveal.correctAnswer}</p>
         </div>
@@ -132,20 +139,24 @@ export default function Warmup({ roomId }) {
           className="flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-olympia-gold"
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
-          disabled={!!feedback || !!reveal}
+          disabled={!!feedback || !!reveal || checking}
           placeholder="Nhập câu trả lời..."
         />
-        <button className="olympia-btn-primary" disabled={!!feedback || !!reveal}>
-          Trả lời
+        <button className="olympia-btn-primary min-w-[90px]" disabled={!!feedback || !!reveal || checking}>
+          {checking ? '⏳ Kiểm tra...' : 'Trả lời'}
         </button>
       </form>
-      {feedback && (
+      {checking && !feedback && (
+        <p className="mt-4 text-center text-slate-500 animate-pulse">🤖 AI đang kiểm tra câu trả lời...</p>
+      )}
+      {feedback && !checking && (
         <p className={`mt-4 font-medium ${feedback.correct ? 'text-green-600' : 'text-olympia-red'}`}>
           {feedback.correct
             ? `✅ Chính xác! +${feedback.scoreDelta} điểm — chờ đáp án...`
             : '❌ Chưa chính xác — chờ đáp án...'}
         </p>
       )}
+
     </div>
   );
 }

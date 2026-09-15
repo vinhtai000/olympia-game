@@ -11,6 +11,7 @@ export default function Finish({ roomId }) {
   const [stealOpen, setStealOpen] = useState(false);
   const [lastResult, setLastResult] = useState(null);
   const [starUsed, setStarUsed] = useState(false);
+  const [checking, setChecking] = useState(false);
   const [ended, setEnded] = useState(false);
 
   useEffect(() => {
@@ -28,14 +29,20 @@ export default function Finish({ roomId }) {
     function onQuestionShown(q) {
       setActiveQuestion(q);
       setStealOpen(false);
+      setChecking(false);
       setAnswer('');
     }
+    function onChecking() {
+      setChecking(true);
+    }
     function onQuestionResult(r) {
+      setChecking(false);
       setLastResult(r);
       setStealOpen(!!r.stealOpen);
       setPacks((prev) => removeQuestion(prev, activeQuestion?.id));
     }
     function onStealResult(r) {
+      setChecking(false);
       setLastResult((prev) => ({ ...prev, steal: r }));
       if (r.correct) setStealOpen(false);
     }
@@ -48,6 +55,7 @@ export default function Finish({ roomId }) {
     socket.on('round:started', onStarted);
     socket.on('finish:turn', onTurn);
     socket.on('finish:questionShown', onQuestionShown);
+    socket.on('finish:checking', onChecking);
     socket.on('finish:questionResult', onQuestionResult);
     socket.on('finish:stealResult', onStealResult);
     socket.on('finish:starUsed', onStarUsed);
@@ -57,6 +65,7 @@ export default function Finish({ roomId }) {
       socket.off('round:started', onStarted);
       socket.off('finish:turn', onTurn);
       socket.off('finish:questionShown', onQuestionShown);
+      socket.off('finish:checking', onChecking);
       socket.off('finish:questionResult', onQuestionResult);
       socket.off('finish:stealResult', onStealResult);
       socket.off('finish:starUsed', onStarUsed);
@@ -79,11 +88,13 @@ export default function Finish({ roomId }) {
 
   function submitAnswer(e) {
     e.preventDefault();
+    if (checking) return;
     socket.emit('finish:answer', { roomId, answer });
   }
 
   function submitSteal(e) {
     e.preventDefault();
+    if (checking) return;
     socket.emit('finish:steal', { roomId, answer });
     setAnswer('');
   }
@@ -162,11 +173,16 @@ export default function Finish({ roomId }) {
                 className="flex-1 border rounded-lg px-3 py-2"
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
+                disabled={checking}
                 placeholder="Nhập câu trả lời..."
               />
-              <button className="olympia-btn-primary">Trả lời</button>
+              <button className="olympia-btn-primary min-w-[90px]" disabled={checking}>
+                {checking ? '⏳ Kiểm tra...' : 'Trả lời'}
+              </button>
             </form>
           )}
+
+          {checking && <p className="mt-4 text-sm text-slate-500 animate-pulse">🤖 AI đang kiểm tra câu trả lời...</p>}
 
           {activeQuestion.pickedBy !== selfId && !lastResult && (
             <p className="text-slate-500">Chờ {turnName} trả lời...</p>
@@ -183,9 +199,12 @@ export default function Finish({ roomId }) {
                     className="flex-1 border rounded-lg px-3 py-2"
                     value={answer}
                     onChange={(e) => setAnswer(e.target.value)}
+                    disabled={checking}
                     placeholder="Giành điểm: nhập câu trả lời..."
                   />
-                  <button className="olympia-btn-secondary">Giành điểm</button>
+                  <button className="olympia-btn-secondary min-w-[90px]" disabled={checking}>
+                    {checking ? '⏳ Kiểm tra...' : 'Giành điểm'}
+                  </button>
                 </form>
               )}
               {lastResult.steal && (

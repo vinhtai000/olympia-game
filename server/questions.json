@@ -4,2236 +4,592 @@
       "warmup": [
         {
           "id": "g1-wu-1",
-          "text": "[Lớp 1] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
+          "text": "Con vật nào kêu 'ò ó o' vào buổi sáng sớm?",
+          "answer": "Gà trống"
         },
         {
           "id": "g1-wu-2",
-          "text": "[Lớp 1] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
+          "text": "Màu gì là màu của lá cây?",
+          "answer": "Màu xanh lục"
         },
         {
           "id": "g1-wu-3",
-          "text": "[Lớp 1] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
+          "text": "Một tuần có bao nhiêu ngày?",
+          "answer": "7 ngày"
         },
         {
           "id": "g1-wu-4",
-          "text": "[Lớp 1] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
+          "text": "Bông hoa mặt trời còn gọi là hoa gì?",
+          "answer": "Hoa hướng dương"
         },
         {
           "id": "g1-wu-5",
-          "text": "[Lớp 1] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g1-wu-6",
-          "text": "[Lớp 1] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g1-wu-7",
-          "text": "[Lớp 1] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g1-wu-8",
-          "text": "[Lớp 1] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
+          "text": "Con vật nào sống dưới nước, có vảy và bơi bằng vây?",
+          "answer": "Cá"
         }
       ],
       "obstacle": {
         "id": "g1-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 1",
-        "imageHint": "Hình ảnh gợi ý cho lớp 1",
+        "secretPhrase": "HOA QUẢ",
+        "imageHint": "Một rổ trái cây tươi ngon",
         "rows": [
           {
             "id": "g1-cnv-row-1",
-            "clue": "[Lớp 1] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
+            "clue": "Loại quả màu vàng, vị chua ngọt, có nhiều múi, thường được vắt lấy nước uống",
+            "answer": "Cam"
           },
           {
             "id": "g1-cnv-row-2",
-            "clue": "[Lớp 1] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
+            "clue": "Loại quả nhỏ màu đỏ, vị ngọt, hay được làm sinh tố hoặc ăn với kem",
+            "answer": "Dâu tây"
           },
           {
             "id": "g1-cnv-row-3",
-            "clue": "[Lớp 1] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
+            "clue": "Loại quả lớn, vỏ xanh, ruột đỏ, có nhiều hạt đen, hay ăn vào mùa hè",
+            "answer": "Dưa hấu"
           },
           {
             "id": "g1-cnv-row-4",
-            "clue": "[Lớp 1] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
+            "clue": "Loại quả màu vàng, hình cong, vị ngọt, khỉ rất thích ăn",
+            "answer": "Chuối"
           },
           {
             "id": "g1-cnv-row-5",
-            "clue": "[Lớp 1] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
+            "clue": "Loại quả màu vàng hoặc xanh, hình tròn, có hương thơm đặc trưng, mọc thành chùm",
+            "answer": "Nho"
           }
         ]
       },
       "acceleration": [
         {
           "id": "g1-tt-1",
-          "text": "[Lớp 1] Câu hỏi tăng tốc số 1",
+          "text": "5 + 3 = ?",
           "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
+          "options": ["6", "7", "8", "9"],
+          "answer": "8",
+          "timeLimitSeconds": 20
         },
         {
           "id": "g1-tt-2",
-          "text": "[Lớp 1] Câu hỏi tăng tốc số 2",
+          "text": "Con vật nào là 'vua của rừng xanh'?",
           "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
+          "options": ["Con hổ", "Con sư tử", "Con voi", "Con gấu"],
+          "answer": "Con sư tử",
+          "timeLimitSeconds": 20
         },
         {
           "id": "g1-tt-3",
-          "text": "[Lớp 1] Câu hỏi tăng tốc số 3",
+          "text": "Hình nào có 3 cạnh?",
           "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
+          "options": ["Hình vuông", "Hình tròn", "Hình tam giác", "Hình chữ nhật"],
+          "answer": "Hình tam giác",
+          "timeLimitSeconds": 20
         },
         {
           "id": "g1-tt-4",
-          "text": "[Lớp 1] Câu hỏi tăng tốc số 4",
+          "text": "Mặt trời mọc ở hướng nào?",
           "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
+          "options": ["Tây", "Nam", "Bắc", "Đông"],
+          "answer": "Đông",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g1-tt-5",
+          "text": "10 - 4 = ?",
+          "image": null,
+          "options": ["4", "5", "6", "7"],
+          "answer": "6",
+          "timeLimitSeconds": 20
         }
       ],
       "finish": [
         {
           "id": "g1-vd-10-1",
           "points": 10,
-          "text": "[Lớp 1] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
+          "text": "Có bao nhiêu ngón tay trên hai bàn tay?",
+          "answer": "10 ngón"
         },
         {
           "id": "g1-vd-10-2",
           "points": 10,
-          "text": "[Lớp 1] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
+          "text": "Màu cờ Tổ quốc Việt Nam có màu gì?",
+          "answer": "Đỏ và vàng"
         },
         {
           "id": "g1-vd-10-3",
           "points": 10,
-          "text": "[Lớp 1] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
+          "text": "Con vật nào cho ta uống sữa mỗi ngày?",
+          "answer": "Con bò"
         },
         {
           "id": "g1-vd-20-1",
           "points": 20,
-          "text": "[Lớp 1] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
+          "text": "Thủ đô của nước Việt Nam là thành phố nào?",
+          "answer": "Hà Nội"
         },
         {
           "id": "g1-vd-20-2",
           "points": 20,
-          "text": "[Lớp 1] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
+          "text": "Mùa nào trong năm có nhiều hoa nở nhất và trời ấm áp?",
+          "answer": "Mùa xuân"
         },
         {
           "id": "g1-vd-20-3",
           "points": 20,
-          "text": "[Lớp 1] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
+          "text": "Ngày nào trong năm là ngày Quốc khánh Việt Nam?",
+          "answer": "2 tháng 9"
         },
         {
           "id": "g1-vd-30-1",
           "points": 30,
-          "text": "[Lớp 1] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
+          "text": "Loài chim nào biết nói tiếng người?",
+          "answer": "Vẹt"
         },
         {
           "id": "g1-vd-30-2",
           "points": 30,
-          "text": "[Lớp 1] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
+          "text": "Nước ta có bao nhiêu tỉnh và thành phố trực thuộc trung ương?",
+          "answer": "63 tỉnh thành"
         },
         {
           "id": "g1-vd-30-3",
           "points": 30,
-          "text": "[Lớp 1] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
+          "text": "Hành tinh của chúng ta tên là gì?",
+          "answer": "Trái Đất"
         }
       ]
     },
     "2": {
       "warmup": [
-        {
-          "id": "g2-wu-1",
-          "text": "[Lớp 2] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g2-wu-2",
-          "text": "[Lớp 2] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g2-wu-3",
-          "text": "[Lớp 2] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g2-wu-4",
-          "text": "[Lớp 2] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g2-wu-5",
-          "text": "[Lớp 2] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g2-wu-6",
-          "text": "[Lớp 2] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g2-wu-7",
-          "text": "[Lớp 2] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g2-wu-8",
-          "text": "[Lớp 2] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g2-wu-1","text": "Kết quả của 12 + 15 là bao nhiêu?","answer": "27"},
+        {"id": "g2-wu-2","text": "Con vật nào có thể sống cả trên cạn lẫn dưới nước?","answer": "Ếch"},
+        {"id": "g2-wu-3","text": "Một năm có bao nhiêu tháng?","answer": "12 tháng"},
+        {"id": "g2-wu-4","text": "Bài thơ 'Dừa ơi' nói về loại cây gì?","answer": "Cây dừa"},
+        {"id": "g2-wu-5","text": "Mặt trăng thường xuất hiện vào lúc nào?","answer": "Ban đêm"}
       ],
       "obstacle": {
         "id": "g2-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 2",
-        "imageHint": "Hình ảnh gợi ý cho lớp 2",
+        "secretPhrase": "ĐỘNG VẬT",
+        "imageHint": "Vườn thú với nhiều loài động vật",
         "rows": [
-          {
-            "id": "g2-cnv-row-1",
-            "clue": "[Lớp 2] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g2-cnv-row-2",
-            "clue": "[Lớp 2] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g2-cnv-row-3",
-            "clue": "[Lớp 2] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g2-cnv-row-4",
-            "clue": "[Lớp 2] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g2-cnv-row-5",
-            "clue": "[Lớp 2] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g2-cnv-row-1","clue": "Loài thú lớn nhất trên cạn, có vòi dài, tai to","answer": "Voi"},
+          {"id": "g2-cnv-row-2","clue": "Loài chim to, không biết bay, sống ở châu Phi, chạy rất nhanh","answer": "Đà điểu"},
+          {"id": "g2-cnv-row-3","clue": "Loài động vật sọc vằn đen trắng, sống ở châu Phi","answer": "Ngựa vằn"},
+          {"id": "g2-cnv-row-4","clue": "Con vật màu vàng nâu, cổ rất dài, ăn lá trên cao","answer": "Hươu cao cổ"},
+          {"id": "g2-cnv-row-5","clue": "Loài thú biển thông minh, hay nhảy qua vòng trong rạp xiếc","answer": "Cá heo"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g2-tt-1",
-          "text": "[Lớp 2] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g2-tt-2",
-          "text": "[Lớp 2] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g2-tt-3",
-          "text": "[Lớp 2] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g2-tt-4",
-          "text": "[Lớp 2] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g2-tt-1","text": "45 - 20 = ?","image": null,"options": ["20","25","30","35"],"answer": "25","timeLimitSeconds": 20},
+        {"id": "g2-tt-2","text": "Cây nào cho bóng mát và gỗ quý, thường trồng dọc đường phố?","image": null,"options": ["Cây bàng","Cây dừa","Cây cam","Cây lúa"],"answer": "Cây bàng","timeLimitSeconds": 20},
+        {"id": "g2-tt-3","text": "Đơn vị đo độ dài nhỏ nhất trong các đơn vị sau là gì?","image": null,"options": ["km","m","dm","cm"],"answer": "cm","timeLimitSeconds": 20},
+        {"id": "g2-tt-4","text": "Con vật nào là biểu tượng của sự trung thành?","image": null,"options": ["Mèo","Chó","Thỏ","Gà"],"answer": "Chó","timeLimitSeconds": 20},
+        {"id": "g2-tt-5","text": "3 x 4 = ?","image": null,"options": ["10","11","12","13"],"answer": "12","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g2-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 2] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g2-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 2] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g2-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 2] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g2-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 2] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g2-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 2] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g2-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 2] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g2-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 2] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g2-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 2] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g2-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 2] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g2-vd-10-1","points": 10,"text": "Một ngày có bao nhiêu giờ?","answer": "24 giờ"},
+        {"id": "g2-vd-10-2","points": 10,"text": "Cây lúa cho ta thứ gì để ăn hàng ngày?","answer": "Gạo"},
+        {"id": "g2-vd-10-3","points": 10,"text": "Màu của bầu trời lúc trời quang không mây là màu gì?","answer": "Màu xanh"},
+        {"id": "g2-vd-20-1","points": 20,"text": "Tên của biển phía đông của Việt Nam là gì?","answer": "Biển Đông"},
+        {"id": "g2-vd-20-2","points": 20,"text": "Bác Hồ sinh ngày tháng năm nào?","answer": "19 tháng 5 năm 1890"},
+        {"id": "g2-vd-20-3","points": 20,"text": "Động vật nào tạo ra mật ong?","answer": "Con ong"},
+        {"id": "g2-vd-30-1","points": 30,"text": "Việt Nam thuộc châu lục nào?","answer": "Châu Á"},
+        {"id": "g2-vd-30-2","points": 30,"text": "Tên gọi khác của 'ngô' ở miền Nam Việt Nam là gì?","answer": "Bắp"},
+        {"id": "g2-vd-30-3","points": 30,"text": "Sông dài nhất chảy qua lãnh thổ Việt Nam là sông nào?","answer": "Sông Mê Kông"}
       ]
     },
     "3": {
       "warmup": [
-        {
-          "id": "g3-wu-1",
-          "text": "[Lớp 3] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g3-wu-2",
-          "text": "[Lớp 3] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g3-wu-3",
-          "text": "[Lớp 3] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g3-wu-4",
-          "text": "[Lớp 3] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g3-wu-5",
-          "text": "[Lớp 3] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g3-wu-6",
-          "text": "[Lớp 3] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g3-wu-7",
-          "text": "[Lớp 3] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g3-wu-8",
-          "text": "[Lớp 3] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g3-wu-1","text": "Kết quả của 125 + 236 là bao nhiêu?","answer": "361"},
+        {"id": "g3-wu-2","text": "Con sông nào dài nhất thế giới?","answer": "Sông Nile"},
+        {"id": "g3-wu-3","text": "Một phút có bao nhiêu giây?","answer": "60 giây"},
+        {"id": "g3-wu-4","text": "Kim loại nào nhẹ hơn nước và nổi trên mặt nước?","answer": "Natri"},
+        {"id": "g3-wu-5","text": "Quốc hoa của Việt Nam là hoa gì?","answer": "Hoa sen"}
       ],
       "obstacle": {
         "id": "g3-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 3",
-        "imageHint": "Hình ảnh gợi ý cho lớp 3",
+        "secretPhrase": "THIÊN NHIÊN",
+        "imageHint": "Phong cảnh thiên nhiên hùng vĩ",
         "rows": [
-          {
-            "id": "g3-cnv-row-1",
-            "clue": "[Lớp 3] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g3-cnv-row-2",
-            "clue": "[Lớp 3] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g3-cnv-row-3",
-            "clue": "[Lớp 3] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g3-cnv-row-4",
-            "clue": "[Lớp 3] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g3-cnv-row-5",
-            "clue": "[Lớp 3] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g3-cnv-row-1","clue": "Hiện tượng nước bốc hơi, tạo thành đám nước trắng trên bầu trời","answer": "Mây"},
+          {"id": "g3-cnv-row-2","clue": "Hiện tượng điện trong khí quyển phát sáng kèm theo tiếng nổ lớn","answer": "Sấm sét"},
+          {"id": "g3-cnv-row-3","clue": "Phần đất liền cao hơn các vùng xung quanh, đỉnh thường có tuyết","answer": "Núi"},
+          {"id": "g3-cnv-row-4","clue": "Vùng đất thấp, bằng phẳng ở gần biển, thường trồng lúa","answer": "Đồng bằng"},
+          {"id": "g3-cnv-row-5","clue": "Luồng nước di chuyển liên tục trong một lòng đất dài","answer": "Sông"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g3-tt-1",
-          "text": "[Lớp 3] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g3-tt-2",
-          "text": "[Lớp 3] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g3-tt-3",
-          "text": "[Lớp 3] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g3-tt-4",
-          "text": "[Lớp 3] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g3-tt-1","text": "Kết quả của 8 x 7 = ?","image": null,"options": ["54","56","58","60"],"answer": "56","timeLimitSeconds": 20},
+        {"id": "g3-tt-2","text": "Loại cá nào được gọi là 'ông' ở Việt Nam?","image": null,"options": ["Cá chép","Cá mập","Cá voi","Cá heo"],"answer": "Cá voi","timeLimitSeconds": 20},
+        {"id": "g3-tt-3","text": "Lục địa nào lạnh nhất trên Trái Đất?","image": null,"options": ["Bắc Cực","Nam Cực (châu Nam Cực)","Châu Á","Châu Âu"],"answer": "Nam Cực (châu Nam Cực)","timeLimitSeconds": 20},
+        {"id": "g3-tt-4","text": "Bao nhiêu cm bằng 1 m?","image": null,"options": ["10","100","1000","10000"],"answer": "100","timeLimitSeconds": 20},
+        {"id": "g3-tt-5","text": "Nhạc cụ nào dùng dây và cung kéo để phát ra âm thanh?","image": null,"options": ["Đàn guitar","Đàn violin","Sáo","Trống"],"answer": "Đàn violin","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g3-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 3] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g3-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 3] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g3-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 3] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g3-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 3] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g3-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 3] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g3-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 3] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g3-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 3] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g3-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 3] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g3-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 3] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g3-vd-10-1","points": 10,"text": "Nước đóng băng ở nhiệt độ bao nhiêu độ C?","answer": "0 độ C"},
+        {"id": "g3-vd-10-2","points": 10,"text": "Loài hoa nào nở vào mùa đông, tượng trưng cho sức mạnh?","answer": "Hoa mai hoặc hoa đào"},
+        {"id": "g3-vd-10-3","points": 10,"text": "Trái Đất quay quanh mặt trời hết bao nhiêu ngày?","answer": "365 ngày"},
+        {"id": "g3-vd-20-1","points": 20,"text": "Ngôn ngữ nào được sử dụng nhiều nhất trên thế giới?","answer": "Tiếng Anh hoặc tiếng Trung"},
+        {"id": "g3-vd-20-2","points": 20,"text": "Vịnh Hạ Long thuộc tỉnh thành nào của Việt Nam?","answer": "Quảng Ninh"},
+        {"id": "g3-vd-20-3","points": 20,"text": "Loài chim nào tượng trưng cho hòa bình?","answer": "Chim bồ câu"},
+        {"id": "g3-vd-30-1","points": 30,"text": "Ai là người phát minh ra bóng đèn điện?","answer": "Thomas Edison"},
+        {"id": "g3-vd-30-2","points": 30,"text": "Dãy núi Trường Sơn chạy theo hướng nào?","answer": "Bắc Nam"},
+        {"id": "g3-vd-30-3","points": 30,"text": "Phương tiện giao thông nào chạy trên đường ray?","answer": "Tàu hỏa hoặc xe lửa"}
       ]
     },
     "4": {
       "warmup": [
-        {
-          "id": "g4-wu-1",
-          "text": "[Lớp 4] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g4-wu-2",
-          "text": "[Lớp 4] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g4-wu-3",
-          "text": "[Lớp 4] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g4-wu-4",
-          "text": "[Lớp 4] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g4-wu-5",
-          "text": "[Lớp 4] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g4-wu-6",
-          "text": "[Lớp 4] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g4-wu-7",
-          "text": "[Lớp 4] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g4-wu-8",
-          "text": "[Lớp 4] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g4-wu-1","text": "Kết quả của 1000 - 375 là bao nhiêu?","answer": "625"},
+        {"id": "g4-wu-2","text": "Ai là anh hùng dân tộc đã đánh đuổi quân Mông Nguyên lần thứ ba?","answer": "Trần Hưng Đạo"},
+        {"id": "g4-wu-3","text": "Ánh sáng trắng khi đi qua lăng kính sẽ tách thành bao nhiêu màu?","answer": "7 màu"},
+        {"id": "g4-wu-4","text": "Thành phố nào được mệnh danh là 'Thành phố mang tên Bác'?","answer": "Thành phố Hồ Chí Minh"},
+        {"id": "g4-wu-5","text": "Con sông nào còn gọi là sông Cửu Long?","answer": "Sông Mê Kông"}
       ],
       "obstacle": {
         "id": "g4-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 4",
-        "imageHint": "Hình ảnh gợi ý cho lớp 4",
+        "secretPhrase": "LỊCH SỬ",
+        "imageHint": "Các di tích lịch sử Việt Nam",
         "rows": [
-          {
-            "id": "g4-cnv-row-1",
-            "clue": "[Lớp 4] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g4-cnv-row-2",
-            "clue": "[Lớp 4] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g4-cnv-row-3",
-            "clue": "[Lớp 4] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g4-cnv-row-4",
-            "clue": "[Lớp 4] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g4-cnv-row-5",
-            "clue": "[Lớp 4] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g4-cnv-row-1","clue": "Vị vua Lý Thái Tổ dời đô từ Hoa Lư về đây vào năm 1010","answer": "Thăng Long"},
+          {"id": "g4-cnv-row-2","clue": "Trận đánh năm 938 trên sông này giúp Ngô Quyền đánh bại quân Nam Hán","answer": "Bạch Đằng"},
+          {"id": "g4-cnv-row-3","clue": "Cuộc kháng chiến chống giặc Mỹ kết thúc bằng chiến dịch mang tên vị chủ tịch nước","answer": "Hồ Chí Minh"},
+          {"id": "g4-cnv-row-4","clue": "Hai Bà Trưng đã khởi nghĩa chống lại sự đô hộ của triều đại nào?","answer": "Nhà Hán"},
+          {"id": "g4-cnv-row-5","clue": "Di sản văn hóa thế giới ở Hội An thuộc tỉnh nào?","answer": "Quảng Nam"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g4-tt-1",
-          "text": "[Lớp 4] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g4-tt-2",
-          "text": "[Lớp 4] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g4-tt-3",
-          "text": "[Lớp 4] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g4-tt-4",
-          "text": "[Lớp 4] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g4-tt-1","text": "Phân số nào bằng 3/4?","image": null,"options": ["6/10","9/12","6/8","4/6"],"answer": "9/12","timeLimitSeconds": 20},
+        {"id": "g4-tt-2","text": "Núi nào là đỉnh núi cao nhất Việt Nam?","image": null,"options": ["Núi Bà Đen","Núi Fanxipan","Núi Ngọc Linh","Núi Pù Hoạt"],"answer": "Núi Fanxipan","timeLimitSeconds": 20},
+        {"id": "g4-tt-3","text": "Trái Đất có mấy đại dương?","image": null,"options": ["3","4","5","6"],"answer": "5","timeLimitSeconds": 20},
+        {"id": "g4-tt-4","text": "Khí nào cây xanh hấp thụ để quang hợp?","image": null,"options": ["O₂","N₂","CO₂","H₂"],"answer": "CO₂","timeLimitSeconds": 20},
+        {"id": "g4-tt-5","text": "Chữ số La Mã 'IX' tương đương với số nào?","image": null,"options": ["6","8","9","11"],"answer": "9","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g4-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 4] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g4-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 4] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g4-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 4] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g4-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 4] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g4-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 4] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g4-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 4] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g4-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 4] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g4-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 4] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g4-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 4] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g4-vd-10-1","points": 10,"text": "Việt Nam có bao nhiêu vùng miền chính?","answer": "3 miền"},
+        {"id": "g4-vd-10-2","points": 10,"text": "Nước nào có dân số đông nhất thế giới?","answer": "Ấn Độ"},
+        {"id": "g4-vd-10-3","points": 10,"text": "Bài quốc ca Việt Nam tên là gì?","answer": "Tiến quân ca"},
+        {"id": "g4-vd-20-1","points": 20,"text": "Vịnh Hạ Long được UNESCO công nhận là Di sản thiên nhiên thế giới vào năm nào?","answer": "1994"},
+        {"id": "g4-vd-20-2","points": 20,"text": "Kim cương được tạo thành từ nguyên tố nào?","answer": "Carbon"},
+        {"id": "g4-vd-20-3","points": 20,"text": "Ai là tác giả của 'Truyện Kiều'?","answer": "Nguyễn Du"},
+        {"id": "g4-vd-30-1","points": 30,"text": "Khởi nghĩa Hai Bà Trưng diễn ra vào năm nào?","answer": "Năm 40 sau Công nguyên"},
+        {"id": "g4-vd-30-2","points": 30,"text": "Thành phố nào được gọi là 'Đà Lạt của miền Bắc'?","answer": "Sapa"},
+        {"id": "g4-vd-30-3","points": 30,"text": "Công thức hóa học của nước là gì?","answer": "H₂O"}
       ]
     },
     "5": {
       "warmup": [
-        {
-          "id": "g5-wu-1",
-          "text": "[Lớp 5] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g5-wu-2",
-          "text": "[Lớp 5] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g5-wu-3",
-          "text": "[Lớp 5] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g5-wu-4",
-          "text": "[Lớp 5] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g5-wu-5",
-          "text": "[Lớp 5] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g5-wu-6",
-          "text": "[Lớp 5] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g5-wu-7",
-          "text": "[Lớp 5] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g5-wu-8",
-          "text": "[Lớp 5] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g5-wu-1","text": "Diện tích hình chữ nhật có chiều dài 12 cm và chiều rộng 8 cm là bao nhiêu?","answer": "96 cm²"},
+        {"id": "g5-wu-2","text": "Quốc gia nào phóng vệ tinh nhân tạo đầu tiên trong lịch sử?","answer": "Liên Xô"},
+        {"id": "g5-wu-3","text": "Trong bảng tuần hoàn, ký hiệu hóa học của vàng là gì?","answer": "Au"},
+        {"id": "g5-wu-4","text": "Ai là người đầu tiên đặt chân lên Mặt Trăng?","answer": "Neil Armstrong"},
+        {"id": "g5-wu-5","text": "Thành phố nào là thủ đô của Pháp?","answer": "Paris"}
       ],
       "obstacle": {
         "id": "g5-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 5",
-        "imageHint": "Hình ảnh gợi ý cho lớp 5",
+        "secretPhrase": "KHOA HỌC",
+        "imageHint": "Kính hiển vi và các dụng cụ thí nghiệm",
         "rows": [
-          {
-            "id": "g5-cnv-row-1",
-            "clue": "[Lớp 5] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g5-cnv-row-2",
-            "clue": "[Lớp 5] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g5-cnv-row-3",
-            "clue": "[Lớp 5] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g5-cnv-row-4",
-            "clue": "[Lớp 5] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g5-cnv-row-5",
-            "clue": "[Lớp 5] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g5-cnv-row-1","clue": "Đơn vị đo nhiệt độ phổ biến ở Việt Nam","answer": "Độ C"},
+          {"id": "g5-cnv-row-2","clue": "Loại năng lượng lấy từ ánh sáng mặt trời","answer": "Năng lượng mặt trời"},
+          {"id": "g5-cnv-row-3","clue": "Nhà bác học người Anh tìm ra lực hấp dẫn khi nhìn quả táo rơi","answer": "Newton"},
+          {"id": "g5-cnv-row-4","clue": "Vật liệu dẫn điện tốt nhất trong tự nhiên","answer": "Bạc"},
+          {"id": "g5-cnv-row-5","clue": "Phần ngoài cùng bảo vệ Trái Đất khỏi tia UV có tên là tầng gì?","answer": "Tầng ozone"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g5-tt-1",
-          "text": "[Lớp 5] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g5-tt-2",
-          "text": "[Lớp 5] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g5-tt-3",
-          "text": "[Lớp 5] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g5-tt-4",
-          "text": "[Lớp 5] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g5-tt-1","text": "Kết quả của 25% của 200 là bao nhiêu?","image": null,"options": ["25","50","75","100"],"answer": "50","timeLimitSeconds": 20},
+        {"id": "g5-tt-2","text": "Chất khí nào chiếm tỉ lệ nhiều nhất trong không khí?","image": null,"options": ["O₂","CO₂","N₂","H₂"],"answer": "N₂","timeLimitSeconds": 20},
+        {"id": "g5-tt-3","text": "Nhà thơ nào viết bài 'Nam quốc sơn hà'?","image": null,"options": ["Nguyễn Trãi","Lý Thường Kiệt","Trần Quốc Tuấn","Nguyễn Du"],"answer": "Lý Thường Kiệt","timeLimitSeconds": 20},
+        {"id": "g5-tt-4","text": "Hành tinh nào có vành đai nổi tiếng trong hệ Mặt Trời?","image": null,"options": ["Sao Hỏa","Sao Mộc","Sao Thổ","Sao Hải Vương"],"answer": "Sao Thổ","timeLimitSeconds": 20},
+        {"id": "g5-tt-5","text": "Số nào là số nguyên tố?","image": null,"options": ["1","9","15","17"],"answer": "17","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g5-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 5] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g5-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 5] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g5-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 5] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g5-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 5] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g5-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 5] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g5-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 5] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g5-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 5] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g5-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 5] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g5-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 5] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g5-vd-10-1","points": 10,"text": "Hệ Mặt Trời của chúng ta có bao nhiêu hành tinh?","answer": "8 hành tinh"},
+        {"id": "g5-vd-10-2","points": 10,"text": "Loài động vật nào có thể sống lâu nhất trên Trái Đất?","answer": "Rùa"},
+        {"id": "g5-vd-10-3","points": 10,"text": "Nguyên tố nào có ký hiệu Fe trong bảng tuần hoàn?","answer": "Sắt"},
+        {"id": "g5-vd-20-1","points": 20,"text": "Chiến dịch lịch sử nào kết thúc cuộc kháng chiến chống Pháp năm 1954?","answer": "Chiến dịch Điện Biên Phủ"},
+        {"id": "g5-vd-20-2","points": 20,"text": "Nhà bác học người Ba Lan tìm ra hai nguyên tố hóa học Polonium và Radium là ai?","answer": "Marie Curie"},
+        {"id": "g5-vd-20-3","points": 20,"text": "Thành phố nào là thủ đô lớn nhất thế giới theo diện tích?","answer": "Nur-Sultan hoặc Ottawa"},
+        {"id": "g5-vd-30-1","points": 30,"text": "Nước Việt Nam tuyên bố độc lập vào ngày tháng năm nào?","answer": "2 tháng 9 năm 1945"},
+        {"id": "g5-vd-30-2","points": 30,"text": "Phương trình cơ bản nhất của Einstein là gì?","answer": "E = mc²"},
+        {"id": "g5-vd-30-3","points": 30,"text": "Bình nguyên nào là bình nguyên rộng lớn nhất Việt Nam?","answer": "Đồng bằng sông Cửu Long"}
       ]
     }
   },
   "secondary": {
     "6": {
       "warmup": [
-        {
-          "id": "g6-wu-1",
-          "text": "[Lớp 6] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g6-wu-2",
-          "text": "[Lớp 6] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g6-wu-3",
-          "text": "[Lớp 6] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g6-wu-4",
-          "text": "[Lớp 6] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g6-wu-5",
-          "text": "[Lớp 6] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g6-wu-6",
-          "text": "[Lớp 6] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g6-wu-7",
-          "text": "[Lớp 6] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g6-wu-8",
-          "text": "[Lớp 6] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g6-wu-1","text": "Ước chung lớn nhất (ƯCLN) của 12 và 18 là bao nhiêu?","answer": "6"},
+        {"id": "g6-wu-2","text": "Ai là vị hoàng đế đã dời đô từ Hoa Lư về Thăng Long năm 1010?","answer": "Lý Thái Tổ"},
+        {"id": "g6-wu-3","text": "Công thức tính chu vi hình tròn là gì?","answer": "C = 2πr"},
+        {"id": "g6-wu-4","text": "Chất nào là dung môi phổ biến nhất trong tự nhiên?","answer": "Nước"},
+        {"id": "g6-wu-5","text": "Bài 'Sông núi nước Nam' được coi là bản tuyên ngôn độc lập đầu tiên của Việt Nam, được viết vào thế kỷ mấy?","answer": "Thế kỷ 11"}
       ],
       "obstacle": {
         "id": "g6-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 6",
-        "imageHint": "Hình ảnh gợi ý cho lớp 6",
+        "secretPhrase": "VĂN HÓA",
+        "imageHint": "Các di sản văn hóa phi vật thể của Việt Nam",
         "rows": [
-          {
-            "id": "g6-cnv-row-1",
-            "clue": "[Lớp 6] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g6-cnv-row-2",
-            "clue": "[Lớp 6] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g6-cnv-row-3",
-            "clue": "[Lớp 6] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g6-cnv-row-4",
-            "clue": "[Lớp 6] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g6-cnv-row-5",
-            "clue": "[Lớp 6] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g6-cnv-row-1","clue": "Loại hình nghệ thuật dân gian kể chuyện bằng hình ảnh và lời thuyết minh trên vải","answer": "Rối nước"},
+          {"id": "g6-cnv-row-2","clue": "Tết cổ truyền của người Việt được tổ chức vào dịp nào?","answer": "Tết Nguyên Đán"},
+          {"id": "g6-cnv-row-3","clue": "Áo dài là trang phục truyền thống của dân tộc nào?","answer": "Người Kinh"},
+          {"id": "g6-cnv-row-4","clue": "Lễ hội nào nổi tiếng ở đền Hùng được tổ chức vào mùng 10 tháng 3 âm lịch","answer": "Giỗ Tổ Hùng Vương"},
+          {"id": "g6-cnv-row-5","clue": "Làn điệu dân ca nổi tiếng của vùng Bắc Trung Bộ, được UNESCO công nhận","answer": "Dân ca Ví Giặm"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g6-tt-1",
-          "text": "[Lớp 6] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g6-tt-2",
-          "text": "[Lớp 6] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g6-tt-3",
-          "text": "[Lớp 6] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g6-tt-4",
-          "text": "[Lớp 6] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g6-tt-1","text": "Số nguyên tố nào nhỏ hơn 10?","image": null,"options": ["2, 3, 5, 7","1, 2, 3, 5","2, 3, 7, 9","3, 5, 7, 9"],"answer": "2, 3, 5, 7","timeLimitSeconds": 20},
+        {"id": "g6-tt-2","text": "Tác phẩm 'Bình Ngô Đại Cáo' do ai viết?","image": null,"options": ["Nguyễn Du","Nguyễn Trãi","Lê Lợi","Trần Hưng Đạo"],"answer": "Nguyễn Trãi","timeLimitSeconds": 20},
+        {"id": "g6-tt-3","text": "Cơ thể con người có bao nhiêu xương?","image": null,"options": ["186","206","226","246"],"answer": "206","timeLimitSeconds": 20},
+        {"id": "g6-tt-4","text": "Đơn vị cơ bản của thông tin trong máy tính là gì?","image": null,"options": ["Byte","Bit","KB","MB"],"answer": "Bit","timeLimitSeconds": 20},
+        {"id": "g6-tt-5","text": "Sông Hồng bắt nguồn từ đâu?","image": null,"options": ["Tây Tạng","Vân Nam (Trung Quốc)","Tây Nguyên","Lào"],"answer": "Vân Nam (Trung Quốc)","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g6-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 6] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g6-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 6] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g6-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 6] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g6-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 6] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g6-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 6] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g6-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 6] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g6-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 6] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g6-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 6] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g6-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 6] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g6-vd-10-1","points": 10,"text": "Góc có số đo lớn hơn 90° và nhỏ hơn 180° được gọi là góc gì?","answer": "Góc tù"},
+        {"id": "g6-vd-10-2","points": 10,"text": "Đại từ xưng hô ngôi thứ nhất số nhiều trong tiếng Anh là gì?","answer": "We"},
+        {"id": "g6-vd-10-3","points": 10,"text": "Thành phố nào được mệnh danh là 'Hòn ngọc Viễn Đông'?","answer": "Sài Gòn (TP. Hồ Chí Minh)"},
+        {"id": "g6-vd-20-1","points": 20,"text": "Phương trình x + 15 = 27 có nghiệm là bao nhiêu?","answer": "x = 12"},
+        {"id": "g6-vd-20-2","points": 20,"text": "Người đứng đầu nhà nước Văn Lang là ai?","answer": "Hùng Vương"},
+        {"id": "g6-vd-20-3","points": 20,"text": "Khí CO₂ (cacbonic) còn được gọi là gì?","answer": "Khí carbonic hoặc dioxide carbon"},
+        {"id": "g6-vd-30-1","points": 30,"text": "Hai đường thẳng song song thì có bao nhiêu điểm chung?","answer": "Không có điểm chung"},
+        {"id": "g6-vd-30-2","points": 30,"text": "Phong trào Cần Vương do ai phát động vào năm 1885?","answer": "Vua Hàm Nghi"},
+        {"id": "g6-vd-30-3","points": 30,"text": "Nguyên tố có số hiệu nguyên tử là 1 trong bảng tuần hoàn tên là gì?","answer": "Hydro"}
       ]
     },
     "7": {
       "warmup": [
-        {
-          "id": "g7-wu-1",
-          "text": "[Lớp 7] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g7-wu-2",
-          "text": "[Lớp 7] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g7-wu-3",
-          "text": "[Lớp 7] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g7-wu-4",
-          "text": "[Lớp 7] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g7-wu-5",
-          "text": "[Lớp 7] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g7-wu-6",
-          "text": "[Lớp 7] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g7-wu-7",
-          "text": "[Lớp 7] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g7-wu-8",
-          "text": "[Lớp 7] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g7-wu-1","text": "Giá trị của biểu thức |−15| là bao nhiêu?","answer": "15"},
+        {"id": "g7-wu-2","text": "Ai là người phát minh ra điện thoại?","answer": "Alexander Graham Bell"},
+        {"id": "g7-wu-3","text": "Tam giác đều có các góc bằng bao nhiêu độ?","answer": "60 độ"},
+        {"id": "g7-wu-4","text": "Nguyễn Tất Thành lấy tên Nguyễn Ái Quốc khi hoạt động cách mạng ở đâu?","answer": "Pháp"},
+        {"id": "g7-wu-5","text": "Tốc độ ánh sáng trong chân không xấp xỉ bao nhiêu km/s?","answer": "300.000 km/s"}
       ],
       "obstacle": {
         "id": "g7-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 7",
-        "imageHint": "Hình ảnh gợi ý cho lớp 7",
+        "secretPhrase": "ĐẠI SỐ",
+        "imageHint": "Các bài toán đại số và phương trình",
         "rows": [
-          {
-            "id": "g7-cnv-row-1",
-            "clue": "[Lớp 7] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g7-cnv-row-2",
-            "clue": "[Lớp 7] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g7-cnv-row-3",
-            "clue": "[Lớp 7] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g7-cnv-row-4",
-            "clue": "[Lớp 7] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g7-cnv-row-5",
-            "clue": "[Lớp 7] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g7-cnv-row-1","clue": "Tổng các góc trong của một tam giác bằng bao nhiêu độ?","answer": "180 độ"},
+          {"id": "g7-cnv-row-2","clue": "Hàm số bậc nhất có dạng tổng quát là gì?","answer": "y = ax + b"},
+          {"id": "g7-cnv-row-3","clue": "Số thực nào khi bình phương lên bằng −1?","answer": "Số ảo i"},
+          {"id": "g7-cnv-row-4","clue": "Giá trị của π xấp xỉ bằng bao nhiêu?","answer": "3,14"},
+          {"id": "g7-cnv-row-5","clue": "Quan hệ giữa hai vế được nối bằng dấu '=' gọi là gì trong toán học?","answer": "Đẳng thức"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g7-tt-1",
-          "text": "[Lớp 7] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g7-tt-2",
-          "text": "[Lớp 7] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g7-tt-3",
-          "text": "[Lớp 7] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g7-tt-4",
-          "text": "[Lớp 7] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g7-tt-1","text": "Số hữu tỉ nào nằm giữa 1/3 và 1/2?","image": null,"options": ["2/5","3/8","1/4","5/12"],"answer": "2/5","timeLimitSeconds": 20},
+        {"id": "g7-tt-2","text": "Trận Đống Đa đại thắng quân Thanh diễn ra vào năm nào?","image": null,"options": ["1785","1789","1792","1802"],"answer": "1789","timeLimitSeconds": 20},
+        {"id": "g7-tt-3","text": "Chất nào là thành phần chính của không khí?","image": null,"options": ["Oxy","Nitrogen","CO₂","Argon"],"answer": "Nitrogen","timeLimitSeconds": 20},
+        {"id": "g7-tt-4","text": "Tác phẩm nào của Nguyễn Du được UNESCO công nhận là Di sản văn hóa thế giới?","image": null,"options": ["Đoạn trường tân thanh","Truyện Kiều","Văn tế thập loại chúng sinh","Bắc hành tạp lục"],"answer": "Truyện Kiều","timeLimitSeconds": 20},
+        {"id": "g7-tt-5","text": "Tế bào nào trong máu có chức năng vận chuyển oxy?","image": null,"options": ["Bạch cầu","Tiểu cầu","Hồng cầu","Tế bào lympho"],"answer": "Hồng cầu","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g7-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 7] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g7-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 7] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g7-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 7] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g7-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 7] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g7-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 7] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g7-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 7] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g7-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 7] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g7-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 7] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g7-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 7] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g7-vd-10-1","points": 10,"text": "Phương trình 2x − 6 = 0 có nghiệm x = ?","answer": "x = 3"},
+        {"id": "g7-vd-10-2","points": 10,"text": "Châu lục nào có diện tích lớn nhất thế giới?","answer": "Châu Á"},
+        {"id": "g7-vd-10-3","points": 10,"text": "Tế bào là đơn vị cơ bản của sự sống, do ai phát hiện ra?","answer": "Robert Hooke"},
+        {"id": "g7-vd-20-1","points": 20,"text": "Trong tam giác vuông, bình phương cạnh huyền bằng gì?","answer": "Tổng bình phương hai cạnh góc vuông"},
+        {"id": "g7-vd-20-2","points": 20,"text": "Vị vua nào của nhà Trần 3 lần lãnh đạo đánh thắng quân Mông Nguyên?","answer": "Vua Trần Nhân Tông"},
+        {"id": "g7-vd-20-3","points": 20,"text": "Phân tử H₂O gồm bao nhiêu nguyên tử?","answer": "3 nguyên tử"},
+        {"id": "g7-vd-30-1","points": 30,"text": "Đỉnh Everest cao bao nhiêu mét so với mực nước biển?","answer": "8.849 mét"},
+        {"id": "g7-vd-30-2","points": 30,"text": "Học thuyết tiến hóa nổi tiếng do ai đề xướng?","answer": "Charles Darwin"},
+        {"id": "g7-vd-30-3","points": 30,"text": "Trận Bạch Đằng năm 938 do ai chỉ huy?","answer": "Ngô Quyền"}
       ]
     },
     "8": {
       "warmup": [
-        {
-          "id": "g8-wu-1",
-          "text": "[Lớp 8] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g8-wu-2",
-          "text": "[Lớp 8] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g8-wu-3",
-          "text": "[Lớp 8] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g8-wu-4",
-          "text": "[Lớp 8] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g8-wu-5",
-          "text": "[Lớp 8] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g8-wu-6",
-          "text": "[Lớp 8] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g8-wu-7",
-          "text": "[Lớp 8] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g8-wu-8",
-          "text": "[Lớp 8] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g8-wu-1","text": "Phương trình (x-3)(x+5) = 0 có những nghiệm nào?","answer": "x = 3 hoặc x = −5"},
+        {"id": "g8-wu-2","text": "Nguyên tố nào chiếm nhiều nhất trong vỏ Trái Đất?","answer": "Oxy"},
+        {"id": "g8-wu-3","text": "Ai là tác giả của định luật vạn vật hấp dẫn?","answer": "Newton"},
+        {"id": "g8-wu-4","text": "Nước ta giành độc lập hoàn toàn vào ngày tháng năm nào?","answer": "30 tháng 4 năm 1975"},
+        {"id": "g8-wu-5","text": "Chu kỳ tuần hoàn của nguyên tố Carbon trong bảng tuần hoàn là chu kỳ mấy?","answer": "Chu kỳ 2"}
       ],
       "obstacle": {
         "id": "g8-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 8",
-        "imageHint": "Hình ảnh gợi ý cho lớp 8",
+        "secretPhrase": "HÓA HỌC",
+        "imageHint": "Ống nghiệm và phòng thí nghiệm",
         "rows": [
-          {
-            "id": "g8-cnv-row-1",
-            "clue": "[Lớp 8] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g8-cnv-row-2",
-            "clue": "[Lớp 8] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g8-cnv-row-3",
-            "clue": "[Lớp 8] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g8-cnv-row-4",
-            "clue": "[Lớp 8] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g8-cnv-row-5",
-            "clue": "[Lớp 8] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g8-cnv-row-1","clue": "Phản ứng hóa học trong đó chất khử nhường electron cho chất oxy hóa gọi là phản ứng gì?","answer": "Oxi hóa khử"},
+          {"id": "g8-cnv-row-2","clue": "Công thức hóa học của axit sulfuric đậm đặc","answer": "H₂SO₄"},
+          {"id": "g8-cnv-row-3","clue": "Nguyên tố phi kim có tính oxy hóa mạnh nhất","answer": "Flo"},
+          {"id": "g8-cnv-row-4","clue": "Quá trình đốt cháy nhiên liệu trong động cơ là phản ứng gì?","answer": "Phản ứng oxi hóa"},
+          {"id": "g8-cnv-row-5","clue": "Dung dịch có pH < 7 có tính gì?","answer": "Tính axit"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g8-tt-1",
-          "text": "[Lớp 8] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g8-tt-2",
-          "text": "[Lớp 8] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g8-tt-3",
-          "text": "[Lớp 8] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g8-tt-4",
-          "text": "[Lớp 8] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g8-tt-1","text": "Định lý Pythagore phát biểu rằng a² + b² = c². Trong tam giác vuông, c là gì?","image": null,"options": ["Cạnh góc vuông","Cạnh huyền","Đường cao","Đường trung tuyến"],"answer": "Cạnh huyền","timeLimitSeconds": 20},
+        {"id": "g8-tt-2","text": "Chất nào là thành phần chính của xương?","image": null,"options": ["Canxi phosphat","Natri clorua","Kali iodat","Magie sulfat"],"answer": "Canxi phosphat","timeLimitSeconds": 20},
+        {"id": "g8-tt-3","text": "Hiệp định nào chấm dứt chiến tranh Việt Nam năm 1973?","image": null,"options": ["Hiệp định Genève","Hiệp định Paris","Hiệp định San Francisco","Hiệp định Hà Nội"],"answer": "Hiệp định Paris","timeLimitSeconds": 20},
+        {"id": "g8-tt-4","text": "Âm thanh truyền nhanh nhất qua môi trường nào?","image": null,"options": ["Không khí","Nước","Chân không","Chất rắn"],"answer": "Chất rắn","timeLimitSeconds": 20},
+        {"id": "g8-tt-5","text": "Vector là đại lượng có mấy đặc trưng cơ bản?","image": null,"options": ["1","2","3","4"],"answer": "3","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g8-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 8] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g8-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 8] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g8-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 8] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g8-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 8] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g8-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 8] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g8-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 8] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g8-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 8] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g8-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 8] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g8-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 8] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g8-vd-10-1","points": 10,"text": "Công thức tính diện tích hình tròn là gì?","answer": "S = πr²"},
+        {"id": "g8-vd-10-2","points": 10,"text": "Số Avogadro xấp xỉ bằng bao nhiêu?","answer": "6,022 × 10²³"},
+        {"id": "g8-vd-10-3","points": 10,"text": "Thời kỳ văn học 1930–1945 ở Việt Nam còn gọi là gì?","answer": "Văn học hiện đại"},
+        {"id": "g8-vd-20-1","points": 20,"text": "Nghiệm của phương trình x² − 5x + 6 = 0 là bao nhiêu?","answer": "x = 2 và x = 3"},
+        {"id": "g8-vd-20-2","points": 20,"text": "Cơ quan nào của cơ thể sản xuất insulin?","answer": "Tuyến tụy"},
+        {"id": "g8-vd-20-3","points": 20,"text": "Đại chiến thế giới lần thứ nhất kết thúc năm nào?","answer": "1918"},
+        {"id": "g8-vd-30-1","points": 30,"text": "Nhà văn nào đoạt giải Nobel Văn học người Việt Nam đầu tiên?","answer": "Chưa có"},
+        {"id": "g8-vd-30-2","points": 30,"text": "Công thức nghiệm tổng quát của phương trình ax² + bx + c = 0 là gì?","answer": "x = (−b ± √(b²−4ac)) / 2a"},
+        {"id": "g8-vd-30-3","points": 30,"text": "Phản ứng tổng hợp hạt nhân xảy ra ở đâu trong Mặt Trời?","answer": "Nhân Mặt Trời"}
       ]
     },
     "9": {
       "warmup": [
-        {
-          "id": "g9-wu-1",
-          "text": "[Lớp 9] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g9-wu-2",
-          "text": "[Lớp 9] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g9-wu-3",
-          "text": "[Lớp 9] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g9-wu-4",
-          "text": "[Lớp 9] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g9-wu-5",
-          "text": "[Lớp 9] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g9-wu-6",
-          "text": "[Lớp 9] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g9-wu-7",
-          "text": "[Lớp 9] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g9-wu-8",
-          "text": "[Lớp 9] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g9-wu-1","text": "Căn bậc hai của 144 là bao nhiêu?","answer": "12"},
+        {"id": "g9-wu-2","text": "Nguyên lý bảo toàn năng lượng phát biểu điều gì?","answer": "Năng lượng không tự sinh ra hay mất đi, chỉ chuyển từ dạng này sang dạng khác"},
+        {"id": "g9-wu-3","text": "Nước Việt Nam gia nhập Liên Hợp Quốc vào năm nào?","answer": "1977"},
+        {"id": "g9-wu-4","text": "Công thức tính vận tốc trong chuyển động đều là gì?","answer": "v = s/t"},
+        {"id": "g9-wu-5","text": "DNA là viết tắt của cụm từ gì?","answer": "Deoxyribonucleic Acid"}
       ],
       "obstacle": {
         "id": "g9-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 9",
-        "imageHint": "Hình ảnh gợi ý cho lớp 9",
+        "secretPhrase": "VẬT LÝ",
+        "imageHint": "Các thí nghiệm vật lý",
         "rows": [
-          {
-            "id": "g9-cnv-row-1",
-            "clue": "[Lớp 9] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g9-cnv-row-2",
-            "clue": "[Lớp 9] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g9-cnv-row-3",
-            "clue": "[Lớp 9] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g9-cnv-row-4",
-            "clue": "[Lớp 9] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g9-cnv-row-5",
-            "clue": "[Lớp 9] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g9-cnv-row-1","clue": "Đơn vị đo cường độ dòng điện trong hệ SI","answer": "Ampe"},
+          {"id": "g9-cnv-row-2","clue": "Định luật nào nói rằng điện trở tỉ lệ với hiệu điện thế và tỉ lệ nghịch với cường độ dòng điện?","answer": "Định luật Ohm"},
+          {"id": "g9-cnv-row-3","clue": "Loại sóng điện từ nào có bước sóng ngắn nhất?","answer": "Tia gamma"},
+          {"id": "g9-cnv-row-4","clue": "Hiện tượng ánh sáng bị bẻ cong khi đi từ môi trường này sang môi trường khác","answer": "Khúc xạ"},
+          {"id": "g9-cnv-row-5","clue": "Năng lượng dự trữ trong vật ở độ cao h so với mặt đất gọi là","answer": "Thế năng hấp dẫn"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g9-tt-1",
-          "text": "[Lớp 9] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g9-tt-2",
-          "text": "[Lớp 9] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g9-tt-3",
-          "text": "[Lớp 9] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g9-tt-4",
-          "text": "[Lớp 9] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g9-tt-1","text": "Phương trình bậc hai x² - 9 = 0 có nghiệm là?","image": null,"options": ["x = 3","x = ±3","x = 9","x = ±9"],"answer": "x = ±3","timeLimitSeconds": 20},
+        {"id": "g9-tt-2","text": "Hiệp định Genève 1954 chia đôi Việt Nam theo vĩ tuyến nào?","image": null,"options": ["15","16","17","18"],"answer": "17","timeLimitSeconds": 20},
+        {"id": "g9-tt-3","text": "Trung khu thần kinh cao cấp nhất ở người là bộ phận nào?","image": null,"options": ["Tủy sống","Hành não","Não trung gian","Não lớn"],"answer": "Não lớn","timeLimitSeconds": 20},
+        {"id": "g9-tt-4","text": "Công thức tính công suất điện là gì?","image": null,"options": ["P = U/I","P = UI","P = I/U","P = U²I"],"answer": "P = UI","timeLimitSeconds": 20},
+        {"id": "g9-tt-5","text": "Tác phẩm văn học nào mô tả cuộc sống của người nông dân Việt Nam trong nạn đói năm 1945?","image": null,"options": ["Vợ chồng A Phủ","Vợ nhặt","Chí Phèo","Tắt đèn"],"answer": "Vợ nhặt","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g9-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 9] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g9-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 9] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g9-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 9] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g9-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 9] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g9-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 9] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g9-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 9] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g9-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 9] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g9-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 9] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g9-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 9] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g9-vd-10-1","points": 10,"text": "Định lý Viète cho phương trình ax² + bx + c = 0 phát biểu x₁ + x₂ = ?","answer": "−b/a"},
+        {"id": "g9-vd-10-2","points": 10,"text": "Đơn vị đo lực trong hệ SI là gì?","answer": "Newton (N)"},
+        {"id": "g9-vd-10-3","points": 10,"text": "Lực Lorentz tác động lên hạt tích điện khi nằm trong trường nào?","answer": "Từ trường"},
+        {"id": "g9-vd-20-1","points": 20,"text": "Nước ta thống nhất hoàn toàn về mặt nhà nước vào năm nào?","answer": "1976"},
+        {"id": "g9-vd-20-2","points": 20,"text": "Trong hệ gen người, nhiễm sắc thể giới tính của nữ là gì?","answer": "XX"},
+        {"id": "g9-vd-20-3","points": 20,"text": "Tác giả của 'Nhật ký trong tù' là ai?","answer": "Hồ Chí Minh"},
+        {"id": "g9-vd-30-1","points": 30,"text": "Tổ chức nào là tiền thân của Đảng Cộng sản Việt Nam?","answer": "Hội Việt Nam Cách mạng Thanh niên"},
+        {"id": "g9-vd-30-2","points": 30,"text": "Trong phản ứng điện phân dung dịch NaCl, sản phẩm nào thu được ở cực âm (catod)?","answer": "Khí Hydro"},
+        {"id": "g9-vd-30-3","points": 30,"text": "Phương trình tổng quát của chuyển động nhanh dần đều là gì?","answer": "s = v₀t + ½at²"}
       ]
     }
   },
   "highschool": {
     "10": {
       "warmup": [
-        {
-          "id": "g10-wu-1",
-          "text": "[Lớp 10] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g10-wu-2",
-          "text": "[Lớp 10] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g10-wu-3",
-          "text": "[Lớp 10] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g10-wu-4",
-          "text": "[Lớp 10] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g10-wu-5",
-          "text": "[Lớp 10] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g10-wu-6",
-          "text": "[Lớp 10] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g10-wu-7",
-          "text": "[Lớp 10] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g10-wu-8",
-          "text": "[Lớp 10] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g10-wu-1","text": "Tập hợp các số thực không âm nhỏ hơn 5 ký hiệu theo khoảng hoặc tập hợp là gì?","answer": "[0; 5)"},
+        {"id": "g10-wu-2","text": "Chiến thắng Điện Biên Phủ diễn ra vào ngày tháng năm nào?","answer": "7 tháng 5 năm 1954"},
+        {"id": "g10-wu-3","text": "Công thức hóa học của axit clohidric là gì?","answer": "HCl"},
+        {"id": "g10-wu-4","text": "Đạo hàm của hàm số f(x) = x³ là gì?","answer": "f'(x) = 3x²"},
+        {"id": "g10-wu-5","text": "Mô hình cấu trúc DNA dạng xoắn kép được đề xuất bởi hai nhà khoa học nào?","answer": "Watson và Crick"}
       ],
       "obstacle": {
         "id": "g10-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 10",
-        "imageHint": "Hình ảnh gợi ý cho lớp 10",
+        "secretPhrase": "PHƯƠNG TRÌNH",
+        "imageHint": "Các phương trình toán học trên bảng",
         "rows": [
-          {
-            "id": "g10-cnv-row-1",
-            "clue": "[Lớp 10] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g10-cnv-row-2",
-            "clue": "[Lớp 10] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g10-cnv-row-3",
-            "clue": "[Lớp 10] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g10-cnv-row-4",
-            "clue": "[Lớp 10] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g10-cnv-row-5",
-            "clue": "[Lớp 10] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g10-cnv-row-1","clue": "Nghiệm của bất phương trình x + 5 > 3 là gì?","answer": "x > −2"},
+          {"id": "g10-cnv-row-2","clue": "Giá trị lớn nhất của hàm số y = −x² + 4x − 3 là bao nhiêu?","answer": "1"},
+          {"id": "g10-cnv-row-3","clue": "Đạo hàm của hàm số y = sinx là gì?","answer": "y' = cosx"},
+          {"id": "g10-cnv-row-4","clue": "Số phức z = 3 + 4i có môđun bằng bao nhiêu?","answer": "5"},
+          {"id": "g10-cnv-row-5","clue": "Công thức tính tổng cấp số nhân vô hạn lùi q với |q|<1 là gì?","answer": "S = u₁/(1−q)"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g10-tt-1",
-          "text": "[Lớp 10] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g10-tt-2",
-          "text": "[Lớp 10] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g10-tt-3",
-          "text": "[Lớp 10] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g10-tt-4",
-          "text": "[Lớp 10] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g10-tt-1","text": "Hệ phương trình { x + y = 5; x − y = 1 } có nghiệm là?","image": null,"options": ["(3,2)","(2,3)","(4,1)","(1,4)"],"answer": "(3,2)","timeLimitSeconds": 20},
+        {"id": "g10-tt-2","text": "Ai là Tổng thống Mỹ trong thời kỳ chiến tranh Việt Nam khi Hiệp định Paris được ký kết?","image": null,"options": ["Kennedy","Johnson","Nixon","Ford"],"answer": "Nixon","timeLimitSeconds": 20},
+        {"id": "g10-tt-3","text": "Nguyên lý nào trong nhiệt động học phát biểu rằng entropy của hệ cô lập luôn tăng?","image": null,"options": ["Nguyên lý I","Nguyên lý II","Nguyên lý III","Nguyên lý 0"],"answer": "Nguyên lý II","timeLimitSeconds": 20},
+        {"id": "g10-tt-4","text": "Số đo của một góc trong trong đa giác đều 6 cạnh là bao nhiêu độ?","image": null,"options": ["100","108","120","135"],"answer": "120","timeLimitSeconds": 20},
+        {"id": "g10-tt-5","text": "Tác phẩm 'Số đỏ' do ai sáng tác?","image": null,"options": ["Nam Cao","Ngô Tất Tố","Vũ Trọng Phụng","Nguyễn Công Hoan"],"answer": "Vũ Trọng Phụng","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g10-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 10] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g10-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 10] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g10-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 10] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g10-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 10] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g10-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 10] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g10-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 10] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g10-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 10] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g10-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 10] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g10-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 10] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g10-vd-10-1","points": 10,"text": "Hàm số y = x² - 4x + 3 có đỉnh tại điểm nào?","answer": "(2; −1)"},
+        {"id": "g10-vd-10-2","points": 10,"text": "Khí nào được dùng trong bóng bay vì nhẹ hơn không khí và không cháy?","answer": "Heli"},
+        {"id": "g10-vd-10-3","points": 10,"text": "Chiều quay của Trái Đất quanh trục của nó là chiều nào?","answer": "Tây sang Đông"},
+        {"id": "g10-vd-20-1","points": 20,"text": "Trong hóa học hữu cơ, nhóm chức −OH khi gắn vào vòng benzen tạo ra hợp chất gì?","answer": "Phenol"},
+        {"id": "g10-vd-20-2","points": 20,"text": "Cuộc cách mạng tư sản Pháp nổ ra vào năm nào?","answer": "1789"},
+        {"id": "g10-vd-20-3","points": 20,"text": "Điện trở của một dây dẫn phụ thuộc vào những yếu tố nào?","answer": "Chiều dài, tiết diện và điện trở suất của vật liệu"},
+        {"id": "g10-vd-30-1","points": 30,"text": "Trong phép tích phân, ∫x² dx = ?","answer": "x³/3 + C"},
+        {"id": "g10-vd-30-2","points": 30,"text": "Tác phẩm văn học nào của Tô Hoài miêu tả cuộc đời cô gái Mèo ở Tây Bắc?","answer": "Vợ chồng A Phủ"},
+        {"id": "g10-vd-30-3","points": 30,"text": "Nguyên tố nào có tên tiếng Anh là 'Tungsten' nhưng ký hiệu là W?","answer": "Wolfram"}
       ]
     },
     "11": {
       "warmup": [
-        {
-          "id": "g11-wu-1",
-          "text": "[Lớp 11] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g11-wu-2",
-          "text": "[Lớp 11] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g11-wu-3",
-          "text": "[Lớp 11] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g11-wu-4",
-          "text": "[Lớp 11] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g11-wu-5",
-          "text": "[Lớp 11] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g11-wu-6",
-          "text": "[Lớp 11] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g11-wu-7",
-          "text": "[Lớp 11] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g11-wu-8",
-          "text": "[Lớp 11] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g11-wu-1","text": "Đạo hàm của hàm số y = eˣ là gì?","answer": "y' = eˣ"},
+        {"id": "g11-wu-2","text": "Đại chiến thế giới lần thứ hai bắt đầu vào năm nào?","answer": "1939"},
+        {"id": "g11-wu-3","text": "Công thức tính điện dung của tụ điện phẳng là gì?","answer": "C = εS/d"},
+        {"id": "g11-wu-4","text": "Tác phẩm 'Chí Phèo' do ai sáng tác?","answer": "Nam Cao"},
+        {"id": "g11-wu-5","text": "Trong lập trình, vòng lặp for có đặc điểm gì so với vòng lặp while?","answer": "Biết trước số lần lặp"}
       ],
       "obstacle": {
         "id": "g11-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 11",
-        "imageHint": "Hình ảnh gợi ý cho lớp 11",
+        "secretPhrase": "TÍCH PHÂN",
+        "imageHint": "Đồ thị hàm số và tích phân",
         "rows": [
-          {
-            "id": "g11-cnv-row-1",
-            "clue": "[Lớp 11] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g11-cnv-row-2",
-            "clue": "[Lớp 11] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g11-cnv-row-3",
-            "clue": "[Lớp 11] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g11-cnv-row-4",
-            "clue": "[Lớp 11] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g11-cnv-row-5",
-            "clue": "[Lớp 11] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g11-cnv-row-1","clue": "Tích phân xác định là phần diện tích giới hạn bởi đường cong và gì?","answer": "Trục Ox"},
+          {"id": "g11-cnv-row-2","clue": "Đạo hàm của hàm số y = lnx là gì?","answer": "1/x"},
+          {"id": "g11-cnv-row-3","clue": "Số e trong toán học có giá trị xấp xỉ bao nhiêu?","answer": "2,718"},
+          {"id": "g11-cnv-row-4","clue": "Quy tắc tính đạo hàm của tích hai hàm số u·v là gì?","answer": "(u·v)' = u'v + uv'"},
+          {"id": "g11-cnv-row-5","clue": "Hàm số f(x) đồng biến khi đạo hàm f'(x) có dấu như thế nào?","answer": "f'(x) > 0"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g11-tt-1",
-          "text": "[Lớp 11] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g11-tt-2",
-          "text": "[Lớp 11] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g11-tt-3",
-          "text": "[Lớp 11] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g11-tt-4",
-          "text": "[Lớp 11] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g11-tt-1","text": "∫(2x + 3)dx = ?","image": null,"options": ["x² + 3x","x² + 3x + C","2x² + 3x + C","x²/2 + 3x + C"],"answer": "x² + 3x + C","timeLimitSeconds": 20},
+        {"id": "g11-tt-2","text": "Hội nghị Trung ương 8 (1941) quyết định thành lập tổ chức nào?","image": null,"options": ["Việt Minh","Liên Việt","Mặt trận Tổ quốc","Hội Phụ nữ"],"answer": "Việt Minh","timeLimitSeconds": 20},
+        {"id": "g11-tt-3","text": "Phản ứng este hóa là phản ứng giữa axit và gì?","image": null,"options": ["Bazơ","Muối","Rượu (ancol)","Anđehit"],"answer": "Rượu (ancol)","timeLimitSeconds": 20},
+        {"id": "g11-tt-4","text": "Quy tắc bàn tay trái (Fleming) dùng để xác định chiều của lực nào?","image": null,"options": ["Lực đàn hồi","Lực từ tác dụng lên dây dẫn mang điện","Lực hấp dẫn","Lực ma sát"],"answer": "Lực từ tác dụng lên dây dẫn mang điện","timeLimitSeconds": 20},
+        {"id": "g11-tt-5","text": "Số từ trong câu 'Tôi yêu Việt Nam' là bao nhiêu?","image": null,"options": ["1","2","3","4"],"answer": "1","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g11-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 11] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g11-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 11] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g11-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 11] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g11-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 11] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g11-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 11] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g11-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 11] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g11-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 11] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g11-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 11] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g11-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 11] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g11-vd-10-1","points": 10,"text": "Giới hạn lim(x→0) sinx/x = ?","answer": "1"},
+        {"id": "g11-vd-10-2","points": 10,"text": "Ký hiệu hóa học của nguyên tố Natri là gì?","answer": "Na"},
+        {"id": "g11-vd-10-3","points": 10,"text": "Câu thơ 'Ta về, mình có nhớ ta' trích từ bài thơ nào của Tố Hữu?","answer": "Việt Bắc"},
+        {"id": "g11-vd-20-1","points": 20,"text": "Tích phân ∫₀¹ x² dx = ?","answer": "1/3"},
+        {"id": "g11-vd-20-2","points": 20,"text": "Pháp lệnh số 68 năm 1945 của Bác Hồ phát động phong trào gì để xóa nạn mù chữ?","answer": "Bình dân học vụ"},
+        {"id": "g11-vd-20-3","points": 20,"text": "Trong mạch dao động LC, năng lượng điện trường và từ trường chuyển hóa cho nhau theo dạng dao động nào?","answer": "Dao động điều hòa"},
+        {"id": "g11-vd-30-1","points": 30,"text": "Nhà vật lý người Đức nào đề xuất thuyết lượng tử ánh sáng?","answer": "Max Planck"},
+        {"id": "g11-vd-30-2","points": 30,"text": "Tây Nguyên có tổng cộng bao nhiêu tỉnh?","answer": "5 tỉnh"},
+        {"id": "g11-vd-30-3","points": 30,"text": "Phương trình đường thẳng đi qua điểm (1, 2) và có hệ số góc k = 3 là gì?","answer": "y = 3x − 1"}
       ]
     },
     "12": {
       "warmup": [
-        {
-          "id": "g12-wu-1",
-          "text": "[Lớp 12] Câu hỏi khởi động số 1 (Văn)",
-          "answer": "Đáp án 1"
-        },
-        {
-          "id": "g12-wu-2",
-          "text": "[Lớp 12] Câu hỏi khởi động số 2 (Tiếng Anh)",
-          "answer": "Đáp án 2"
-        },
-        {
-          "id": "g12-wu-3",
-          "text": "[Lớp 12] Câu hỏi khởi động số 3 (Khoa học)",
-          "answer": "Đáp án 3"
-        },
-        {
-          "id": "g12-wu-4",
-          "text": "[Lớp 12] Câu hỏi khởi động số 4 (Lịch sử)",
-          "answer": "Đáp án 4"
-        },
-        {
-          "id": "g12-wu-5",
-          "text": "[Lớp 12] Câu hỏi khởi động số 5 (Địa lý)",
-          "answer": "Đáp án 5"
-        },
-        {
-          "id": "g12-wu-6",
-          "text": "[Lớp 12] Câu hỏi khởi động số 6 (Toán)",
-          "answer": "Đáp án 6"
-        },
-        {
-          "id": "g12-wu-7",
-          "text": "[Lớp 12] Câu hỏi khởi động số 7 (Văn)",
-          "answer": "Đáp án 7"
-        },
-        {
-          "id": "g12-wu-8",
-          "text": "[Lớp 12] Câu hỏi khởi động số 8 (Tiếng Anh)",
-          "answer": "Đáp án 8"
-        }
+        {"id": "g12-wu-1","text": "Giới hạn lim(x→∞) (1 + 1/x)ˣ bằng bao nhiêu?","answer": "e"},
+        {"id": "g12-wu-2","text": "Chiến dịch Hồ Chí Minh lịch sử kết thúc vào ngày tháng năm nào?","answer": "30 tháng 4 năm 1975"},
+        {"id": "g12-wu-3","text": "Trong hóa học hữu cơ, phản ứng cộng H₂ vào anken gọi là phản ứng gì?","answer": "Phản ứng hydro hóa"},
+        {"id": "g12-wu-4","text": "Định lý Bayes thuộc lĩnh vực toán học nào?","answer": "Xác suất thống kê"},
+        {"id": "g12-wu-5","text": "Nhà thơ nào của Việt Nam có tập thơ 'Từ ấy'?","answer": "Tố Hữu"}
       ],
       "obstacle": {
         "id": "g12-cnv",
-        "secretPhrase": "TỪ KHÓA LỚP 12",
-        "imageHint": "Hình ảnh gợi ý cho lớp 12",
+        "secretPhrase": "ĐẠI HỌC",
+        "imageHint": "Kỳ thi tốt nghiệp THPT và đại học",
         "rows": [
-          {
-            "id": "g12-cnv-row-1",
-            "clue": "[Lớp 12] Gợi ý hàng ngang số 1",
-            "answer": "Đáp án hàng 1"
-          },
-          {
-            "id": "g12-cnv-row-2",
-            "clue": "[Lớp 12] Gợi ý hàng ngang số 2",
-            "answer": "Đáp án hàng 2"
-          },
-          {
-            "id": "g12-cnv-row-3",
-            "clue": "[Lớp 12] Gợi ý hàng ngang số 3",
-            "answer": "Đáp án hàng 3"
-          },
-          {
-            "id": "g12-cnv-row-4",
-            "clue": "[Lớp 12] Gợi ý hàng ngang số 4",
-            "answer": "Đáp án hàng 4"
-          },
-          {
-            "id": "g12-cnv-row-5",
-            "clue": "[Lớp 12] Gợi ý hàng ngang số 5",
-            "answer": "Đáp án hàng 5"
-          }
+          {"id": "g12-cnv-row-1","clue": "Số nghiệm của phương trình sin(x) = 0 trên khoảng [0; 2π]","answer": "3 nghiệm"},
+          {"id": "g12-cnv-row-2","clue": "Đạo hàm cấp hai của hàm số y = x⁴ là gì?","answer": "y'' = 12x²"},
+          {"id": "g12-cnv-row-3","clue": "Phép biến đổi toán học chuyển bài toán từ miền thực sang miền tần số","answer": "Biến đổi Fourier"},
+          {"id": "g12-cnv-row-4","clue": "Điều kiện để ma trận A có ma trận nghịch đảo là gì?","answer": "Det(A) ≠ 0"},
+          {"id": "g12-cnv-row-5","clue": "Trong xác suất, P(A∪B) = P(A) + P(B) - ?","answer": "P(A∩B)"}
         ]
       },
       "acceleration": [
-        {
-          "id": "g12-tt-1",
-          "text": "[Lớp 12] Câu hỏi tăng tốc số 1",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g12-tt-2",
-          "text": "[Lớp 12] Câu hỏi tăng tốc số 2",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g12-tt-3",
-          "text": "[Lớp 12] Câu hỏi tăng tốc số 3",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        },
-        {
-          "id": "g12-tt-4",
-          "text": "[Lớp 12] Câu hỏi tăng tốc số 4",
-          "image": null,
-          "options": [
-            "Phương án A",
-            "Phương án B",
-            "Phương án C",
-            "Phương án D"
-          ],
-          "answer": "Phương án A",
-          "timeLimitSeconds": 30
-        }
+        {"id": "g12-tt-1","text": "∫₀^π sin(x) dx = ?","image": null,"options": ["0","1","2","π"],"answer": "2","timeLimitSeconds": 20},
+        {"id": "g12-tt-2","text": "Đại hội Đảng lần thứ VI năm 1986 đã đề ra đường lối gì?","image": null,"options": ["Công nghiệp hóa","Đổi mới","Tập thể hóa","Hiện đại hóa"],"answer": "Đổi mới","timeLimitSeconds": 20},
+        {"id": "g12-tt-3","text": "Phản ứng trùng hợp etilen tạo ra polymer nào?","image": null,"options": ["PVC","PP","PE","PS"],"answer": "PE","timeLimitSeconds": 20},
+        {"id": "g12-tt-4","text": "Nguyên lý chồng chất lực trong tĩnh học phát biểu điều gì?","image": null,"options": ["Hợp lực là hiệu các lực","Hợp lực là tích các lực","Hợp lực là tổng vectơ các lực","Hợp lực là trung bình các lực"],"answer": "Hợp lực là tổng vectơ các lực","timeLimitSeconds": 20},
+        {"id": "g12-tt-5","text": "Tác phẩm 'Người lái đò sông Đà' của Nguyễn Tuân viết theo thể loại gì?","image": null,"options": ["Thơ","Truyện ngắn","Kịch","Tuỳ bút"],"answer": "Tuỳ bút","timeLimitSeconds": 20}
       ],
       "finish": [
-        {
-          "id": "g12-vd-10-1",
-          "points": 10,
-          "text": "[Lớp 12] Câu hỏi 10 điểm số 1",
-          "answer": "Đáp án 10-1"
-        },
-        {
-          "id": "g12-vd-10-2",
-          "points": 10,
-          "text": "[Lớp 12] Câu hỏi 10 điểm số 2",
-          "answer": "Đáp án 10-2"
-        },
-        {
-          "id": "g12-vd-10-3",
-          "points": 10,
-          "text": "[Lớp 12] Câu hỏi 10 điểm số 3",
-          "answer": "Đáp án 10-3"
-        },
-        {
-          "id": "g12-vd-20-1",
-          "points": 20,
-          "text": "[Lớp 12] Câu hỏi 20 điểm số 1",
-          "answer": "Đáp án 20-1"
-        },
-        {
-          "id": "g12-vd-20-2",
-          "points": 20,
-          "text": "[Lớp 12] Câu hỏi 20 điểm số 2",
-          "answer": "Đáp án 20-2"
-        },
-        {
-          "id": "g12-vd-20-3",
-          "points": 20,
-          "text": "[Lớp 12] Câu hỏi 20 điểm số 3",
-          "answer": "Đáp án 20-3"
-        },
-        {
-          "id": "g12-vd-30-1",
-          "points": 30,
-          "text": "[Lớp 12] Câu hỏi 30 điểm số 1",
-          "answer": "Đáp án 30-1"
-        },
-        {
-          "id": "g12-vd-30-2",
-          "points": 30,
-          "text": "[Lớp 12] Câu hỏi 30 điểm số 2",
-          "answer": "Đáp án 30-2"
-        },
-        {
-          "id": "g12-vd-30-3",
-          "points": 30,
-          "text": "[Lớp 12] Câu hỏi 30 điểm số 3",
-          "answer": "Đáp án 30-3"
-        }
+        {"id": "g12-vd-10-1","points": 10,"text": "Nguyên hàm của hàm số f(x) = 1/x là gì?","answer": "ln|x| + C"},
+        {"id": "g12-vd-10-2","points": 10,"text": "Cặp electron dùng chung trong liên kết cộng hóa trị gọi là gì?","answer": "Cặp electron liên kết"},
+        {"id": "g12-vd-10-3","points": 10,"text": "Tác phẩm 'Đất nước' trong trường ca 'Mặt đường khát vọng' do ai sáng tác?","answer": "Nguyễn Khoa Điềm"},
+        {"id": "g12-vd-20-1","points": 20,"text": "Thể tích khối cầu bán kính R được tính bằng công thức nào?","answer": "V = 4/3 × πR³"},
+        {"id": "g12-vd-20-2","points": 20,"text": "Chính sách Đổi Mới của Việt Nam được bắt đầu từ năm nào?","answer": "1986"},
+        {"id": "g12-vd-20-3","points": 20,"text": "Trong vật lý hạt nhân, phản ứng phân hạch thường dùng nguyên tố nào?","answer": "Uranium (U-235)"},
+        {"id": "g12-vd-30-1","points": 30,"text": "Mệnh đề 'Nếu P thì Q' tương đương với mệnh đề nào?","answer": "Nếu không Q thì không P (phủ định đảo)"},
+        {"id": "g12-vd-30-2","points": 30,"text": "Nhà bác học Việt Nam đầu tiên được bầu vào Viện Hàn lâm Khoa học Pháp là ai?","answer": "Ngô Bảo Châu"},
+        {"id": "g12-vd-30-3","points": 30,"text": "Phương trình sóng điện từ trong chân không có vận tốc truyền sóng bằng bao nhiêu m/s?","answer": "3 × 10⁸ m/s"}
       ]
     }
   }

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
@@ -5,6 +6,7 @@ const { Server } = require('socket.io');
 
 const qb = require('./questionBank');
 const rm = require('./roomManager');
+const aiChecker = require('./aiChecker');
 
 const PORT = process.env.PORT || 4000;
 // CLIENT_ORIGIN can be a comma-separated allowlist for production use
@@ -227,7 +229,7 @@ io.on('connection', (socket) => {
     setTimeout(() => nextWarmupQuestion(room), 5000);
   }
 
-  socket.on('warmup:answer', ({ roomId, questionId, answer }) => {
+  socket.on('warmup:answer', async ({ roomId, questionId, answer }) => {
     const room = rm.getRoom(roomId);
     if (!room || room.status !== 'warmup') return;
     const rs = room.roundState;
@@ -235,7 +237,15 @@ io.on('connection', (socket) => {
     if (!q || q.id !== questionId || rs.answered.has(socket.id) || rs.questionSettled) return;
     rs.answered.add(socket.id);
 
-    const correct = normalize(answer) === normalize(q.answer);
+    // Notify the player their answer is being checked
+    socket.emit('warmup:checking', { questionId });
+
+    const { correct } = await aiChecker.check(q.text, answer, q.answer);
+
+    // Re-validate room state after async call (player may have disconnected)
+    const roomNow = rm.getRoom(roomId);
+    if (!roomNow || roomNow.status !== 'warmup') return;
+
     if (correct) {
       rm.addScore(room, socket.id, 10);
       emitRoomUpdate(roomId);
@@ -246,13 +256,11 @@ io.on('connection', (socket) => {
         correctAnswer: q.answer,
         scoreDelta: 10
       });
-      // Reveal answer to all then advance after 5s
       revealWarmupAnswer(room, questionId);
     } else {
       io.to(roomId).emit('warmup:result', { playerId: socket.id, questionId, correct: false });
       const connectedCount = room.players.filter((p) => p.connected).length;
       if (rs.answered.size >= connectedCount) {
-        // Everyone answered wrong — reveal answer then advance
         revealWarmupAnswer(room, questionId);
       }
     }
@@ -285,7 +293,7 @@ io.on('connection', (socket) => {
     });
   }
 
-  socket.on('obstacle:answerRow', ({ roomId, rowId, guess }) => {
+  socket.on('obstacle:answerRow', async ({ roomId, rowId, guess }) => {
     const room = rm.getRoom(roomId);
     if (!room || room.status !== 'obstacle' || room.roundState.solved) return;
     const rs = room.roundState;
@@ -293,7 +301,12 @@ io.on('connection', (socket) => {
     const row = rs.puzzle.rows.find((r) => r.id === rowId);
     if (!row) return;
 
-    const correct = normalize(guess) === normalize(row.answer);
+    socket.emit('obstacle:checking', { rowId });
+    const { correct } = await aiChecker.check(row.clue, guess, row.answer);
+
+    const roomNow = rm.getRoom(roomId);
+    if (!roomNow || roomNow.status !== 'obstacle' || rs.revealedRows.has(rowId)) return;
+
     if (correct) {
       rs.revealedRows.add(rowId);
       rm.addScore(room, socket.id, 10);
@@ -308,13 +321,22 @@ io.on('connection', (socket) => {
     });
   });
 
-  socket.on('obstacle:guessPhrase', ({ roomId, guess }) => {
+  socket.on('obstacle:guessPhrase', async ({ roomId, guess }) => {
     const room = rm.getRoom(roomId);
     if (!room || room.status !== 'obstacle' || room.roundState.solved) return;
     const rs = room.roundState;
     if (!rs.puzzle) return;
 
-    const correct = normalize(guess) === normalize(rs.puzzle.secretPhrase);
+    socket.emit('obstacle:checking', { phrase: true });
+    const { correct } = await aiChecker.check(
+      `Từ khóa chướng ngại vật: ${rs.puzzle.secretPhrase}`,
+      guess,
+      rs.puzzle.secretPhrase
+    );
+
+    const roomNow = rm.getRoom(roomId);
+    if (!roomNow || roomNow.status !== 'obstacle' || rs.solved) return;
+
     if (correct) {
       rs.solved = true;
       const bonus = 30 - rs.revealedRows.size * 5;
@@ -455,14 +477,19 @@ io.on('connection', (socket) => {
     });
   });
 
-  socket.on('finish:answer', ({ roomId, answer }) => {
+  socket.on('finish:answer', async ({ roomId, answer }) => {
     const room = rm.getRoom(roomId);
     if (!room || room.status !== 'finish' || !room.roundState.activeQuestion) return;
     const rs = room.roundState;
     const q = rs.activeQuestion;
     if (q.pickedBy !== socket.id) return;
 
-    const correct = normalize(answer) === normalize(q.answer);
+    socket.emit('finish:checking');
+    const { correct } = await aiChecker.check(q.text, answer, q.answer);
+
+    const roomNow = rm.getRoom(roomId);
+    if (!roomNow || roomNow.status !== 'finish' || !rs.activeQuestion || rs.activeQuestion.id !== q.id) return;
+
     const starred = rs.starUsedBy.has(socket.id);
     const delta = correct ? q.points * (starred ? 2 : 1) : (starred ? -q.points : 0);
     rm.addScore(room, socket.id, delta);
@@ -477,14 +504,20 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on('finish:steal', ({ roomId, answer }) => {
+  socket.on('finish:steal', async ({ roomId, answer }) => {
     const room = rm.getRoom(roomId);
     const rs = room?.roundState;
     if (!room || room.status !== 'finish' || !rs?.activeQuestion || !rs.stealOpen) return;
     const q = rs.activeQuestion;
     if (q.pickedBy === socket.id || q.wrongBy.has(socket.id)) return;
 
-    const correct = normalize(answer) === normalize(q.answer);
+    socket.emit('finish:checking');
+    const { correct } = await aiChecker.check(q.text, answer, q.answer);
+
+    const roomNow = rm.getRoom(roomId);
+    if (!roomNow || roomNow.status !== 'finish' || !rs.activeQuestion || !rs.stealOpen) return;
+    if (q.wrongBy.has(socket.id)) return; // prevent double-processing
+
     if (correct) {
       rm.addScore(room, socket.id, q.points);
       rs.stealOpen = false;
