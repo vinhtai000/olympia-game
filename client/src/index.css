@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.olympia-panel {
+  @apply bg-white/95 rounded-2xl shadow-xl;
+}
+
+.olympia-btn {
+  @apply px-5 py-2.5 rounded-xl font-semibold transition active:scale-95 disabled:opacity-40 disabled:pointer-events-none;
+}
+
+.olympia-btn-primary {
+  @apply olympia-btn bg-olympia-gold text-olympia-navy hover:brightness-105;
+}
+
+.olympia-btn-secondary {
+  @apply olympia-btn bg-olympia-blue text-white hover:brightness-110;
+}
+
+.input {
+  @apply w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-olympia-gold;
+}

@@ -1,0 +1,2240 @@
+{
+  "primary": {
+    "1": {
+      "warmup": [
+        {
+          "id": "g1-wu-1",
+          "text": "[Lớp 1] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g1-wu-2",
+          "text": "[Lớp 1] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g1-wu-3",
+          "text": "[Lớp 1] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g1-wu-4",
+          "text": "[Lớp 1] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g1-wu-5",
+          "text": "[Lớp 1] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g1-wu-6",
+          "text": "[Lớp 1] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g1-wu-7",
+          "text": "[Lớp 1] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g1-wu-8",
+          "text": "[Lớp 1] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g1-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 1",
+        "imageHint": "Hình ảnh gợi ý cho lớp 1",
+        "rows": [
+          {
+            "id": "g1-cnv-row-1",
+            "clue": "[Lớp 1] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g1-cnv-row-2",
+            "clue": "[Lớp 1] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g1-cnv-row-3",
+            "clue": "[Lớp 1] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g1-cnv-row-4",
+            "clue": "[Lớp 1] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g1-cnv-row-5",
+            "clue": "[Lớp 1] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g1-tt-1",
+          "text": "[Lớp 1] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g1-tt-2",
+          "text": "[Lớp 1] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g1-tt-3",
+          "text": "[Lớp 1] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g1-tt-4",
+          "text": "[Lớp 1] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g1-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 1] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g1-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 1] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g1-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 1] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g1-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 1] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g1-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 1] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g1-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 1] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g1-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 1] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g1-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 1] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g1-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 1] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "2": {
+      "warmup": [
+        {
+          "id": "g2-wu-1",
+          "text": "[Lớp 2] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g2-wu-2",
+          "text": "[Lớp 2] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g2-wu-3",
+          "text": "[Lớp 2] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g2-wu-4",
+          "text": "[Lớp 2] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g2-wu-5",
+          "text": "[Lớp 2] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g2-wu-6",
+          "text": "[Lớp 2] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g2-wu-7",
+          "text": "[Lớp 2] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g2-wu-8",
+          "text": "[Lớp 2] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g2-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 2",
+        "imageHint": "Hình ảnh gợi ý cho lớp 2",
+        "rows": [
+          {
+            "id": "g2-cnv-row-1",
+            "clue": "[Lớp 2] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g2-cnv-row-2",
+            "clue": "[Lớp 2] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g2-cnv-row-3",
+            "clue": "[Lớp 2] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g2-cnv-row-4",
+            "clue": "[Lớp 2] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g2-cnv-row-5",
+            "clue": "[Lớp 2] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g2-tt-1",
+          "text": "[Lớp 2] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g2-tt-2",
+          "text": "[Lớp 2] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g2-tt-3",
+          "text": "[Lớp 2] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g2-tt-4",
+          "text": "[Lớp 2] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g2-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 2] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g2-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 2] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g2-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 2] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g2-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 2] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g2-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 2] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g2-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 2] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g2-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 2] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g2-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 2] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g2-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 2] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "3": {
+      "warmup": [
+        {
+          "id": "g3-wu-1",
+          "text": "[Lớp 3] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g3-wu-2",
+          "text": "[Lớp 3] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g3-wu-3",
+          "text": "[Lớp 3] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g3-wu-4",
+          "text": "[Lớp 3] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g3-wu-5",
+          "text": "[Lớp 3] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g3-wu-6",
+          "text": "[Lớp 3] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g3-wu-7",
+          "text": "[Lớp 3] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g3-wu-8",
+          "text": "[Lớp 3] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g3-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 3",
+        "imageHint": "Hình ảnh gợi ý cho lớp 3",
+        "rows": [
+          {
+            "id": "g3-cnv-row-1",
+            "clue": "[Lớp 3] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g3-cnv-row-2",
+            "clue": "[Lớp 3] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g3-cnv-row-3",
+            "clue": "[Lớp 3] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g3-cnv-row-4",
+            "clue": "[Lớp 3] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g3-cnv-row-5",
+            "clue": "[Lớp 3] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g3-tt-1",
+          "text": "[Lớp 3] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g3-tt-2",
+          "text": "[Lớp 3] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g3-tt-3",
+          "text": "[Lớp 3] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g3-tt-4",
+          "text": "[Lớp 3] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g3-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 3] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g3-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 3] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g3-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 3] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g3-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 3] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g3-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 3] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g3-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 3] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g3-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 3] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g3-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 3] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g3-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 3] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "4": {
+      "warmup": [
+        {
+          "id": "g4-wu-1",
+          "text": "[Lớp 4] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g4-wu-2",
+          "text": "[Lớp 4] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g4-wu-3",
+          "text": "[Lớp 4] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g4-wu-4",
+          "text": "[Lớp 4] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g4-wu-5",
+          "text": "[Lớp 4] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g4-wu-6",
+          "text": "[Lớp 4] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g4-wu-7",
+          "text": "[Lớp 4] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g4-wu-8",
+          "text": "[Lớp 4] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g4-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 4",
+        "imageHint": "Hình ảnh gợi ý cho lớp 4",
+        "rows": [
+          {
+            "id": "g4-cnv-row-1",
+            "clue": "[Lớp 4] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g4-cnv-row-2",
+            "clue": "[Lớp 4] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g4-cnv-row-3",
+            "clue": "[Lớp 4] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g4-cnv-row-4",
+            "clue": "[Lớp 4] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g4-cnv-row-5",
+            "clue": "[Lớp 4] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g4-tt-1",
+          "text": "[Lớp 4] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g4-tt-2",
+          "text": "[Lớp 4] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g4-tt-3",
+          "text": "[Lớp 4] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g4-tt-4",
+          "text": "[Lớp 4] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g4-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 4] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g4-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 4] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g4-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 4] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g4-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 4] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g4-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 4] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g4-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 4] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g4-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 4] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g4-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 4] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g4-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 4] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "5": {
+      "warmup": [
+        {
+          "id": "g5-wu-1",
+          "text": "[Lớp 5] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g5-wu-2",
+          "text": "[Lớp 5] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g5-wu-3",
+          "text": "[Lớp 5] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g5-wu-4",
+          "text": "[Lớp 5] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g5-wu-5",
+          "text": "[Lớp 5] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g5-wu-6",
+          "text": "[Lớp 5] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g5-wu-7",
+          "text": "[Lớp 5] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g5-wu-8",
+          "text": "[Lớp 5] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g5-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 5",
+        "imageHint": "Hình ảnh gợi ý cho lớp 5",
+        "rows": [
+          {
+            "id": "g5-cnv-row-1",
+            "clue": "[Lớp 5] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g5-cnv-row-2",
+            "clue": "[Lớp 5] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g5-cnv-row-3",
+            "clue": "[Lớp 5] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g5-cnv-row-4",
+            "clue": "[Lớp 5] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g5-cnv-row-5",
+            "clue": "[Lớp 5] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g5-tt-1",
+          "text": "[Lớp 5] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g5-tt-2",
+          "text": "[Lớp 5] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g5-tt-3",
+          "text": "[Lớp 5] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g5-tt-4",
+          "text": "[Lớp 5] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g5-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 5] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g5-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 5] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g5-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 5] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g5-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 5] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g5-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 5] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g5-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 5] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g5-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 5] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g5-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 5] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g5-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 5] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    }
+  },
+  "secondary": {
+    "6": {
+      "warmup": [
+        {
+          "id": "g6-wu-1",
+          "text": "[Lớp 6] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g6-wu-2",
+          "text": "[Lớp 6] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g6-wu-3",
+          "text": "[Lớp 6] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g6-wu-4",
+          "text": "[Lớp 6] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g6-wu-5",
+          "text": "[Lớp 6] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g6-wu-6",
+          "text": "[Lớp 6] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g6-wu-7",
+          "text": "[Lớp 6] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g6-wu-8",
+          "text": "[Lớp 6] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g6-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 6",
+        "imageHint": "Hình ảnh gợi ý cho lớp 6",
+        "rows": [
+          {
+            "id": "g6-cnv-row-1",
+            "clue": "[Lớp 6] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g6-cnv-row-2",
+            "clue": "[Lớp 6] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g6-cnv-row-3",
+            "clue": "[Lớp 6] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g6-cnv-row-4",
+            "clue": "[Lớp 6] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g6-cnv-row-5",
+            "clue": "[Lớp 6] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g6-tt-1",
+          "text": "[Lớp 6] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g6-tt-2",
+          "text": "[Lớp 6] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g6-tt-3",
+          "text": "[Lớp 6] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g6-tt-4",
+          "text": "[Lớp 6] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g6-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 6] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g6-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 6] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g6-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 6] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g6-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 6] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g6-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 6] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g6-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 6] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g6-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 6] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g6-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 6] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g6-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 6] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "7": {
+      "warmup": [
+        {
+          "id": "g7-wu-1",
+          "text": "[Lớp 7] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g7-wu-2",
+          "text": "[Lớp 7] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g7-wu-3",
+          "text": "[Lớp 7] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g7-wu-4",
+          "text": "[Lớp 7] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g7-wu-5",
+          "text": "[Lớp 7] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g7-wu-6",
+          "text": "[Lớp 7] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g7-wu-7",
+          "text": "[Lớp 7] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g7-wu-8",
+          "text": "[Lớp 7] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g7-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 7",
+        "imageHint": "Hình ảnh gợi ý cho lớp 7",
+        "rows": [
+          {
+            "id": "g7-cnv-row-1",
+            "clue": "[Lớp 7] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g7-cnv-row-2",
+            "clue": "[Lớp 7] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g7-cnv-row-3",
+            "clue": "[Lớp 7] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g7-cnv-row-4",
+            "clue": "[Lớp 7] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g7-cnv-row-5",
+            "clue": "[Lớp 7] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g7-tt-1",
+          "text": "[Lớp 7] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g7-tt-2",
+          "text": "[Lớp 7] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g7-tt-3",
+          "text": "[Lớp 7] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g7-tt-4",
+          "text": "[Lớp 7] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g7-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 7] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g7-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 7] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g7-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 7] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g7-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 7] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g7-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 7] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g7-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 7] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g7-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 7] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g7-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 7] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g7-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 7] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "8": {
+      "warmup": [
+        {
+          "id": "g8-wu-1",
+          "text": "[Lớp 8] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g8-wu-2",
+          "text": "[Lớp 8] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g8-wu-3",
+          "text": "[Lớp 8] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g8-wu-4",
+          "text": "[Lớp 8] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g8-wu-5",
+          "text": "[Lớp 8] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g8-wu-6",
+          "text": "[Lớp 8] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g8-wu-7",
+          "text": "[Lớp 8] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g8-wu-8",
+          "text": "[Lớp 8] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g8-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 8",
+        "imageHint": "Hình ảnh gợi ý cho lớp 8",
+        "rows": [
+          {
+            "id": "g8-cnv-row-1",
+            "clue": "[Lớp 8] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g8-cnv-row-2",
+            "clue": "[Lớp 8] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g8-cnv-row-3",
+            "clue": "[Lớp 8] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g8-cnv-row-4",
+            "clue": "[Lớp 8] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g8-cnv-row-5",
+            "clue": "[Lớp 8] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g8-tt-1",
+          "text": "[Lớp 8] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g8-tt-2",
+          "text": "[Lớp 8] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g8-tt-3",
+          "text": "[Lớp 8] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g8-tt-4",
+          "text": "[Lớp 8] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g8-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 8] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g8-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 8] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g8-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 8] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g8-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 8] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g8-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 8] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g8-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 8] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g8-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 8] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g8-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 8] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g8-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 8] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "9": {
+      "warmup": [
+        {
+          "id": "g9-wu-1",
+          "text": "[Lớp 9] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g9-wu-2",
+          "text": "[Lớp 9] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g9-wu-3",
+          "text": "[Lớp 9] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g9-wu-4",
+          "text": "[Lớp 9] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g9-wu-5",
+          "text": "[Lớp 9] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g9-wu-6",
+          "text": "[Lớp 9] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g9-wu-7",
+          "text": "[Lớp 9] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g9-wu-8",
+          "text": "[Lớp 9] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g9-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 9",
+        "imageHint": "Hình ảnh gợi ý cho lớp 9",
+        "rows": [
+          {
+            "id": "g9-cnv-row-1",
+            "clue": "[Lớp 9] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g9-cnv-row-2",
+            "clue": "[Lớp 9] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g9-cnv-row-3",
+            "clue": "[Lớp 9] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g9-cnv-row-4",
+            "clue": "[Lớp 9] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g9-cnv-row-5",
+            "clue": "[Lớp 9] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g9-tt-1",
+          "text": "[Lớp 9] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g9-tt-2",
+          "text": "[Lớp 9] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g9-tt-3",
+          "text": "[Lớp 9] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g9-tt-4",
+          "text": "[Lớp 9] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g9-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 9] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g9-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 9] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g9-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 9] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g9-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 9] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g9-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 9] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g9-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 9] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g9-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 9] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g9-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 9] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g9-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 9] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    }
+  },
+  "highschool": {
+    "10": {
+      "warmup": [
+        {
+          "id": "g10-wu-1",
+          "text": "[Lớp 10] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g10-wu-2",
+          "text": "[Lớp 10] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g10-wu-3",
+          "text": "[Lớp 10] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g10-wu-4",
+          "text": "[Lớp 10] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g10-wu-5",
+          "text": "[Lớp 10] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g10-wu-6",
+          "text": "[Lớp 10] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g10-wu-7",
+          "text": "[Lớp 10] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g10-wu-8",
+          "text": "[Lớp 10] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g10-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 10",
+        "imageHint": "Hình ảnh gợi ý cho lớp 10",
+        "rows": [
+          {
+            "id": "g10-cnv-row-1",
+            "clue": "[Lớp 10] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g10-cnv-row-2",
+            "clue": "[Lớp 10] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g10-cnv-row-3",
+            "clue": "[Lớp 10] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g10-cnv-row-4",
+            "clue": "[Lớp 10] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g10-cnv-row-5",
+            "clue": "[Lớp 10] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g10-tt-1",
+          "text": "[Lớp 10] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g10-tt-2",
+          "text": "[Lớp 10] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g10-tt-3",
+          "text": "[Lớp 10] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g10-tt-4",
+          "text": "[Lớp 10] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g10-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 10] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g10-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 10] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g10-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 10] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g10-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 10] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g10-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 10] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g10-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 10] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g10-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 10] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g10-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 10] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g10-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 10] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "11": {
+      "warmup": [
+        {
+          "id": "g11-wu-1",
+          "text": "[Lớp 11] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g11-wu-2",
+          "text": "[Lớp 11] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g11-wu-3",
+          "text": "[Lớp 11] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g11-wu-4",
+          "text": "[Lớp 11] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g11-wu-5",
+          "text": "[Lớp 11] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g11-wu-6",
+          "text": "[Lớp 11] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g11-wu-7",
+          "text": "[Lớp 11] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g11-wu-8",
+          "text": "[Lớp 11] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g11-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 11",
+        "imageHint": "Hình ảnh gợi ý cho lớp 11",
+        "rows": [
+          {
+            "id": "g11-cnv-row-1",
+            "clue": "[Lớp 11] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g11-cnv-row-2",
+            "clue": "[Lớp 11] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g11-cnv-row-3",
+            "clue": "[Lớp 11] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g11-cnv-row-4",
+            "clue": "[Lớp 11] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g11-cnv-row-5",
+            "clue": "[Lớp 11] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g11-tt-1",
+          "text": "[Lớp 11] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g11-tt-2",
+          "text": "[Lớp 11] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g11-tt-3",
+          "text": "[Lớp 11] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g11-tt-4",
+          "text": "[Lớp 11] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g11-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 11] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g11-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 11] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g11-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 11] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g11-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 11] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g11-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 11] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g11-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 11] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g11-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 11] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g11-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 11] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g11-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 11] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    },
+    "12": {
+      "warmup": [
+        {
+          "id": "g12-wu-1",
+          "text": "[Lớp 12] Câu hỏi khởi động số 1 (Văn)",
+          "answer": "Đáp án 1"
+        },
+        {
+          "id": "g12-wu-2",
+          "text": "[Lớp 12] Câu hỏi khởi động số 2 (Tiếng Anh)",
+          "answer": "Đáp án 2"
+        },
+        {
+          "id": "g12-wu-3",
+          "text": "[Lớp 12] Câu hỏi khởi động số 3 (Khoa học)",
+          "answer": "Đáp án 3"
+        },
+        {
+          "id": "g12-wu-4",
+          "text": "[Lớp 12] Câu hỏi khởi động số 4 (Lịch sử)",
+          "answer": "Đáp án 4"
+        },
+        {
+          "id": "g12-wu-5",
+          "text": "[Lớp 12] Câu hỏi khởi động số 5 (Địa lý)",
+          "answer": "Đáp án 5"
+        },
+        {
+          "id": "g12-wu-6",
+          "text": "[Lớp 12] Câu hỏi khởi động số 6 (Toán)",
+          "answer": "Đáp án 6"
+        },
+        {
+          "id": "g12-wu-7",
+          "text": "[Lớp 12] Câu hỏi khởi động số 7 (Văn)",
+          "answer": "Đáp án 7"
+        },
+        {
+          "id": "g12-wu-8",
+          "text": "[Lớp 12] Câu hỏi khởi động số 8 (Tiếng Anh)",
+          "answer": "Đáp án 8"
+        }
+      ],
+      "obstacle": {
+        "id": "g12-cnv",
+        "secretPhrase": "TỪ KHÓA LỚP 12",
+        "imageHint": "Hình ảnh gợi ý cho lớp 12",
+        "rows": [
+          {
+            "id": "g12-cnv-row-1",
+            "clue": "[Lớp 12] Gợi ý hàng ngang số 1",
+            "answer": "Đáp án hàng 1"
+          },
+          {
+            "id": "g12-cnv-row-2",
+            "clue": "[Lớp 12] Gợi ý hàng ngang số 2",
+            "answer": "Đáp án hàng 2"
+          },
+          {
+            "id": "g12-cnv-row-3",
+            "clue": "[Lớp 12] Gợi ý hàng ngang số 3",
+            "answer": "Đáp án hàng 3"
+          },
+          {
+            "id": "g12-cnv-row-4",
+            "clue": "[Lớp 12] Gợi ý hàng ngang số 4",
+            "answer": "Đáp án hàng 4"
+          },
+          {
+            "id": "g12-cnv-row-5",
+            "clue": "[Lớp 12] Gợi ý hàng ngang số 5",
+            "answer": "Đáp án hàng 5"
+          }
+        ]
+      },
+      "acceleration": [
+        {
+          "id": "g12-tt-1",
+          "text": "[Lớp 12] Câu hỏi tăng tốc số 1",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g12-tt-2",
+          "text": "[Lớp 12] Câu hỏi tăng tốc số 2",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g12-tt-3",
+          "text": "[Lớp 12] Câu hỏi tăng tốc số 3",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        },
+        {
+          "id": "g12-tt-4",
+          "text": "[Lớp 12] Câu hỏi tăng tốc số 4",
+          "image": null,
+          "options": [
+            "Phương án A",
+            "Phương án B",
+            "Phương án C",
+            "Phương án D"
+          ],
+          "answer": "Phương án A",
+          "timeLimitSeconds": 20
+        }
+      ],
+      "finish": [
+        {
+          "id": "g12-vd-10-1",
+          "points": 10,
+          "text": "[Lớp 12] Câu hỏi 10 điểm số 1",
+          "answer": "Đáp án 10-1"
+        },
+        {
+          "id": "g12-vd-10-2",
+          "points": 10,
+          "text": "[Lớp 12] Câu hỏi 10 điểm số 2",
+          "answer": "Đáp án 10-2"
+        },
+        {
+          "id": "g12-vd-10-3",
+          "points": 10,
+          "text": "[Lớp 12] Câu hỏi 10 điểm số 3",
+          "answer": "Đáp án 10-3"
+        },
+        {
+          "id": "g12-vd-20-1",
+          "points": 20,
+          "text": "[Lớp 12] Câu hỏi 20 điểm số 1",
+          "answer": "Đáp án 20-1"
+        },
+        {
+          "id": "g12-vd-20-2",
+          "points": 20,
+          "text": "[Lớp 12] Câu hỏi 20 điểm số 2",
+          "answer": "Đáp án 20-2"
+        },
+        {
+          "id": "g12-vd-20-3",
+          "points": 20,
+          "text": "[Lớp 12] Câu hỏi 20 điểm số 3",
+          "answer": "Đáp án 20-3"
+        },
+        {
+          "id": "g12-vd-30-1",
+          "points": 30,
+          "text": "[Lớp 12] Câu hỏi 30 điểm số 1",
+          "answer": "Đáp án 30-1"
+        },
+        {
+          "id": "g12-vd-30-2",
+          "points": 30,
+          "text": "[Lớp 12] Câu hỏi 30 điểm số 2",
+          "answer": "Đáp án 30-2"
+        },
+        {
+          "id": "g12-vd-30-3",
+          "points": 30,
+          "text": "[Lớp 12] Câu hỏi 30 điểm số 3",
+          "answer": "Đáp án 30-3"
+        }
+      ]
+    }
+  }
+}
