@@ -87,7 +87,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g1-tt-2",
@@ -100,7 +100,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g1-tt-3",
@@ -113,7 +113,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g1-tt-4",
@@ -126,7 +126,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -273,7 +273,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g2-tt-2",
@@ -286,7 +286,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g2-tt-3",
@@ -299,7 +299,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g2-tt-4",
@@ -312,7 +312,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -459,7 +459,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g3-tt-2",
@@ -472,7 +472,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g3-tt-3",
@@ -485,7 +485,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g3-tt-4",
@@ -498,7 +498,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -645,7 +645,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g4-tt-2",
@@ -658,7 +658,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g4-tt-3",
@@ -671,7 +671,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g4-tt-4",
@@ -684,7 +684,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -831,7 +831,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g5-tt-2",
@@ -844,7 +844,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g5-tt-3",
@@ -857,7 +857,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g5-tt-4",
@@ -870,7 +870,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -1019,7 +1019,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g6-tt-2",
@@ -1032,7 +1032,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g6-tt-3",
@@ -1045,7 +1045,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g6-tt-4",
@@ -1058,7 +1058,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -1205,7 +1205,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g7-tt-2",
@@ -1218,7 +1218,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g7-tt-3",
@@ -1231,7 +1231,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g7-tt-4",
@@ -1244,7 +1244,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -1391,7 +1391,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g8-tt-2",
@@ -1404,7 +1404,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g8-tt-3",
@@ -1417,7 +1417,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g8-tt-4",
@@ -1430,7 +1430,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -1577,7 +1577,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g9-tt-2",
@@ -1590,7 +1590,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g9-tt-3",
@@ -1603,7 +1603,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g9-tt-4",
@@ -1616,7 +1616,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -1765,7 +1765,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g10-tt-2",
@@ -1778,7 +1778,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g10-tt-3",
@@ -1791,7 +1791,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g10-tt-4",
@@ -1804,7 +1804,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -1951,7 +1951,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g11-tt-2",
@@ -1964,7 +1964,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g11-tt-3",
@@ -1977,7 +1977,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g11-tt-4",
@@ -1990,7 +1990,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [
@@ -2137,7 +2137,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g12-tt-2",
@@ -2150,7 +2150,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g12-tt-3",
@@ -2163,7 +2163,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         },
         {
           "id": "g12-tt-4",
@@ -2176,7 +2176,7 @@
             "Phương án D"
           ],
           "answer": "Phương án A",
-          "timeLimitSeconds": 20
+          "timeLimitSeconds": 30
         }
       ],
       "finish": [

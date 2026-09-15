@@ -22,7 +22,7 @@ export default function Warmup({ roomId }) {
       setAnswer('');
       setFeedback(null);
       setReveal(null);
-      setTimeLeft(q.timeLimitSeconds || 10);
+      setTimeLeft(q.timeLimitSeconds || 20);
       clearInterval(timerRef.current);
       clearInterval(revealTimerRef.current);
       timerRef.current = setInterval(() => {

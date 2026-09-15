@@ -19,7 +19,7 @@ export default function Acceleration({ roomId }) {
       setProgress({ index: q.index, total: q.total });
       setChoice(null);
       setResult(null);
-      setTimeLeft(q.timeLimitSeconds || 20);
+      setTimeLeft(q.timeLimitSeconds || 30);
       clearInterval(timerRef.current);
       timerRef.current = setInterval(() => setTimeLeft((t) => (t > 0 ? t - 1 : 0)), 1000);
     }

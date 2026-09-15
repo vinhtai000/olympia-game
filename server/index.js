@@ -122,7 +122,7 @@ io.on('connection', (socket) => {
         total: rs.questions.length,
         id: q.id,
         text: q.text,
-        timeLimitSeconds: 10
+        timeLimitSeconds: 20
       });
     } else if (room.status === 'obstacle') {
       socket.emit('round:started', {
@@ -150,7 +150,7 @@ io.on('connection', (socket) => {
         text: q.text,
         image: q.image,
         options: q.options,
-        timeLimitSeconds: q.timeLimitSeconds || 20
+        timeLimitSeconds: q.timeLimitSeconds || 30
       });
     } else if (room.status === 'finish') {
       socket.emit('round:started', {
@@ -210,10 +210,10 @@ io.on('connection', (socket) => {
       total: rs.questions.length,
       id: q.id,
       text: q.text,
-      timeLimitSeconds: 10
+      timeLimitSeconds: 20
     });
     // Auto-expire: reveal answer then advance after 5s
-    setTimeout(() => revealWarmupAnswer(room, q.id), 10 * 1000);
+    setTimeout(() => revealWarmupAnswer(room, q.id), 20 * 1000);
   }
 
   function revealWarmupAnswer(room, questionId) {
@@ -357,9 +357,9 @@ io.on('connection', (socket) => {
       text: q.text,
       image: q.image,
       options: q.options,
-      timeLimitSeconds: q.timeLimitSeconds || 20
+      timeLimitSeconds: q.timeLimitSeconds || 30
     });
-    setTimeout(() => finishAccelQuestion(room, q), (q.timeLimitSeconds || 20) * 1000);
+    setTimeout(() => finishAccelQuestion(room, q), (q.timeLimitSeconds || 30) * 1000);
   }
 
   function finishAccelQuestion(room, q) {

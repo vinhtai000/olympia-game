@@ -43,7 +43,7 @@ function accelerationSet(grade) {
       image: null,
       options: ['Phương án A', 'Phương án B', 'Phương án C', 'Phương án D'],
       answer: 'Phương án A',
-      timeLimitSeconds: 20
+      timeLimitSeconds: 30
     });
   }
   return items;
