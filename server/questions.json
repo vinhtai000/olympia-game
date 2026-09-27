@@ -648,8 +648,8 @@
         {
           "id": "g1-vd-30-2",
           "points": 30,
-          "text": "Nước ta có bao nhiêu tỉnh và thành phố trực thuộc trung ương?",
-          "answer": "63 tỉnh thành"
+          "text": "Sau khi sáp nhập (từ 1/7/2025), nước ta có bao nhiêu tỉnh và thành phố trực thuộc trung ương?",
+          "answer": "34 tỉnh thành"
         },
         {
           "id": "g1-vd-30-3",
@@ -2005,7 +2005,7 @@
         },
         {
           "id": "g3-tt-17",
-          "text": "Hồ nước ngọt tự nhiên lớn nhất ở miền Bắc Việt Nam nằm ở tỉnh Bắc Kạn là hồ nào?",
+          "text": "Hồ nước ngọt tự nhiên lớn nhất ở miền Bắc Việt Nam hiện thuộc tỉnh nào (trước là Bắc Kạn)?",
           "options": [
             "Hồ Tây",
             "Hồ Ba Bể",
@@ -2529,8 +2529,8 @@
         },
         {
           "id": "g4-wu-35",
-          "text": "Đèo Hải Vân là ranh giới tự nhiên giữa tỉnh/thành phố nào và thành phố Đà Nẵng?",
-          "answer": "Thừa Thiên Huế"
+          "text": "Đèo Hải Vân là ranh giới tự nhiên giữa thành phố nào và thành phố Đà Nẵng?",
+          "answer": "Thành phố Huế"
         },
         {
           "id": "g4-wu-36",
@@ -2706,14 +2706,14 @@
         },
         {
           "id": "g4-tt-10",
-          "text": "Vùng Tây Nguyên gồm có bao nhiêu tỉnh?",
+          "text": "Sau sáp nhập năm 2025, vùng Tây Nguyên về mặt hành chính còn bao nhiêu tỉnh?",
           "options": [
+            "2 tỉnh",
+            "3 tỉnh",
             "4 tỉnh",
-            "5 tỉnh",
-            "6 tỉnh",
-            "7 tỉnh"
+            "5 tỉnh"
           ],
-          "answer": "5 tỉnh",
+          "answer": "3 tỉnh",
           "timeLimitSeconds": 20
         },
         {
@@ -6456,7 +6456,7 @@
         },
         {
           "id": "g9-wu-35",
-          "text": "Đảo nào có diện tích lớn nhất Việt Nam, trực thuộc tỉnh Kiên Giang?",
+          "text": "Đảo nào có diện tích lớn nhất Việt Nam, thuộc tỉnh An Giang (trước là Kiên Giang)?",
           "answer": "Đảo Phú Quốc"
         },
         {
@@ -7143,7 +7143,7 @@
         },
         {
           "id": "g10-wu-15",
-          "text": "Nền văn minh Chăm-pa cổ để lại quần thể đền tháp bằng gạch nung nổi tiếng ở tỉnh Quảng Nam tên là gì?",
+          "text": "Nền văn minh Chăm-pa cổ để lại quần thể đền tháp bằng gạch nung nổi tiếng thuộc thành phố Đà Nẵng (trước là tỉnh Quảng Nam) tên là gì?",
           "answer": "Thánh địa Mỹ Sơn"
         },
         {
@@ -8502,8 +8502,8 @@
         {
           "id": "g11-vd-30-2",
           "points": 30,
-          "text": "Tây Nguyên có tổng cộng bao nhiêu tỉnh?",
-          "answer": "5 tỉnh"
+          "text": "Sau sáp nhập năm 2025, vùng Tây Nguyên có tổng cộng bao nhiêu tỉnh?",
+          "answer": "3 tỉnh (Gia Lai, Đắk Lắk, Lâm Đồng)"
         },
         {
           "id": "g11-vd-30-3",
@@ -9170,14 +9170,14 @@
         },
         {
           "id": "g12-tt-25",
-          "text": "Vùng kinh tế trọng điểm phía Nam bao gồm địa bàn của bao nhiêu tỉnh, thành phố?",
+          "text": "Sau sáp nhập năm 2025, vùng kinh tế trọng điểm phía Nam bao gồm địa bàn của bao nhiêu tỉnh, thành phố?",
           "options": [
-            "8 tỉnh thành",
+            "4 tỉnh thành",
+            "5 tỉnh thành",
             "6 tỉnh thành",
-            "10 tỉnh thành",
-            "5 tỉnh thành"
+            "8 tỉnh thành"
           ],
-          "answer": "8 tỉnh thành",
+          "answer": "4 tỉnh thành",
           "timeLimitSeconds": 20
         },
         {
