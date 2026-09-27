@@ -7,11 +7,11 @@
 const https = require('https');
 
 const API_URL_BASE =
-  'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent';
+  'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent';
 
 /**
  * Check if studentAnswer is approximately correct for the given question.
- * Falls back to exact (normalized) match if AI is unavailable or key is missing.
+ * Uses smart heuristic matching first (instant), then consults Gemini AI for flexible evaluation.
  *
  * @param {string} questionText   The question text shown to the player
  * @param {string} studentAnswer  What the player typed
@@ -19,11 +19,14 @@ const API_URL_BASE =
  * @returns {Promise<{correct: boolean, reason: string}>}
  */
 async function check(questionText, studentAnswer, correctAnswer) {
+  // 1. Fast heuristic check: if it obviously matches, return immediately (zero latency, rock solid)
+  if (fallbackCheck(questionText, studentAnswer, correctAnswer)) {
+    return { correct: true, reason: 'Chính xác' };
+  }
+
   const apiKey = process.env.GEMINI_API_KEY;
-  // Fallback: normalized string match when no API key is set
   if (!apiKey) {
-    const correct = normalize(studentAnswer) === normalize(correctAnswer);
-    return { correct, reason: correct ? 'Chính xác (khớp chuỗi)' : 'Sai' };
+    return { correct: false, reason: 'Sai (không khớp)' };
   }
 
   const prompt = `You are a judge for a Vietnamese academic quiz show.
@@ -35,17 +38,17 @@ Contestant's Answer: "${studentAnswer}"
 Your task is to evaluate whether the contestant's answer is CORRECT in terms of content and meaning.
 
 CASES YOU MUST ACCEPT AS CORRECT:
-1. Numbers written as words or vice versa (e.g., "seven" = "7", "fifteen" = "15").
-2. Omission of grammatical categories or filler words (e.g., answering "sunflower" for the answer "common sunflower", "cow" for "dairy cow", "Hanoi" for "City of Hanoi").
-3. Missing units of measurement (e.g., "7" instead of "7 days", "3" instead of "3 atoms").
+1. Numbers written as words or vice versa (e.g., "bảy" = "7", "mười" = "10", "10" for "10 ngón").
+2. Omission of grammatical categories, classifiers, or filler words (e.g., answering "hướng dương" for "hoa hướng dương", "bò" for "con bò", "Hà Nội" for "Thành phố Hà Nội").
+3. Missing units of measurement (e.g., "7" instead of "7 ngày", "10" instead of "10 ngón", "3" instead of "3 nguyên tử").
 4. Synonymous, equivalent expressions, or other recognized alternative names.
 
 CASES THAT ARE INCORRECT:
 - Factual errors, incorrect essence, incorrect data, incorrect proper nouns.
 - Confusion with a completely different concept.
-- Vague and unclear answers (e.g., answering "Màu xanh" is not accepted, "Xanh lá" for green or "Xanh dương" for blue).
+- Vague and unclear answers (e.g., answering "Màu xanh" is not accepted if the answer is "Xanh lá" or "Xanh dương").
 
-Respond ONLY with a valid JSON result (containing no other text outside the JSON):
+Respond ONLY with a valid JSON result:
 {"correct": true}
 or
 {"correct": false}`;
@@ -63,8 +66,8 @@ or
     const parsed = JSON.parse(match[0]);
     return { correct: !!parsed.correct, reason: parsed.reason || '' };
   } catch (err) {
-    console.error('[aiChecker] Gemini error, falling back to string match:', err.message);
-    const correct = normalize(studentAnswer) === normalize(correctAnswer);
+    console.error('[aiChecker] Gemini error, using fallback matching:', err.message);
+    const correct = fallbackCheck(questionText, studentAnswer, correctAnswer);
     return { correct, reason: correct ? 'Chính xác (fallback)' : 'Sai (fallback)' };
   }
 }
@@ -79,11 +82,65 @@ function normalize(str) {
     .trim();
 }
 
+function fallbackCheck(questionText, studentAnswer, correctAnswer) {
+  const normStudent = normalize(studentAnswer);
+  const normCorrect = normalize(correctAnswer);
+
+  if (!normStudent) return false;
+  if (normStudent === normCorrect) return true;
+
+  // Extract pure digits
+  const studentDigits = (studentAnswer.match(/\d+/g) || []).join('');
+  const correctDigits = (correctAnswer.match(/\d+/g) || []).join('');
+  if (studentDigits && correctDigits && studentDigits === correctDigits) {
+    return true;
+  }
+
+  // Vietnamese number words: "mười" = "10", "bảy" = "7", etc.
+  const VN_NUMBERS = {
+    'khong': '0', 'mot': '1', 'hai': '2', 'ba': '3', 'bon': '4',
+    'nam': '5', 'sau': '6', 'bay': '7', 'tam': '8', 'chin': '9', 'muoi': '10'
+  };
+  const convertedStudent = VN_NUMBERS[normStudent] || normStudent;
+  const convertedCorrect = VN_NUMBERS[normCorrect] || normCorrect;
+  if (convertedStudent === convertedCorrect) return true;
+  if (correctDigits && convertedStudent === correctDigits) return true;
+  if (studentDigits && convertedCorrect === studentDigits) return true;
+
+  // Substring match prefix/suffix
+  if (normStudent.length >= 2 && normCorrect.startsWith(normStudent)) {
+    return true;
+  }
+  if (normCorrect.length >= 2 && normStudent.startsWith(normCorrect)) {
+    return true;
+  }
+
+  // Strip common Vietnamese noun classifiers and unit suffixes
+  const strippedCorrect = normCorrect
+    .replace(/^(con|cay|hoa|qua|trai|dong|thanhpho|tinh|nuoc|nguoi)/, '')
+    .replace(/(ngon|ngontay|ngay|nam|thang|tuoi|diem|kg|km|m|cm|lit)$/, '')
+    .trim();
+  const strippedStudent = normStudent
+    .replace(/^(con|cay|hoa|qua|trai|dong|thanhpho|tinh|nuoc|nguoi)/, '')
+    .replace(/(ngon|ngontay|ngay|nam|thang|tuoi|diem|kg|km|m|cm|lit)$/, '')
+    .trim();
+
+  if (strippedStudent && (strippedStudent === strippedCorrect || strippedCorrect.includes(strippedStudent))) {
+    return true;
+  }
+
+  return false;
+}
+
 function callGemini(apiKey, prompt) {
   return new Promise((resolve, reject) => {
     const body = JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0, maxOutputTokens: 250 }
+      generationConfig: {
+        temperature: 0,
+        maxOutputTokens: 1000,
+        responseMimeType: 'application/json'
+      }
     });
 
     const url = `${API_URL_BASE}?key=${apiKey}`;
@@ -111,4 +168,4 @@ function callGemini(apiKey, prompt) {
   });
 }
 
-module.exports = { check };
+module.exports = { check, fallbackCheck, normalize };

@@ -10,6 +10,7 @@ export default function Finish({ roomId }) {
   const [answer, setAnswer] = useState('');
   const [stealOpen, setStealOpen] = useState(false);
   const [lastResult, setLastResult] = useState(null);
+  const [revealedAnswer, setRevealedAnswer] = useState(null);
   const [starUsed, setStarUsed] = useState(false);
   const [checking, setChecking] = useState(false);
   const [ended, setEnded] = useState(false);
@@ -19,17 +20,23 @@ export default function Finish({ roomId }) {
       if (payload.round !== 'finish') return;
       setPacks(payload.packs);
       setActiveQuestion(null);
+      setRevealedAnswer(null);
     }
     function onTurn({ playerId }) {
       setTurnPlayerId(playerId);
       setActiveQuestion(null);
       setLastResult(null);
+      setRevealedAnswer(null);
+      setStealOpen(false);
+      setChecking(false);
       setAnswer('');
     }
     function onQuestionShown(q) {
       setActiveQuestion(q);
       setStealOpen(false);
       setChecking(false);
+      setRevealedAnswer(null);
+      setLastResult(null);
       setAnswer('');
     }
     function onChecking() {
@@ -39,12 +46,20 @@ export default function Finish({ roomId }) {
       setChecking(false);
       setLastResult(r);
       setStealOpen(!!r.stealOpen);
+      if (r.answer) setRevealedAnswer(r.answer);
       setPacks((prev) => removeQuestion(prev, activeQuestion?.id));
     }
     function onStealResult(r) {
       setChecking(false);
       setLastResult((prev) => ({ ...prev, steal: r }));
-      if (r.correct) setStealOpen(false);
+      if (r.correct) {
+        setStealOpen(false);
+        if (r.answer) setRevealedAnswer(r.answer);
+      }
+    }
+    function onStealClosed({ answer }) {
+      setStealOpen(false);
+      if (answer) setRevealedAnswer(answer);
     }
     function onStarUsed({ playerId }) {
       if (playerId === selfId) setStarUsed(true);
@@ -52,15 +67,18 @@ export default function Finish({ roomId }) {
     function onEnded() {
       setEnded(true);
     }
+
     socket.on('round:started', onStarted);
     socket.on('finish:turn', onTurn);
     socket.on('finish:questionShown', onQuestionShown);
     socket.on('finish:checking', onChecking);
     socket.on('finish:questionResult', onQuestionResult);
     socket.on('finish:stealResult', onStealResult);
+    socket.on('finish:stealClosed', onStealClosed);
     socket.on('finish:starUsed', onStarUsed);
     socket.on('finish:ended', onEnded);
     socket.emit('room:sync', { roomId });
+
     return () => {
       socket.off('round:started', onStarted);
       socket.off('finish:turn', onTurn);
@@ -68,6 +86,7 @@ export default function Finish({ roomId }) {
       socket.off('finish:checking', onChecking);
       socket.off('finish:questionResult', onQuestionResult);
       socket.off('finish:stealResult', onStealResult);
+      socket.off('finish:stealClosed', onStealClosed);
       socket.off('finish:starUsed', onStarUsed);
       socket.off('finish:ended', onEnded);
     };
@@ -75,7 +94,6 @@ export default function Finish({ roomId }) {
   }, [selfId, roomId, activeQuestion?.id]);
 
   const isMyTurn = turnPlayerId === selfId;
-  const myName = room?.players.find((p) => p.id === selfId)?.name;
   const turnName = room?.players.find((p) => p.id === turnPlayerId)?.name;
 
   function pick(points, q) {
@@ -88,13 +106,13 @@ export default function Finish({ roomId }) {
 
   function submitAnswer(e) {
     e.preventDefault();
-    if (checking) return;
+    if (checking || !answer.trim()) return;
     socket.emit('finish:answer', { roomId, answer });
   }
 
   function submitSteal(e) {
     e.preventDefault();
-    if (checking) return;
+    if (checking || !answer.trim()) return;
     socket.emit('finish:steal', { roomId, answer });
     setAnswer('');
   }
@@ -116,10 +134,12 @@ export default function Finish({ roomId }) {
 
   return (
     <div className="olympia-panel p-8">
-      <h2 className="text-xl font-semibold text-olympia-navy mb-1">Về đích</h2>
-      <p className="text-sm text-slate-500 mb-6">
-        Lượt của: <span className="font-semibold">{turnName || '...'}</span>
-      </p>
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold text-olympia-navy mb-1">Về đích</h2>
+        <p className="text-sm text-slate-500">
+          Lượt của: <span className="font-bold text-olympia-navy">{turnName || '...'}</span>
+        </p>
+      </div>
 
       {!activeQuestion && (
         <div>
@@ -128,7 +148,7 @@ export default function Finish({ roomId }) {
               <button
                 onClick={useStar}
                 disabled={starUsed}
-                className={`olympia-btn ${starUsed ? 'bg-slate-200 text-slate-400' : 'bg-yellow-400 text-olympia-navy'}`}
+                className={`olympia-btn ${starUsed ? 'bg-slate-200 text-slate-400' : 'bg-yellow-400 hover:bg-yellow-500 text-olympia-navy font-bold'}`}
               >
                 ⭐ Dùng Ngôi sao hy vọng
               </button>
@@ -136,81 +156,104 @@ export default function Finish({ roomId }) {
           )}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {Object.entries(packs).map(([points, qs]) => (
-              <div key={points} className="border rounded-xl p-3">
-                <p className="font-semibold text-olympia-navy mb-2">{points} điểm</p>
+              <div key={points} className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
+                <p className="font-bold text-olympia-navy mb-2">{points} điểm</p>
                 <div className="space-y-2">
-                  {qs.length === 0 && <p className="text-xs text-slate-400">Hết câu hỏi</p>}
+                  {qs.length === 0 && <p className="text-xs text-slate-400 py-2">Hết câu hỏi</p>}
                   {qs.map((q) => (
                     <button
                       key={q.id}
-                      className="w-full olympia-btn-secondary text-xs py-1.5"
+                      className="w-full olympia-btn-secondary text-xs py-2 font-medium"
                       disabled={!isMyTurn}
                       onClick={() => pick(Number(points), q)}
                     >
-                      Chọn câu hỏi
+                      {isMyTurn ? 'Chọn câu hỏi này' : 'Chờ chọn'}
                     </button>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-          {!isMyTurn && <p className="text-slate-500 mt-4">Chờ {turnName} chọn câu hỏi...</p>}
+          {!isMyTurn && <p className="text-slate-500 mt-4 text-center">Chờ {turnName} chọn gói câu hỏi...</p>}
         </div>
       )}
 
       {activeQuestion && (
-        <div>
-          <div className="flex items-center gap-2 mb-3">
+        <div className="space-y-4">
+          <div className="flex items-center gap-2">
             <span className="olympia-btn-primary text-xs py-1 px-3">{activeQuestion.points} điểm</span>
-            {activeQuestion.starred && <span className="text-yellow-500 font-semibold text-sm">⭐ Ngôi sao hy vọng</span>}
+            {activeQuestion.starred && <span className="text-yellow-600 font-bold text-sm bg-yellow-50 px-2 py-0.5 rounded border border-yellow-200">⭐ Ngôi sao hy vọng</span>}
           </div>
-          <p className="text-lg font-medium text-olympia-navy mb-4">{activeQuestion.text}</p>
+
+          <p className="text-lg font-semibold text-olympia-navy bg-slate-50 p-4 rounded-xl border border-slate-200">
+            {activeQuestion.text}
+          </p>
 
           {activeQuestion.pickedBy === selfId && !lastResult && (
             <form onSubmit={submitAnswer} className="flex gap-2">
               <input
                 autoFocus
-                className="flex-1 border rounded-lg px-3 py-2"
+                className="flex-1 border rounded-lg px-3 py-2 bg-white text-slate-800"
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
                 disabled={checking}
-                placeholder="Nhập câu trả lời..."
+                placeholder="Nhập câu trả lời của bạn..."
               />
-              <button className="olympia-btn-primary min-w-[90px]" disabled={checking}>
-                {checking ? '⏳ Kiểm tra...' : 'Trả lời'}
+              <button className="olympia-btn-primary min-w-[100px]" disabled={checking}>
+                {checking ? '⏳ Đang chấm...' : 'Trả lời'}
               </button>
             </form>
           )}
 
-          {checking && <p className="mt-4 text-sm text-slate-500 animate-pulse">🤖 AI đang kiểm tra câu trả lời...</p>}
+          {checking && <p className="text-sm text-slate-500 animate-pulse font-medium">🤖 AI đang kiểm tra câu trả lời...</p>}
 
           {activeQuestion.pickedBy !== selfId && !lastResult && (
-            <p className="text-slate-500">Chờ {turnName} trả lời...</p>
+            <p className="text-slate-500 italic text-sm">Chờ {turnName} đưa ra câu trả lời...</p>
           )}
 
           {lastResult && (
-            <div className="mt-4 border-t pt-4 space-y-2">
-              <p className={lastResult.correct ? 'text-green-600 font-medium' : 'text-olympia-red font-medium'}>
-                {lastResult.correct ? `Trả lời đúng! (${lastResult.delta >= 0 ? '+' : ''}${lastResult.delta} điểm)` : 'Trả lời sai.'}
-              </p>
+            <div className="border-t pt-4 space-y-3">
+              <div className={`p-3 rounded-lg text-sm font-medium ${lastResult.correct ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}`}>
+                {lastResult.correct ? (
+                  <p>✅ Trả lời chính xác! ({lastResult.delta >= 0 ? '+' : ''}{lastResult.delta} điểm)</p>
+                ) : (
+                  <p>❌ Trả lời chưa chính xác!</p>
+                )}
+              </div>
+
+              {/* Phần giành điểm cho người chơi khác */}
               {stealOpen && activeQuestion.pickedBy !== selfId && !lastResult.steal?.correct && (
-                <form onSubmit={submitSteal} className="flex gap-2">
-                  <input
-                    className="flex-1 border rounded-lg px-3 py-2"
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)}
-                    disabled={checking}
-                    placeholder="Giành điểm: nhập câu trả lời..."
-                  />
-                  <button className="olympia-btn-secondary min-w-[90px]" disabled={checking}>
-                    {checking ? '⏳ Kiểm tra...' : 'Giành điểm'}
-                  </button>
-                </form>
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                  <p className="text-xs font-bold text-blue-900 mb-2 uppercase tracking-wide">
+                    🔔 Cơ hội giành điểm (10 giây):
+                  </p>
+                  <form onSubmit={submitSteal} className="flex gap-2">
+                    <input
+                      className="flex-1 border rounded-lg px-3 py-2 bg-white text-sm"
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
+                      disabled={checking}
+                      placeholder="Nhập câu trả lời để giành điểm..."
+                    />
+                    <button className="olympia-btn-secondary min-w-[100px]" disabled={checking}>
+                      {checking ? '⏳ Đang chấm...' : 'Giành điểm'}
+                    </button>
+                  </form>
+                </div>
               )}
+
               {lastResult.steal && (
-                <p className={lastResult.steal.correct ? 'text-green-600' : 'text-slate-400 text-sm'}>
-                  {lastResult.steal.correct ? 'Giành điểm thành công!' : 'Giành điểm không thành công.'}
-                </p>
+                <div className={`text-sm p-2 rounded ${lastResult.steal.correct ? 'bg-green-50 text-green-700 font-semibold' : 'bg-slate-100 text-slate-600'}`}>
+                  {lastResult.steal.correct ? '🎉 Giành điểm thành công!' : '❌ Giành điểm không thành công.'}
+                </div>
+              )}
+
+              {revealedAnswer && (
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm">
+                  <span className="font-semibold text-amber-900">💡 Đáp án chính xác: </span>
+                  <span className="font-bold text-amber-950 text-base">{revealedAnswer}</span>
+                  <p className="text-xs text-amber-700 mt-1">Đang chuyển sang lượt tiếp theo...</p>
+                </div>
               )}
             </div>
           )}

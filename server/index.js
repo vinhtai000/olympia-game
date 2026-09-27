@@ -127,10 +127,17 @@ io.on('connection', (socket) => {
         timeLimitSeconds: 20
       });
     } else if (room.status === 'obstacle') {
+      const puzzle = rs.puzzle;
       socket.emit('round:started', {
         round: 'obstacle',
-        rows: rs.puzzle ? rs.puzzle.rows.map((r) => ({ id: r.id, clue: r.clue })) : [],
-        totalRows: rs.puzzle ? rs.puzzle.rows.length : 0
+        rows: puzzle ? puzzle.rows.map((r) => ({
+          id: r.id,
+          clue: r.clue,
+          charCount: String(r.answer || '').replace(/\s+/g, '').length,
+          letterCount: String(r.answer || '').replace(/\s+/g, '').length
+        })) : [],
+        totalRows: puzzle ? puzzle.rows.length : 0,
+        secretPhraseCharCount: puzzle ? String(puzzle.secretPhrase || '').replace(/\s+/g, '').length : 0
       });
       rs.revealedRows.forEach((rowId) => {
         const row = rs.puzzle?.rows.find((r) => r.id === rowId);
@@ -288,8 +295,14 @@ io.on('connection', (socket) => {
     emitRoomUpdate(room.roomId);
     io.to(room.roomId).emit('round:started', {
       round: 'obstacle',
-      rows: puzzle ? puzzle.rows.map((r) => ({ id: r.id, clue: r.clue })) : [],
-      totalRows: puzzle ? puzzle.rows.length : 0
+      rows: puzzle ? puzzle.rows.map((r) => ({
+        id: r.id,
+        clue: r.clue,
+        charCount: String(r.answer || '').replace(/\s+/g, '').length,
+        letterCount: String(r.answer || '').replace(/\s+/g, '').length
+      })) : [],
+      totalRows: puzzle ? puzzle.rows.length : 0,
+      secretPhraseCharCount: puzzle ? String(puzzle.secretPhrase || '').replace(/\s+/g, '').length : 0
     });
   }
 
@@ -466,6 +479,8 @@ io.on('connection', (socket) => {
     if (rs.activeQuestion) return;
     const q = (rs.packs[points] || []).find((x) => x.id === questionId);
     if (!q) return;
+    // Remove the picked question from the pack on the server
+    rs.packs[points] = (rs.packs[points] || []).filter((x) => x.id !== questionId);
     rs.activeQuestion = { ...q, pickedBy: socket.id, wrongBy: new Set() };
     rs.stealOpen = false;
     io.to(roomId).emit('finish:questionShown', {
@@ -479,7 +494,7 @@ io.on('connection', (socket) => {
 
   socket.on('finish:answer', async ({ roomId, answer }) => {
     const room = rm.getRoom(roomId);
-    if (!room || room.status !== 'finish' || !room.roundState.activeQuestion) return;
+    if (!room || room.status !== 'finish' || !room.roundState?.activeQuestion) return;
     const rs = room.roundState;
     const q = rs.activeQuestion;
     if (q.pickedBy !== socket.id) return;
@@ -497,10 +512,33 @@ io.on('connection', (socket) => {
 
     if (correct) {
       io.to(roomId).emit('finish:questionResult', { correct: true, answer: q.answer, playerId: socket.id, delta });
-      advanceFinishTurn(room);
+      setTimeout(() => advanceFinishTurn(room), 3500);
     } else {
-      rs.stealOpen = true;
-      io.to(roomId).emit('finish:questionResult', { correct: false, playerId: socket.id, delta, stealOpen: true });
+      const otherPlayers = room.players.filter((p) => p.connected && p.id !== socket.id);
+      if (otherPlayers.length === 0) {
+        // Solo player: no one else to steal, reveal answer immediately and advance turn!
+        io.to(roomId).emit('finish:questionResult', {
+          correct: false,
+          answer: q.answer,
+          playerId: socket.id,
+          delta,
+          stealOpen: false
+        });
+        setTimeout(() => advanceFinishTurn(room), 4000);
+      } else {
+        rs.stealOpen = true;
+        io.to(roomId).emit('finish:questionResult', {
+          correct: false,
+          playerId: socket.id,
+          delta,
+          stealOpen: true,
+          stealTimeoutSeconds: 10
+        });
+        if (rs.stealTimer) clearTimeout(rs.stealTimer);
+        rs.stealTimer = setTimeout(() => {
+          closeStealAndAdvance(room, q);
+        }, 10000);
+      }
     }
   });
 
@@ -519,19 +557,36 @@ io.on('connection', (socket) => {
     if (q.wrongBy.has(socket.id)) return; // prevent double-processing
 
     if (correct) {
+      if (rs.stealTimer) clearTimeout(rs.stealTimer);
       rm.addScore(room, socket.id, q.points);
       rs.stealOpen = false;
       emitRoomUpdate(roomId);
       io.to(roomId).emit('finish:stealResult', { correct: true, playerId: socket.id, answer: q.answer });
-      advanceFinishTurn(room);
+      setTimeout(() => advanceFinishTurn(room), 3500);
     } else {
       q.wrongBy.add(socket.id);
       io.to(roomId).emit('finish:stealResult', { correct: false, playerId: socket.id });
+      const otherPlayers = room.players.filter((p) => p.connected && p.id !== q.pickedBy);
+      const remaining = otherPlayers.filter((p) => !q.wrongBy.has(p.id));
+      if (remaining.length === 0) {
+        if (rs.stealTimer) clearTimeout(rs.stealTimer);
+        closeStealAndAdvance(room, q);
+      }
     }
   });
 
+  function closeStealAndAdvance(room, q) {
+    const rs = room.roundState;
+    if (!rs || !rs.activeQuestion || rs.activeQuestion.id !== q.id) return;
+    rs.stealOpen = false;
+    io.to(room.roomId).emit('finish:stealClosed', { answer: q.answer });
+    setTimeout(() => advanceFinishTurn(room), 4000);
+  }
+
   function advanceFinishTurn(room) {
     const rs = room.roundState;
+    if (!rs) return;
+    if (rs.stealTimer) clearTimeout(rs.stealTimer);
     rs.activeQuestion = null;
     rs.stealOpen = false;
     rs.turnIndex += 1;
