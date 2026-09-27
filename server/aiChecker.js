@@ -52,10 +52,15 @@ or
 
   try {
     const result = await callGemini(apiKey, prompt);
-    // Parse the JSON from Gemini response
+    if (result?.error) {
+      throw new Error(result.error.message || 'Gemini API returned error');
+    }
     const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    const cleaned = text.replace(/```json|```/g, '').trim();
-    const parsed = JSON.parse(cleaned);
+    const match = text.match(/\{[\s\S]*?\}/);
+    if (!match) {
+      throw new Error('No JSON object found in Gemini response: ' + text.slice(0, 100));
+    }
+    const parsed = JSON.parse(match[0]);
     return { correct: !!parsed.correct, reason: parsed.reason || '' };
   } catch (err) {
     console.error('[aiChecker] Gemini error, falling back to string match:', err.message);
