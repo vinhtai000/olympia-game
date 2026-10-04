@@ -64,11 +64,12 @@ or
       throw new Error('No JSON object found in Gemini response: ' + text.slice(0, 100));
     }
     const parsed = JSON.parse(match[0]);
-    return { correct: !!parsed.correct, reason: parsed.reason || '' };
+    return { correct: !!parsed.correct, reason: parsed.reason || '', aiError: false };
   } catch (err) {
     console.error('[aiChecker] Gemini error, using fallback matching:', err.message);
     const correct = fallbackCheck(questionText, studentAnswer, correctAnswer);
-    return { correct, reason: correct ? 'Chính xác (fallback)' : 'Sai (fallback)' };
+    // If fallback also cannot confirm correct, flag aiError so callers can offer a retry
+    return { correct, aiError: !correct, reason: correct ? 'Chính xác (fallback)' : 'Sai (AI lỗi - fallback)' };
   }
 }
 

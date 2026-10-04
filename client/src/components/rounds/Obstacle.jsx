@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { socket } from '../../socket';
 import { useGame } from '../../GameContext.jsx';
 import { RoundEndPanel } from './Warmup.jsx';
+
+// How long (ms) before we auto-unblock checking if the server never responds
+const AI_TIMEOUT_MS = 14000;
 
 export default function Obstacle({ roomId }) {
   const { isHost } = useGame();
@@ -12,7 +15,29 @@ export default function Obstacle({ roomId }) {
   const [phraseGuess, setPhraseGuess] = useState('');
   const [solved, setSolved] = useState(null);
   const [message, setMessage] = useState('');
-  const [checking, setChecking] = useState(false);
+
+  // Per-target checking: 'row:<rowId>' | 'phrase' | null
+  const [checkingTarget, setCheckingTarget] = useState(null);
+  // Per-target AI error: same shape as checkingTarget
+  const [aiErrorTarget, setAiErrorTarget] = useState(null);
+  const [aiErrorMsg, setAiErrorMsg] = useState('');
+
+  // Safety-net timer ref
+  const safetyTimer = useRef(null);
+
+  // Start the safety timer; auto-unblocks after AI_TIMEOUT_MS if server never responds
+  function startSafetyTimer(target) {
+    clearTimeout(safetyTimer.current);
+    safetyTimer.current = setTimeout(() => {
+      setCheckingTarget(null);
+      setAiErrorTarget(target);
+      setAiErrorMsg('Dịch vụ AI phản hồi quá chậm. Câu trả lời chưa được chấm — hãy thử lại!');
+    }, AI_TIMEOUT_MS);
+  }
+
+  function clearSafetyTimer() {
+    clearTimeout(safetyTimer.current);
+  }
 
   useEffect(() => {
     function onStarted(payload) {
@@ -21,41 +46,76 @@ export default function Obstacle({ roomId }) {
       setSecretPhraseCount(payload.secretPhraseCharCount || 0);
       setRevealed({});
       setSolved(null);
-      setChecking(false);
+      setCheckingTarget(null);
+      setAiErrorTarget(null);
+      setAiErrorMsg('');
+      clearSafetyTimer();
     }
+
+    function onChecking({ rowId, phrase }) {
+      const target = phrase ? 'phrase' : `row:${rowId}`;
+      setCheckingTarget(target);
+      setAiErrorTarget(null);
+      setAiErrorMsg('');
+      startSafetyTimer(target);
+    }
+
     function onRowResult(r) {
-      setChecking(false);
-      if (r.correct) setRevealed((prev) => ({ ...prev, [r.rowId]: r.answer }));
-      setMessage(r.correct ? 'Trả lời đúng gợi ý hàng ngang!' : 'Sai rồi, hãy thử hàng ngang khác hoặc đoán từ khóa!');
+      clearSafetyTimer();
+      setCheckingTarget(null);
+      setAiErrorTarget(null);
+      if (r.correct) {
+        setRevealed((prev) => ({ ...prev, [r.rowId]: r.answer }));
+        setMessage('✅ Trả lời đúng gợi ý hàng ngang!');
+      } else {
+        setMessage('❌ Sai rồi, hãy thử hàng ngang khác hoặc đoán từ khóa!');
+      }
     }
+
+    function onAiError({ rowId, context, message: msg }) {
+      clearSafetyTimer();
+      setCheckingTarget(null);
+      const target = context === 'phrase' ? 'phrase' : `row:${rowId}`;
+      setAiErrorTarget(target);
+      setAiErrorMsg(msg || 'Dịch vụ AI gặp lỗi. Hãy thử lại!');
+    }
+
     function onSolved(r) {
-      setChecking(false);
+      clearSafetyTimer();
+      setCheckingTarget(null);
       setSolved(r);
     }
-    function onChecking() {
-      setChecking(true);
-    }
+
     socket.on('round:started', onStarted);
-    socket.on('obstacle:rowResult', onRowResult);
-    socket.on('obstacle:solved', onSolved);
     socket.on('obstacle:checking', onChecking);
+    socket.on('obstacle:rowResult', onRowResult);
+    socket.on('obstacle:aiError', onAiError);
+    socket.on('obstacle:solved', onSolved);
     socket.emit('room:sync', { roomId });
+
     return () => {
       socket.off('round:started', onStarted);
-      socket.off('obstacle:rowResult', onRowResult);
-      socket.off('obstacle:solved', onSolved);
       socket.off('obstacle:checking', onChecking);
+      socket.off('obstacle:rowResult', onRowResult);
+      socket.off('obstacle:aiError', onAiError);
+      socket.off('obstacle:solved', onSolved);
+      clearSafetyTimer();
     };
   }, [roomId]);
 
   function answerRow(rowId) {
-    if (checking) return;
+    const target = `row:${rowId}`;
+    if (checkingTarget === target) return;
+    setAiErrorTarget(null);
+    setAiErrorMsg('');
     socket.emit('obstacle:answerRow', { roomId, rowId, guess: rowGuess[rowId] || '' });
   }
 
   function guessPhrase(e) {
     e.preventDefault();
-    if (checking) return;
+    if (checkingTarget === 'phrase') return;
+    setAiErrorTarget(null);
+    setAiErrorMsg('');
     socket.emit('obstacle:guessPhrase', { roomId, guess: phraseGuess });
   }
 
@@ -71,6 +131,8 @@ export default function Obstacle({ roomId }) {
     );
   }
 
+  const isAnyChecking = !!checkingTarget;
+
   return (
     <div className="olympia-panel p-8">
       <div className="flex flex-wrap items-center justify-between gap-2 mb-4 border-b pb-3">
@@ -82,7 +144,9 @@ export default function Obstacle({ roomId }) {
             </p>
           )}
         </div>
-        {checking && <p className="text-xs text-slate-500 animate-pulse font-medium">🤖 AI đang chấm câu trả lời...</p>}
+        {isAnyChecking && (
+          <p className="text-xs text-slate-500 animate-pulse font-medium">🤖 AI đang chấm câu trả lời...</p>
+        )}
       </div>
 
       {message && <p className="text-sm text-slate-600 bg-slate-50 p-2 rounded mb-4">{message}</p>}
@@ -92,6 +156,9 @@ export default function Obstacle({ roomId }) {
           const charLen = row.charCount || row.letterCount || 5;
           const isRevealed = !!revealed[row.id];
           const cleanAnswer = isRevealed ? String(revealed[row.id]).replace(/\s+/g, '').toUpperCase() : '';
+          const target = `row:${row.id}`;
+          const isThisChecking = checkingTarget === target;
+          const hasAiError = aiErrorTarget === target;
 
           return (
             <div key={row.id} className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
@@ -129,21 +196,38 @@ export default function Obstacle({ roomId }) {
                 )}
               </div>
 
+              {/* AI error banner for this row */}
+              {hasAiError && (
+                <div className="bg-orange-50 border border-orange-200 rounded-lg px-3 py-2 mb-2 text-xs text-orange-800 font-medium">
+                  ⚠️ {aiErrorMsg}
+                </div>
+              )}
+
+              {/* Checking indicator for this specific row */}
+              {isThisChecking && (
+                <p className="text-xs text-slate-500 animate-pulse mb-2">🤖 AI đang chấm hàng ngang này...</p>
+              )}
+
               {!isRevealed && (
                 <div className="flex gap-2">
                   <input
                     className="flex-1 border rounded-lg px-3 py-1.5 text-sm bg-white"
                     value={rowGuess[row.id] || ''}
-                    disabled={checking}
+                    disabled={isThisChecking}
                     onChange={(e) => setRowGuess((prev) => ({ ...prev, [row.id]: e.target.value }))}
+                    onKeyDown={(e) => e.key === 'Enter' && !isThisChecking && answerRow(row.id)}
                     placeholder={`Nhập đáp án (${charLen} chữ cái)...`}
                   />
                   <button
-                    className="olympia-btn-secondary text-sm px-4"
-                    disabled={checking}
+                    className={`text-sm px-4 rounded-lg font-medium transition-colors ${
+                      hasAiError
+                        ? 'bg-orange-100 text-orange-800 border border-orange-300 hover:bg-orange-200'
+                        : 'olympia-btn-secondary'
+                    }`}
+                    disabled={isThisChecking}
                     onClick={() => answerRow(row.id)}
                   >
-                    Gửi
+                    {isThisChecking ? '⏳' : hasAiError ? '🔄 Thử lại' : 'Gửi'}
                   </button>
                 </div>
               )}
@@ -152,20 +236,35 @@ export default function Obstacle({ roomId }) {
         })}
       </div>
 
+      {/* Guess the secret phrase */}
       <form onSubmit={guessPhrase} className="border-t pt-4">
         <label className="block text-xs font-semibold text-slate-600 mb-1.5">
           Bạn đã đoán ra Chướng ngại vật?
         </label>
+
+        {aiErrorTarget === 'phrase' && (
+          <div className="bg-orange-50 border border-orange-200 rounded-lg px-3 py-2 mb-2 text-xs text-orange-800 font-medium">
+            ⚠️ {aiErrorMsg}
+          </div>
+        )}
+
         <div className="flex gap-2">
           <input
             className="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-olympia-gold bg-white"
             value={phraseGuess}
-            disabled={checking}
+            disabled={checkingTarget === 'phrase'}
             onChange={(e) => setPhraseGuess(e.target.value)}
-            placeholder={secretPhraseCount ? `Nhập từ khóa (${secretPhraseCount} chữ cái)...` : "Nhập từ khóa chướng ngại vật..."}
+            placeholder={secretPhraseCount ? `Nhập từ khóa (${secretPhraseCount} chữ cái)...` : 'Nhập từ khóa chướng ngại vật...'}
           />
-          <button className="olympia-btn-primary min-w-[120px]" disabled={checking}>
-            Đoán từ khóa
+          <button
+            className={`min-w-[120px] rounded-lg font-medium transition-colors ${
+              aiErrorTarget === 'phrase'
+                ? 'bg-orange-100 text-orange-800 border border-orange-300 hover:bg-orange-200'
+                : 'olympia-btn-primary'
+            }`}
+            disabled={checkingTarget === 'phrase'}
+          >
+            {checkingTarget === 'phrase' ? '⏳ Đang chấm...' : aiErrorTarget === 'phrase' ? '🔄 Thử lại' : 'Đoán từ khóa'}
           </button>
         </div>
       </form>

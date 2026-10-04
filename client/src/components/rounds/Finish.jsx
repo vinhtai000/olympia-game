@@ -13,6 +13,7 @@ export default function Finish({ roomId }) {
   const [revealedAnswer, setRevealedAnswer] = useState(null);
   const [starUsed, setStarUsed] = useState(false);
   const [checking, setChecking] = useState(false);
+  const [aiError, setAiError] = useState(null); // {message} when AI fails
   const [ended, setEnded] = useState(false);
 
   useEffect(() => {
@@ -29,21 +30,29 @@ export default function Finish({ roomId }) {
       setRevealedAnswer(null);
       setStealOpen(false);
       setChecking(false);
+      setAiError(null);
       setAnswer('');
     }
     function onQuestionShown(q) {
       setActiveQuestion(q);
       setStealOpen(false);
       setChecking(false);
+      setAiError(null);
       setRevealedAnswer(null);
       setLastResult(null);
       setAnswer('');
     }
     function onChecking() {
       setChecking(true);
+      setAiError(null);
+    }
+    function onAiError({ message }) {
+      setChecking(false);
+      setAiError({ message });
     }
     function onQuestionResult(r) {
       setChecking(false);
+      setAiError(null);
       setLastResult(r);
       setStealOpen(!!r.stealOpen);
       if (r.answer) setRevealedAnswer(r.answer);
@@ -51,6 +60,7 @@ export default function Finish({ roomId }) {
     }
     function onStealResult(r) {
       setChecking(false);
+      setAiError(null);
       setLastResult((prev) => ({ ...prev, steal: r }));
       if (r.correct) {
         setStealOpen(false);
@@ -72,6 +82,7 @@ export default function Finish({ roomId }) {
     socket.on('finish:turn', onTurn);
     socket.on('finish:questionShown', onQuestionShown);
     socket.on('finish:checking', onChecking);
+    socket.on('finish:aiError', onAiError);
     socket.on('finish:questionResult', onQuestionResult);
     socket.on('finish:stealResult', onStealResult);
     socket.on('finish:stealClosed', onStealClosed);
@@ -84,6 +95,7 @@ export default function Finish({ roomId }) {
       socket.off('finish:turn', onTurn);
       socket.off('finish:questionShown', onQuestionShown);
       socket.off('finish:checking', onChecking);
+      socket.off('finish:aiError', onAiError);
       socket.off('finish:questionResult', onQuestionResult);
       socket.off('finish:stealResult', onStealResult);
       socket.off('finish:stealClosed', onStealClosed);
@@ -107,12 +119,14 @@ export default function Finish({ roomId }) {
   function submitAnswer(e) {
     e.preventDefault();
     if (checking || !answer.trim()) return;
+    setAiError(null);
     socket.emit('finish:answer', { roomId, answer });
   }
 
   function submitSteal(e) {
     e.preventDefault();
     if (checking || !answer.trim()) return;
+    setAiError(null);
     socket.emit('finish:steal', { roomId, answer });
     setAnswer('');
   }
@@ -190,19 +204,33 @@ export default function Finish({ roomId }) {
           </p>
 
           {activeQuestion.pickedBy === selfId && !lastResult && (
-            <form onSubmit={submitAnswer} className="flex gap-2">
-              <input
-                autoFocus
-                className="flex-1 border rounded-lg px-3 py-2 bg-white text-slate-800"
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
-                disabled={checking}
-                placeholder="Nhập câu trả lời của bạn..."
-              />
-              <button className="olympia-btn-primary min-w-[100px]" disabled={checking}>
-                {checking ? '⏳ Đang chấm...' : 'Trả lời'}
-              </button>
-            </form>
+            <>
+              <form onSubmit={submitAnswer} className="flex gap-2">
+                <input
+                  autoFocus
+                  className="flex-1 border rounded-lg px-3 py-2 bg-white text-slate-800"
+                  value={answer}
+                  onChange={(e) => setAnswer(e.target.value)}
+                  disabled={checking}
+                  placeholder="Nhập câu trả lời của bạn..."
+                />
+                <button
+                  className={`min-w-[100px] rounded-lg font-medium transition-colors ${
+                    aiError
+                      ? 'bg-orange-100 text-orange-800 border border-orange-300 hover:bg-orange-200'
+                      : 'olympia-btn-primary'
+                  }`}
+                  disabled={checking}
+                >
+                  {checking ? '⏳ Đang chấm...' : aiError ? '🔄 Thử lại' : 'Trả lời'}
+                </button>
+              </form>
+              {aiError && (
+                <div className="bg-orange-50 border border-orange-200 rounded-lg px-3 py-2 text-xs text-orange-800 font-medium">
+                  ⚠️ {aiError.message}
+                </div>
+              )}
+            </>
           )}
 
           {checking && <p className="text-sm text-slate-500 animate-pulse font-medium">🤖 AI đang kiểm tra câu trả lời...</p>}
@@ -235,10 +263,22 @@ export default function Finish({ roomId }) {
                       disabled={checking}
                       placeholder="Nhập câu trả lời để giành điểm..."
                     />
-                    <button className="olympia-btn-secondary min-w-[100px]" disabled={checking}>
-                      {checking ? '⏳ Đang chấm...' : 'Giành điểm'}
+                    <button
+                      className={`min-w-[100px] rounded-lg font-medium transition-colors ${
+                        aiError
+                          ? 'bg-orange-100 text-orange-800 border border-orange-300 hover:bg-orange-200'
+                          : 'olympia-btn-secondary'
+                      }`}
+                      disabled={checking}
+                    >
+                      {checking ? '⏳ Đang chấm...' : aiError ? '🔄 Thử lại' : 'Giành điểm'}
                     </button>
                   </form>
+                  {aiError && (
+                    <div className="mt-2 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2 text-xs text-orange-800 font-medium">
+                      ⚠️ {aiError.message}
+                    </div>
+                  )}
                 </div>
               )}
 

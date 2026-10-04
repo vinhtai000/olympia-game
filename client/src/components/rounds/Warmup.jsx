@@ -11,6 +11,7 @@ export default function Warmup({ roomId }) {
   const [reveal, setReveal] = useState(null);
   const [revealCountdown, setRevealCountdown] = useState(5);
   const [checking, setChecking] = useState(false); // AI is evaluating
+  const [aiError, setAiError] = useState(null);    // {message} when AI fails
   const [ended, setEnded] = useState(false);
   const [timeLeft, setTimeLeft] = useState(10);
   const timerRef = useRef(null);
@@ -24,6 +25,7 @@ export default function Warmup({ roomId }) {
       setFeedback(null);
       setReveal(null);
       setChecking(false);
+      setAiError(null);
       setTimeLeft(q.timeLimitSeconds || 10);
       clearInterval(timerRef.current);
       clearInterval(revealTimerRef.current);
@@ -33,13 +35,19 @@ export default function Warmup({ roomId }) {
     }
     function onChecking() {
       setChecking(true);
+      setAiError(null);
     }
     function onResult(r) {
       setChecking(false);
       if (r.playerId === selfId) setFeedback(r);
     }
+    function onAiError({ message }) {
+      setChecking(false);
+      setAiError({ message });
+    }
     function onReveal(r) {
       setChecking(false);
+      setAiError(null);
       setReveal(r);
       setRevealCountdown(5);
       clearInterval(timerRef.current);
@@ -61,6 +69,7 @@ export default function Warmup({ roomId }) {
     socket.on('warmup:question', onQuestion);
     socket.on('warmup:checking', onChecking);
     socket.on('warmup:result', onResult);
+    socket.on('warmup:aiError', onAiError);
     socket.on('warmup:reveal', onReveal);
     socket.on('warmup:ended', onEnded);
     socket.on('round:started', onRoundStarted);
@@ -69,6 +78,7 @@ export default function Warmup({ roomId }) {
       socket.off('warmup:question', onQuestion);
       socket.off('warmup:checking', onChecking);
       socket.off('warmup:result', onResult);
+      socket.off('warmup:aiError', onAiError);
       socket.off('warmup:reveal', onReveal);
       socket.off('warmup:ended', onEnded);
       socket.off('round:started', onRoundStarted);
@@ -80,6 +90,7 @@ export default function Warmup({ roomId }) {
   function submit(e) {
     e.preventDefault();
     if (!question || feedback || reveal || checking) return;
+    setAiError(null);
     socket.emit('warmup:answer', { roomId, questionId: question.id, answer });
   }
 
@@ -142,12 +153,24 @@ export default function Warmup({ roomId }) {
           disabled={!!feedback || !!reveal || checking}
           placeholder="Nhập câu trả lời..."
         />
-        <button className="olympia-btn-primary min-w-[90px]" disabled={!!feedback || !!reveal || checking}>
-          {checking ? '⏳ Kiểm tra...' : 'Trả lời'}
+        <button
+          className={`min-w-[90px] rounded-lg font-medium transition-colors ${
+            aiError
+              ? 'bg-orange-100 text-orange-800 border border-orange-300 hover:bg-orange-200'
+              : 'olympia-btn-primary'
+          }`}
+          disabled={!!feedback || !!reveal || checking}
+        >
+          {checking ? '⏳ Kiểm tra...' : aiError ? '🔄 Thử lại' : 'Trả lời'}
         </button>
       </form>
       {checking && !feedback && (
         <p className="mt-4 text-center text-slate-500 animate-pulse">🤖 AI đang kiểm tra câu trả lời...</p>
+      )}
+      {aiError && (
+        <div className="mt-3 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2 text-xs text-orange-800 font-medium">
+          ⚠️ {aiError.message}
+        </div>
       )}
       {feedback && !checking && (
         <p className={`mt-4 font-medium ${feedback.correct ? 'text-green-600' : 'text-olympia-red'}`}>

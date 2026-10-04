@@ -247,13 +247,23 @@ io.on('connection', (socket) => {
     // Notify the player their answer is being checked
     socket.emit('warmup:checking', { questionId });
 
-    const { correct } = await aiChecker.check(q.text, answer, q.answer);
+    const result = await aiChecker.check(q.text, answer, q.answer);
 
     // Re-validate room state after async call (player may have disconnected)
     const roomNow = rm.getRoom(roomId);
     if (!roomNow || roomNow.status !== 'warmup') return;
 
-    if (correct) {
+    // If AI failed and fallback couldn't confirm, undo the lock and allow a retry
+    if (result.aiError) {
+      rs.answered.delete(socket.id);
+      socket.emit('warmup:aiError', {
+        questionId,
+        message: 'Dịch vụ AI gặp lỗi. Câu trả lời chưa được chấm — bạn có thể thử lại!'
+      });
+      return;
+    }
+
+    if (result.correct) {
       rm.addScore(room, socket.id, 10);
       emitRoomUpdate(roomId);
       io.to(roomId).emit('warmup:result', {
@@ -315,20 +325,30 @@ io.on('connection', (socket) => {
     if (!row) return;
 
     socket.emit('obstacle:checking', { rowId });
-    const { correct } = await aiChecker.check(row.clue, guess, row.answer);
+    const result = await aiChecker.check(row.clue, guess, row.answer);
 
     const roomNow = rm.getRoom(roomId);
     if (!roomNow || roomNow.status !== 'obstacle' || rs.revealedRows.has(rowId)) return;
 
-    if (correct) {
+    // If AI failed and fallback also couldn't confirm, let the player retry instead of marking wrong
+    if (result.aiError) {
+      socket.emit('obstacle:aiError', {
+        rowId,
+        context: 'row',
+        message: 'Dịch vụ AI gặp lỗi. Câu trả lời chưa được chấm — bạn có thể thử lại!'
+      });
+      return;
+    }
+
+    if (result.correct) {
       rs.revealedRows.add(rowId);
       rm.addScore(room, socket.id, 10);
       emitRoomUpdate(roomId);
     }
     io.to(roomId).emit('obstacle:rowResult', {
       rowId,
-      correct,
-      answer: correct ? row.answer : undefined,
+      correct: result.correct,
+      answer: result.correct ? row.answer : undefined,
       by: socket.id,
       revealedCount: rs.revealedRows.size
     });
@@ -341,7 +361,7 @@ io.on('connection', (socket) => {
     if (!rs.puzzle) return;
 
     socket.emit('obstacle:checking', { phrase: true });
-    const { correct } = await aiChecker.check(
+    const result = await aiChecker.check(
       `Từ khóa chướng ngại vật: ${rs.puzzle.secretPhrase}`,
       guess,
       rs.puzzle.secretPhrase
@@ -350,7 +370,16 @@ io.on('connection', (socket) => {
     const roomNow = rm.getRoom(roomId);
     if (!roomNow || roomNow.status !== 'obstacle' || rs.solved) return;
 
-    if (correct) {
+    // If AI failed, let player retry instead of silently marking wrong
+    if (result.aiError) {
+      socket.emit('obstacle:aiError', {
+        context: 'phrase',
+        message: 'Dịch vụ AI gặp lỗi. Câu trả lời chưa được chấm — bạn có thể thử lại!'
+      });
+      return;
+    }
+
+    if (result.correct) {
       rs.solved = true;
       const bonus = 30 - rs.revealedRows.size * 5;
       rm.addScore(room, socket.id, Math.max(bonus, 10));
@@ -500,17 +529,23 @@ io.on('connection', (socket) => {
     if (q.pickedBy !== socket.id) return;
 
     socket.emit('finish:checking');
-    const { correct } = await aiChecker.check(q.text, answer, q.answer);
+    const result = await aiChecker.check(q.text, answer, q.answer);
 
     const roomNow = rm.getRoom(roomId);
     if (!roomNow || roomNow.status !== 'finish' || !rs.activeQuestion || rs.activeQuestion.id !== q.id) return;
 
+    // AI failed - let the player retry without penalising them
+    if (result.aiError) {
+      socket.emit('finish:aiError', { message: 'Dịch vụ AI gặp lỗi. Câu trả lời chưa được chấm — bạn có thể thử lại!' });
+      return;
+    }
+
     const starred = rs.starUsedBy.has(socket.id);
-    const delta = correct ? q.points * (starred ? 2 : 1) : (starred ? -q.points : 0);
+    const delta = result.correct ? q.points * (starred ? 2 : 1) : (starred ? -q.points : 0);
     rm.addScore(room, socket.id, delta);
     emitRoomUpdate(roomId);
 
-    if (correct) {
+    if (result.correct) {
       io.to(roomId).emit('finish:questionResult', { correct: true, answer: q.answer, playerId: socket.id, delta });
       setTimeout(() => advanceFinishTurn(room), 3500);
     } else {
@@ -550,13 +585,19 @@ io.on('connection', (socket) => {
     if (q.pickedBy === socket.id || q.wrongBy.has(socket.id)) return;
 
     socket.emit('finish:checking');
-    const { correct } = await aiChecker.check(q.text, answer, q.answer);
+    const result = await aiChecker.check(q.text, answer, q.answer);
 
     const roomNow = rm.getRoom(roomId);
     if (!roomNow || roomNow.status !== 'finish' || !rs.activeQuestion || !rs.stealOpen) return;
     if (q.wrongBy.has(socket.id)) return; // prevent double-processing
 
-    if (correct) {
+    // AI failed - let the stealer retry without consuming their attempt
+    if (result.aiError) {
+      socket.emit('finish:aiError', { message: 'Dịch vụ AI gặp lỗi. Câu trả lời chưa được chấm — bạn có thể thử lại!' });
+      return;
+    }
+
+    if (result.correct) {
       if (rs.stealTimer) clearTimeout(rs.stealTimer);
       rm.addScore(room, socket.id, q.points);
       rs.stealOpen = false;
