@@ -63,14 +63,26 @@ export default function Obstacle({ roomId }) {
     }
 
     function onRowResult(r) {
-      clearSafetyTimer();
-      setCheckingTarget(null);
-      setAiErrorTarget(null);
+      if (r.by === selfId) {
+        clearSafetyTimer();
+        setCheckingTarget(null);
+        setAiErrorTarget(null);
+        if (r.correct) {
+          setMessage('✅ Trả lời đúng gợi ý hàng ngang (+10 điểm)!');
+        } else {
+          setMessage('❌ Chưa chính xác gợi ý hàng ngang!');
+        }
+      }
       if (r.correct) {
         setRevealed((prev) => ({ ...prev, [r.rowId]: r.answer }));
-        setMessage('✅ Trả lời đúng gợi ý hàng ngang (+10 điểm)!');
-      } else {
-        setMessage('❌ Sai rồi, hãy thử hàng ngang khác hoặc đoán từ khóa!');
+      }
+    }
+
+    function onGuessResult(r) {
+      if (r.by === selfId) {
+        clearSafetyTimer();
+        setCheckingTarget(null);
+        setMessage('❌ Chưa chính xác từ khóa chướng ngại vật!');
       }
     }
 
@@ -96,6 +108,7 @@ export default function Obstacle({ roomId }) {
     socket.on('round:started', onStarted);
     socket.on('obstacle:checking', onChecking);
     socket.on('obstacle:rowResult', onRowResult);
+    socket.on('obstacle:guessResult', onGuessResult);
     socket.on('obstacle:allRowsRevealed', onAllRowsRevealed);
     socket.on('obstacle:aiError', onAiError);
     socket.on('obstacle:solved', onSolved);
@@ -105,12 +118,13 @@ export default function Obstacle({ roomId }) {
       socket.off('round:started', onStarted);
       socket.off('obstacle:checking', onChecking);
       socket.off('obstacle:rowResult', onRowResult);
+      socket.off('obstacle:guessResult', onGuessResult);
       socket.off('obstacle:allRowsRevealed', onAllRowsRevealed);
       socket.off('obstacle:aiError', onAiError);
       socket.off('obstacle:solved', onSolved);
       clearSafetyTimer();
     };
-  }, [roomId]);
+  }, [roomId, selfId]);
 
   function answerRow(rowId) {
     const target = `row:${rowId}`;

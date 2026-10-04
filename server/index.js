@@ -248,14 +248,16 @@ io.on('connection', (socket) => {
     if (aiChecker.isDirectMatch(answer, q.answer)) {
       rm.addScore(room, socket.id, 10);
       emitRoomUpdate(roomId);
-      io.to(roomId).emit('warmup:result', {
+      socket.emit('warmup:result', {
         playerId: socket.id,
         questionId,
         correct: true,
-        correctAnswer: q.answer,
         scoreDelta: 10
       });
-      revealWarmupAnswer(room, questionId);
+      const connectedCount = room.players.filter((p) => p.connected).length;
+      if (rs.answered.size >= connectedCount) {
+        revealWarmupAnswer(room, questionId);
+      }
       return;
     }
 
@@ -268,33 +270,22 @@ io.on('connection', (socket) => {
     const roomNow = rm.getRoom(roomId);
     if (!roomNow || roomNow.status !== 'warmup' || rs.questionSettled) return;
 
-    // If AI failed and fallback couldn't confirm, undo the lock and allow a retry
-    if (result.aiError) {
-      rs.answered.delete(socket.id);
-      socket.emit('warmup:aiError', {
-        questionId,
-        message: 'Dịch vụ AI gặp lỗi. Câu trả lời chưa được chấm — bạn có thể thử lại!'
-      });
-      return;
-    }
-
     if (result.correct) {
       rm.addScore(room, socket.id, 10);
       emitRoomUpdate(roomId);
-      io.to(roomId).emit('warmup:result', {
+      socket.emit('warmup:result', {
         playerId: socket.id,
         questionId,
         correct: true,
-        correctAnswer: q.answer,
         scoreDelta: 10
       });
-      revealWarmupAnswer(room, questionId);
     } else {
-      io.to(roomId).emit('warmup:result', { playerId: socket.id, questionId, correct: false });
-      const connectedCount = room.players.filter((p) => p.connected).length;
-      if (rs.answered.size >= connectedCount) {
-        revealWarmupAnswer(room, questionId);
-      }
+      socket.emit('warmup:result', { playerId: socket.id, questionId, correct: false });
+    }
+
+    const connectedCount = room.players.filter((p) => p.connected).length;
+    if (rs.answered.size >= connectedCount) {
+      revealWarmupAnswer(room, questionId);
     }
   });
 
