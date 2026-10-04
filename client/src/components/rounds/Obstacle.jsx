@@ -21,6 +21,7 @@ export default function Obstacle({ roomId }) {
   // Per-target AI error: same shape as checkingTarget
   const [aiErrorTarget, setAiErrorTarget] = useState(null);
   const [aiErrorMsg, setAiErrorMsg] = useState('');
+  const [allRowsRevealed, setAllRowsRevealed] = useState(false);
 
   // Safety-net timer ref
   const safetyTimer = useRef(null);
@@ -49,6 +50,7 @@ export default function Obstacle({ roomId }) {
       setCheckingTarget(null);
       setAiErrorTarget(null);
       setAiErrorMsg('');
+      setAllRowsRevealed(false);
       clearSafetyTimer();
     }
 
@@ -72,6 +74,11 @@ export default function Obstacle({ roomId }) {
       }
     }
 
+    function onAllRowsRevealed() {
+      setAllRowsRevealed(true);
+      setMessage('🎉 Tất cả hàng ngang đã mở! Hãy đoán từ khóa chướng ngại vật!');
+    }
+
     function onAiError({ rowId, context, message: msg }) {
       clearSafetyTimer();
       setCheckingTarget(null);
@@ -89,6 +96,7 @@ export default function Obstacle({ roomId }) {
     socket.on('round:started', onStarted);
     socket.on('obstacle:checking', onChecking);
     socket.on('obstacle:rowResult', onRowResult);
+    socket.on('obstacle:allRowsRevealed', onAllRowsRevealed);
     socket.on('obstacle:aiError', onAiError);
     socket.on('obstacle:solved', onSolved);
     socket.emit('room:sync', { roomId });
@@ -97,6 +105,7 @@ export default function Obstacle({ roomId }) {
       socket.off('round:started', onStarted);
       socket.off('obstacle:checking', onChecking);
       socket.off('obstacle:rowResult', onRowResult);
+      socket.off('obstacle:allRowsRevealed', onAllRowsRevealed);
       socket.off('obstacle:aiError', onAiError);
       socket.off('obstacle:solved', onSolved);
       clearSafetyTimer();
@@ -237,7 +246,12 @@ export default function Obstacle({ roomId }) {
       </div>
 
       {/* Guess the secret phrase */}
-      <form onSubmit={guessPhrase} className="border-t pt-4">
+      <form onSubmit={guessPhrase} className={`border-t pt-4 ${allRowsRevealed ? 'border-green-300' : ''}`}>
+        {allRowsRevealed && (
+          <div className="bg-green-50 border border-green-300 rounded-xl px-4 py-3 mb-3 text-sm font-semibold text-green-800 text-center animate-pulse">
+            🎉 Tất cả hàng ngang đã mở! Đoán ngay từ khóa chướng ngại vật!
+          </div>
+        )}
         <label className="block text-xs font-semibold text-slate-600 mb-1.5">
           Bạn đã đoán ra Chướng ngại vật?
         </label>
@@ -250,16 +264,19 @@ export default function Obstacle({ roomId }) {
 
         <div className="flex gap-2">
           <input
-            className="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-olympia-gold bg-white"
+            className={`flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 bg-white ${allRowsRevealed ? 'focus:ring-green-400 border-green-300' : 'focus:ring-olympia-gold'}`}
             value={phraseGuess}
             disabled={checkingTarget === 'phrase'}
             onChange={(e) => setPhraseGuess(e.target.value)}
             placeholder={secretPhraseCount ? `Nhập từ khóa (${secretPhraseCount} chữ cái)...` : 'Nhập từ khóa chướng ngại vật...'}
+            autoFocus={allRowsRevealed}
           />
           <button
             className={`min-w-[120px] rounded-lg font-medium transition-colors ${
               aiErrorTarget === 'phrase'
                 ? 'bg-orange-100 text-orange-800 border border-orange-300 hover:bg-orange-200'
+                : allRowsRevealed
+                ? 'bg-green-600 hover:bg-green-700 text-white'
                 : 'olympia-btn-primary'
             }`}
             disabled={checkingTarget === 'phrase'}

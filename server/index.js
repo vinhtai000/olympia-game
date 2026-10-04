@@ -352,6 +352,10 @@ io.on('connection', (socket) => {
       by: socket.id,
       revealedCount: rs.revealedRows.size
     });
+    // When all rows revealed, notify clients (phrase guess still needed)
+    if (result.correct && rs.revealedRows.size === rs.puzzle.rows.length) {
+      io.to(roomId).emit('obstacle:allRowsRevealed');
+    }
   });
 
   socket.on('obstacle:guessPhrase', async ({ roomId, guess }) => {
@@ -467,7 +471,7 @@ io.on('connection', (socket) => {
     const pool = qb.getQuestionPool(room.grade, 'finish');
     const packs = {};
     FINISH_PACK_POINTS.forEach((pts) => {
-      packs[pts] = qb.shuffle(pool.filter((q) => q.points === pts)).slice(0, room.players.length);
+      packs[pts] = qb.shuffle(pool.filter((q) => q.points === pts)).slice(0, 3);
     });
     room.roundState = {
       packs,

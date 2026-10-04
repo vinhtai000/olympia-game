@@ -53,24 +53,33 @@ Respond ONLY with a valid JSON result:
 or
 {"correct": false}`;
 
-  try {
-    const result = await callGemini(apiKey, prompt);
-    if (result?.error) {
-      throw new Error(result.error.message || 'Gemini API returned error');
+  const MAX_RETRIES = 2;
+  let lastErr;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const result = await callGemini(apiKey, prompt);
+      if (result?.error) {
+        throw new Error(result.error.message || 'Gemini API returned error');
+      }
+      const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+      const match = text.match(/\{[\s\S]*?\}/);
+      if (!match) {
+        throw new Error('No JSON object found in Gemini response: ' + text.slice(0, 100));
+      }
+      const parsed = JSON.parse(match[0]);
+      return { correct: !!parsed.correct, reason: parsed.reason || '', aiError: false };
+    } catch (err) {
+      lastErr = err;
+      if (attempt < MAX_RETRIES) {
+        console.warn(`[aiChecker] Attempt ${attempt} failed, retrying in 1s:`, err.message);
+        await new Promise((r) => setTimeout(r, 1000));
+      }
     }
-    const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    const match = text.match(/\{[\s\S]*?\}/);
-    if (!match) {
-      throw new Error('No JSON object found in Gemini response: ' + text.slice(0, 100));
-    }
-    const parsed = JSON.parse(match[0]);
-    return { correct: !!parsed.correct, reason: parsed.reason || '', aiError: false };
-  } catch (err) {
-    console.error('[aiChecker] Gemini error, using fallback matching:', err.message);
-    const correct = fallbackCheck(questionText, studentAnswer, correctAnswer);
-    // If fallback also cannot confirm correct, flag aiError so callers can offer a retry
-    return { correct, aiError: !correct, reason: correct ? 'Chính xác (fallback)' : 'Sai (AI lỗi - fallback)' };
   }
+  console.error('[aiChecker] All retries failed, using fallback matching:', lastErr?.message);
+  const correct = fallbackCheck(questionText, studentAnswer, correctAnswer);
+  // If fallback also cannot confirm correct, flag aiError so callers can offer a retry
+  return { correct, aiError: !correct, reason: correct ? 'Chính xác (fallback)' : 'Sai (AI lỗi - fallback)' };
 }
 
 function normalize(str) {

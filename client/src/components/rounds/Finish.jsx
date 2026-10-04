@@ -157,17 +157,6 @@ export default function Finish({ roomId }) {
 
       {!activeQuestion && (
         <div>
-          {isMyTurn && (
-            <div className="mb-4">
-              <button
-                onClick={useStar}
-                disabled={starUsed}
-                className={`olympia-btn ${starUsed ? 'bg-slate-200 text-slate-400' : 'bg-yellow-400 hover:bg-yellow-500 text-olympia-navy font-bold'}`}
-              >
-                ⭐ Dùng Ngôi sao hy vọng
-              </button>
-            </div>
-          )}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {Object.entries(packs).map(([points, qs]) => (
               <div key={points} className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
@@ -194,9 +183,18 @@ export default function Finish({ roomId }) {
 
       {activeQuestion && (
         <div className="space-y-4">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="olympia-btn-primary text-xs py-1 px-3">{activeQuestion.points} điểm</span>
             {activeQuestion.starred && <span className="text-yellow-600 font-bold text-sm bg-yellow-50 px-2 py-0.5 rounded border border-yellow-200">⭐ Ngôi sao hy vọng</span>}
+            {/* Star button: only show when question is shown and this player hasn't answered yet */}
+            {isMyTurn && activeQuestion.pickedBy === selfId && !lastResult && !starUsed && (
+              <button
+                onClick={useStar}
+                className="ml-auto text-xs px-3 py-1 rounded bg-yellow-400 hover:bg-yellow-500 text-olympia-navy font-bold"
+              >
+                ⭐ Dùng Ngôi sao hy vọng
+              </button>
+            )}
           </div>
 
           <p className="text-lg font-semibold text-olympia-navy bg-slate-50 p-4 rounded-xl border border-slate-200">
