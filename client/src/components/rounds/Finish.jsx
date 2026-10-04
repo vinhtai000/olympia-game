@@ -159,21 +159,18 @@ export default function Finish({ roomId }) {
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {Object.entries(packs).map(([points, qs]) => (
-              <div key={points} className="border border-slate-200 rounded-xl p-4 bg-slate-50/50">
-                <p className="font-bold text-olympia-navy mb-2">{points} điểm</p>
-                <div className="space-y-2">
-                  {qs.length === 0 && <p className="text-xs text-slate-400 py-2">Hết câu hỏi</p>}
-                  {qs.map((q) => (
-                    <button
-                      key={q.id}
-                      className="w-full olympia-btn-secondary text-xs py-2 font-medium"
-                      disabled={!isMyTurn}
-                      onClick={() => pick(Number(points), q)}
-                    >
-                      {isMyTurn ? 'Chọn câu hỏi này' : 'Chờ chọn'}
-                    </button>
-                  ))}
+              <div key={points} className="border border-slate-200 rounded-xl p-5 bg-slate-50/50 text-center flex flex-col justify-between">
+                <div>
+                  <p className="font-extrabold text-2xl text-olympia-navy mb-1">{points} điểm</p>
+                  <p className="text-xs text-slate-500 mb-4">Còn {qs.length} câu hỏi</p>
                 </div>
+                <button
+                  className="w-full olympia-btn-primary text-sm py-2.5 font-bold shadow-sm disabled:opacity-50"
+                  disabled={!isMyTurn || qs.length === 0}
+                  onClick={() => qs.length > 0 && pick(Number(points), qs[0])}
+                >
+                  {qs.length === 0 ? 'Hết câu hỏi' : isMyTurn ? `Chọn câu ${points} điểm` : 'Chờ lượt'}
+                </button>
               </div>
             ))}
           </div>

@@ -249,9 +249,9 @@ io.on('connection', (socket) => {
 
     const result = await aiChecker.check(q.text, answer, q.answer);
 
-    // Re-validate room state after async call (player may have disconnected)
+    // Re-validate room state after async call (player may have disconnected or question already settled)
     const roomNow = rm.getRoom(roomId);
-    if (!roomNow || roomNow.status !== 'warmup') return;
+    if (!roomNow || roomNow.status !== 'warmup' || rs.questionSettled) return;
 
     // If AI failed and fallback couldn't confirm, undo the lock and allow a retry
     if (result.aiError) {
@@ -386,10 +386,12 @@ io.on('connection', (socket) => {
     if (result.correct) {
       rs.solved = true;
       const bonus = 30 - rs.revealedRows.size * 5;
-      rm.addScore(room, socket.id, Math.max(bonus, 10));
+      const pts = Math.max(bonus, 10);
+      rm.addScore(room, socket.id, pts);
       io.to(roomId).emit('obstacle:solved', {
         phrase: rs.puzzle.secretPhrase,
-        solvedBy: socket.id
+        solvedBy: socket.id,
+        points: pts
       });
       emitRoomUpdate(roomId);
     } else {
@@ -471,7 +473,8 @@ io.on('connection', (socket) => {
     const pool = qb.getQuestionPool(room.grade, 'finish');
     const packs = {};
     FINISH_PACK_POINTS.forEach((pts) => {
-      packs[pts] = qb.shuffle(pool.filter((q) => q.points === pts)).slice(0, 3);
+      const countNeeded = Math.max((room.players?.length || 1) * 3, 9);
+      packs[pts] = qb.shuffle(pool.filter((q) => q.points === pts)).slice(0, countNeeded);
     });
     room.roundState = {
       packs,

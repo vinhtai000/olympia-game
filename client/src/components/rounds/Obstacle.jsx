@@ -7,7 +7,7 @@ import { RoundEndPanel } from './Warmup.jsx';
 const AI_TIMEOUT_MS = 14000;
 
 export default function Obstacle({ roomId }) {
-  const { isHost } = useGame();
+  const { room, selfId, isHost } = useGame();
   const [rows, setRows] = useState([]);
   const [secretPhraseCount, setSecretPhraseCount] = useState(0);
   const [revealed, setRevealed] = useState({}); // rowId -> answer text
@@ -68,7 +68,7 @@ export default function Obstacle({ roomId }) {
       setAiErrorTarget(null);
       if (r.correct) {
         setRevealed((prev) => ({ ...prev, [r.rowId]: r.answer }));
-        setMessage('✅ Trả lời đúng gợi ý hàng ngang!');
+        setMessage('✅ Trả lời đúng gợi ý hàng ngang (+10 điểm)!');
       } else {
         setMessage('❌ Sai rồi, hãy thử hàng ngang khác hoặc đoán từ khóa!');
       }
@@ -129,11 +129,17 @@ export default function Obstacle({ roomId }) {
   }
 
   if (solved) {
+    const solverName = room?.players.find((p) => p.id === solved.solvedBy)?.name || (solved.solvedBy === selfId ? 'Bạn' : 'Người chơi');
     return (
       <div>
         <div className="olympia-panel p-8 text-center mb-4">
-          <h2 className="text-xl font-semibold text-olympia-navy">Đã tìm ra từ khóa chướng ngại vật!</h2>
-          <p className="text-3xl font-extrabold text-olympia-gold mt-3 tracking-widest uppercase">{solved.phrase}</p>
+          <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800 mb-2">
+            🎉 Đã tìm ra từ khóa chướng ngại vật!
+          </span>
+          <p className="text-3xl font-extrabold text-olympia-gold my-3 tracking-widest uppercase">{solved.phrase}</p>
+          <p className="text-sm font-semibold text-slate-700">
+            {solverName} đã giải chính xác (+{solved.points || 10} điểm)
+          </p>
         </div>
         <RoundEndPanel title="Kết thúc Vượt chướng ngại vật" isHost={isHost} onNext={() => socket.emit('round:next', { roomId })} />
       </div>

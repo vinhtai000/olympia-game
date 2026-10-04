@@ -38,8 +38,10 @@ export default function Warmup({ roomId }) {
       setAiError(null);
     }
     function onResult(r) {
-      setChecking(false);
-      if (r.playerId === selfId) setFeedback(r);
+      if (r.playerId === selfId) {
+        setChecking(false);
+        setFeedback(r);
+      }
     }
     function onAiError({ message }) {
       setChecking(false);

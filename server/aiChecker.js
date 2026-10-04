@@ -92,51 +92,72 @@ function normalize(str) {
     .trim();
 }
 
+const VN_NUMBER_WORDS = {
+  'không': '0', 'khong': '0', '0': '0',
+  'một': '1', 'mot': '1', '1': '1',
+  'hai': '2', '2': '2',
+  'ba': '3', '3': '3',
+  'bốn': '4', 'bon': '4', 'tư': '4', '4': '4',
+  'năm': '5', '5': '5',
+  'sáu': '6', 'sau': '6', '6': '6',
+  'bảy': '7', 'bẩy': '7', '7': '7',
+  'tám': '8', 'tam': '8', '8': '8',
+  'chín': '9', 'chin': '9', '9': '9',
+  'mười': '10', 'muoi': '10', '10': '10'
+};
+
+function stripClassifiers(str) {
+  return String(str || '')
+    .trim()
+    .replace(/^(bông hoa|hoa|cây|con|quả|trái|dòng sông|sông|dãy núi|núi|ngọn núi|đỉnh|hồ|vịnh|đảo|thành phố|tp\.?|tỉnh|nước|quốc gia|vua|bác|chủ tịch)\s+/i, '')
+    .trim();
+}
+
+function stripUnits(str) {
+  return String(str || '')
+    .trim()
+    .replace(/\s+(ngón tay|ngón|ngày|năm|tháng|mùa|cạnh|màu|tuổi|tỉnh thành|tỉnh|độ c|độ|lít|kg|km|m|cm|mm)$/i, '')
+    .trim();
+}
+
+function getCandidateAnswers(rawCorrect) {
+  const candidates = [rawCorrect];
+  const match = String(rawCorrect || '').match(/^([^(]+)\(([^)]+)\)$/);
+  if (match) {
+    candidates.push(match[1].trim());
+    candidates.push(match[2].trim());
+  }
+  return candidates;
+}
+
 function fallbackCheck(questionText, studentAnswer, correctAnswer) {
-  const normStudent = normalize(studentAnswer);
-  const normCorrect = normalize(correctAnswer);
+  const sRaw = String(studentAnswer || '').trim();
+  if (!sRaw) return false;
 
-  if (!normStudent) return false;
-  if (normStudent === normCorrect) return true;
+  const sNorm = normalize(sRaw);
+  if (!sNorm) return false;
 
-  // Extract pure digits
-  const studentDigits = (studentAnswer.match(/\d+/g) || []).join('');
-  const correctDigits = (correctAnswer.match(/\d+/g) || []).join('');
-  if (studentDigits && correctDigits && studentDigits === correctDigits) {
-    return true;
-  }
+  const sCleanNorm = normalize(stripClassifiers(sRaw));
+  const sNum = VN_NUMBER_WORDS[stripUnits(sRaw).toLowerCase()] || null;
 
-  // Vietnamese number words: "mười" = "10", "bảy" = "7", etc.
-  const VN_NUMBERS = {
-    'khong': '0', 'mot': '1', 'hai': '2', 'ba': '3', 'bon': '4',
-    'nam': '5', 'sau': '6', 'bay': '7', 'tam': '8', 'chin': '9', 'muoi': '10'
-  };
-  const convertedStudent = VN_NUMBERS[normStudent] || normStudent;
-  const convertedCorrect = VN_NUMBERS[normCorrect] || normCorrect;
-  if (convertedStudent === convertedCorrect) return true;
-  if (correctDigits && convertedStudent === correctDigits) return true;
-  if (studentDigits && convertedCorrect === studentDigits) return true;
+  const candidates = getCandidateAnswers(correctAnswer);
 
-  // Substring match prefix/suffix
-  if (normStudent.length >= 2 && normCorrect.startsWith(normStudent)) {
-    return true;
-  }
-  if (normCorrect.length >= 2 && normStudent.startsWith(normCorrect)) {
-    return true;
-  }
+  for (const cRaw of candidates) {
+    const cNorm = normalize(cRaw);
+    if (!cNorm) continue;
+    if (sNorm === cNorm) return true;
 
-  // Strip common Vietnamese noun classifiers and unit suffixes
-  const strippedCorrect = normCorrect
-    .replace(/^(con|cay|hoa|qua|trai|dong|thanhpho|tinh|nuoc|nguoi)/, '')
-    .replace(/(ngon|ngontay|ngay|nam|thang|tuoi|diem|kg|km|m|cm|lit)$/, '')
-    .trim();
-  const strippedStudent = normStudent
-    .replace(/^(con|cay|hoa|qua|trai|dong|thanhpho|tinh|nuoc|nguoi)/, '')
-    .replace(/(ngon|ngontay|ngay|nam|thang|tuoi|diem|kg|km|m|cm|lit)$/, '')
-    .trim();
+    // Classifier-stripped strict equality (e.g. "Hoa hướng dương" vs "Hướng dương")
+    const cCleanNorm = normalize(stripClassifiers(cRaw));
+    if (cCleanNorm && (sCleanNorm === cCleanNorm || sNorm === cCleanNorm || sCleanNorm === cNorm)) {
+      return true;
+    }
 
-  if (strippedStudent && (strippedStudent === strippedCorrect || strippedCorrect.includes(strippedStudent))) {
-    return true;
+    // Number word / digit equality (e.g. "bảy" vs "7 ngày", "10" vs "10 ngón")
+    const cNum = VN_NUMBER_WORDS[stripUnits(cRaw).toLowerCase()] || null;
+    if (sNum && cNum && sNum === cNum) return true;
+    if (sNum && sNum === cNorm) return true;
+    if (cNum && cNum === sNorm) return true;
   }
 
   return false;
