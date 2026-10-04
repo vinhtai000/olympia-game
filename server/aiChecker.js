@@ -53,9 +53,9 @@ Respond ONLY with a valid JSON result:
 or
 {"correct": false}`;
 
-  const MAX_RETRIES = 2;
+  const MAX_ATTEMPTS = 3;
   let lastErr;
-  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     try {
       const result = await callGemini(apiKey, prompt);
       if (result?.error) {
@@ -70,16 +70,21 @@ or
       return { correct: !!parsed.correct, reason: parsed.reason || '', aiError: false };
     } catch (err) {
       lastErr = err;
-      if (attempt < MAX_RETRIES) {
-        console.warn(`[aiChecker] Attempt ${attempt} failed, retrying in 1s:`, err.message);
-        await new Promise((r) => setTimeout(r, 1000));
+      if (attempt < MAX_ATTEMPTS) {
+        console.warn(`[aiChecker] Attempt ${attempt} failed, retrying in 800ms:`, err.message);
+        await new Promise((r) => setTimeout(r, 800));
       }
     }
   }
-  console.error('[aiChecker] All retries failed, using fallback matching:', lastErr?.message);
-  const correct = fallbackCheck(questionText, studentAnswer, correctAnswer);
-  // If fallback also cannot confirm correct, flag aiError so callers can offer a retry
-  return { correct, aiError: !correct, reason: correct ? 'Chính xác (fallback)' : 'Sai (AI lỗi - fallback)' };
+
+  // If AI finally cannot check in time, check the input answer with the answer in questionbank
+  console.warn('[aiChecker] AI could not respond in time after all retries, falling back to questionbank matching:', lastErr?.message);
+  const matched = fallbackCheck(questionText, studentAnswer, correctAnswer);
+  return {
+    correct: matched,
+    aiError: false,
+    reason: matched ? 'Chính xác (đối chiếu ngân hàng câu hỏi)' : 'Chưa chính xác (đối chiếu ngân hàng câu hỏi)'
+  };
 }
 
 function normalize(str) {
@@ -193,10 +198,10 @@ function callGemini(apiKey, prompt) {
     });
 
     req.on('error', reject);
-    req.setTimeout(8000, () => { req.destroy(); reject(new Error('Gemini request timed out')); });
+    req.setTimeout(4500, () => { req.destroy(); reject(new Error('Gemini request timed out')); });
     req.write(body);
     req.end();
   });
 }
 
-module.exports = { check, fallbackCheck, normalize };
+module.exports = { check, fallbackCheck, isDirectMatch: fallbackCheck, normalize };

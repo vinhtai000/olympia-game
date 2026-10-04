@@ -244,7 +244,22 @@ io.on('connection', (socket) => {
     if (!q || q.id !== questionId || rs.answered.has(socket.id) || rs.questionSettled) return;
     rs.answered.add(socket.id);
 
-    // Notify the player their answer is being checked
+    // If answer matches the questionbank answer directly, award points immediately without checking AI!
+    if (aiChecker.isDirectMatch(answer, q.answer)) {
+      rm.addScore(room, socket.id, 10);
+      emitRoomUpdate(roomId);
+      io.to(roomId).emit('warmup:result', {
+        playerId: socket.id,
+        questionId,
+        correct: true,
+        correctAnswer: q.answer,
+        scoreDelta: 10
+      });
+      revealWarmupAnswer(room, questionId);
+      return;
+    }
+
+    // Only consult AI if not directly matched
     socket.emit('warmup:checking', { questionId });
 
     const result = await aiChecker.check(q.text, answer, q.answer);
@@ -324,6 +339,24 @@ io.on('connection', (socket) => {
     const row = rs.puzzle.rows.find((r) => r.id === rowId);
     if (!row) return;
 
+    // If guess matches the questionbank answer directly, award points immediately without checking AI!
+    if (aiChecker.isDirectMatch(guess, row.answer)) {
+      rs.revealedRows.add(rowId);
+      rm.addScore(room, socket.id, 10);
+      emitRoomUpdate(roomId);
+      io.to(roomId).emit('obstacle:rowResult', {
+        rowId,
+        correct: true,
+        answer: row.answer,
+        by: socket.id,
+        revealedCount: rs.revealedRows.size
+      });
+      if (rs.revealedRows.size === rs.puzzle.rows.length) {
+        io.to(roomId).emit('obstacle:allRowsRevealed');
+      }
+      return;
+    }
+
     socket.emit('obstacle:checking', { rowId });
     const result = await aiChecker.check(row.clue, guess, row.answer);
 
@@ -363,6 +396,21 @@ io.on('connection', (socket) => {
     if (!room || room.status !== 'obstacle' || room.roundState.solved) return;
     const rs = room.roundState;
     if (!rs.puzzle) return;
+
+    // If guess matches the secret phrase directly, award points immediately without checking AI!
+    if (aiChecker.isDirectMatch(guess, rs.puzzle.secretPhrase)) {
+      rs.solved = true;
+      const bonus = 30 - rs.revealedRows.size * 5;
+      const pts = Math.max(bonus, 10);
+      rm.addScore(room, socket.id, pts);
+      io.to(roomId).emit('obstacle:solved', {
+        phrase: rs.puzzle.secretPhrase,
+        solvedBy: socket.id,
+        points: pts
+      });
+      emitRoomUpdate(roomId);
+      return;
+    }
 
     socket.emit('obstacle:checking', { phrase: true });
     const result = await aiChecker.check(
@@ -535,6 +583,17 @@ io.on('connection', (socket) => {
     const q = rs.activeQuestion;
     if (q.pickedBy !== socket.id) return;
 
+    // If answer matches the questionbank answer directly, award points immediately without checking AI!
+    if (aiChecker.isDirectMatch(answer, q.answer)) {
+      const starred = rs.starUsedBy.has(socket.id);
+      const delta = q.points * (starred ? 2 : 1);
+      rm.addScore(room, socket.id, delta);
+      emitRoomUpdate(roomId);
+      io.to(roomId).emit('finish:questionResult', { correct: true, answer: q.answer, playerId: socket.id, delta });
+      setTimeout(() => advanceFinishTurn(room), 3500);
+      return;
+    }
+
     socket.emit('finish:checking');
     const result = await aiChecker.check(q.text, answer, q.answer);
 
@@ -590,6 +649,17 @@ io.on('connection', (socket) => {
     if (!room || room.status !== 'finish' || !rs?.activeQuestion || !rs.stealOpen) return;
     const q = rs.activeQuestion;
     if (q.pickedBy === socket.id || q.wrongBy.has(socket.id)) return;
+
+    // If steal answer matches the questionbank answer directly, award points immediately without checking AI!
+    if (aiChecker.isDirectMatch(answer, q.answer)) {
+      if (rs.stealTimer) clearTimeout(rs.stealTimer);
+      rm.addScore(room, socket.id, q.points);
+      rs.stealOpen = false;
+      emitRoomUpdate(roomId);
+      io.to(roomId).emit('finish:stealResult', { correct: true, playerId: socket.id, answer: q.answer });
+      setTimeout(() => advanceFinishTurn(room), 3500);
+      return;
+    }
 
     socket.emit('finish:checking');
     const result = await aiChecker.check(q.text, answer, q.answer);
